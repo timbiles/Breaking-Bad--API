@@ -1,0 +1,9 @@
+.character {
+    margin: 5%;
+}
+
+.character img {
+    height: 300px;
+    width: 225px;
+    border-radius: 5%;
+}
