@@ -11,6 +11,7 @@ class Home extends Component {
   };
   componentDidMount() {
     this.getChar();
+    this.getQuote();
   }
 
   getChar() {
@@ -19,13 +20,19 @@ class Home extends Component {
       this.setState({ characters: res.data });
     });
   }
+
+  getQuote() {
+    axios.get('/api/quote').then(res => {
+      console.log(res.data)
+    })
+  }
+
   render() {
     const { characters } = this.state;
     const charMap = characters.map(e => {
       return (
-        <div key={e.id}>
-          <Characters person={e} />
-        </div>
+
+          <Characters key={e.id} person={e} />
       );
     });
     return (

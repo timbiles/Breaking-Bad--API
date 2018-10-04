@@ -1,9 +1,26 @@
 .character {
     margin: 5%;
+    width: 225px;
+    display: flex;
+    flex-direction: column;
+}
+
+.char_btm {
+    background: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;   
 }
 
 .character img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;    
     height: 300px;
-    width: 225px;
-    border-radius: 5%;
+    width: 100%;
+    object-fit: fill;
+    overflow: hidden;
+    opacity: .8;
+}
+
+.character h4 {
+    letter-spacing: 2px;
 }
