@@ -1,5 +1,5 @@
 .character {
-    margin: 5%;
+    margin: 3%;
     width: 225px;
     display: flex;
     flex-direction: column;
@@ -7,18 +7,45 @@
 
 .char_btm {
     background: #fff;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;   
+    margin-left: -20px;
+    position: relative;
+}
+
+.char_btm:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-bottom-color: rgb(243, 243, 243);
+	border-top: 0;
+	border-right: 0;
+	margin-top: -20px;
+}
+
+.char_btm p {
+    font-size: .9em;
 }
 
 .character img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;    
     height: 300px;
     width: 100%;
     object-fit: fill;
     overflow: hidden;
     opacity: .8;
+}
+
+.char_btm div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bee_logo {
+    width: 30px !important;
+    height: 30px !important;
 }
 
 .character h4 {

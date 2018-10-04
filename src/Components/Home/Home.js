@@ -7,12 +7,11 @@ import './Home.css';
 
 class Home extends Component {
   state = {
-    characters: [],
-    pup: []
+    characters: []
   };
   componentDidMount() {
     this.getChar();
-    this.getPups();
+    this.getEpisodes();
   }
 
   getChar() {
@@ -22,31 +21,22 @@ class Home extends Component {
     });
   }
 
-  getPups() {
-    axios.get('/api/puppers').then(res => {
-      console.log('puppies >>>', res.data);
-      this.setState({ pup: res.data });
-    });
-  }
+getEpisodes(){
+  axios.get('/api/episodes').then(res=> {
+    console.log('episodes', res.data)
+  })
+}
 
   render() {
-    const { characters, pups } = this.state;
+    const { characters } = this.state;
     const charMap = characters.map(e => {
       return <Characters key={e.id} person={e} />;
     });
 
-    const pupMap = this.state.pup.map((e, i) => {
-      return (
-        <div key={i} className="puppy">
-          <img src={e} alt="" />
-        </div>
-      );
-    });
 
     return (
       <div className="home">
         <div className="character_map">{charMap}</div>
-        <div className="puppy_map">{pupMap}</div>
       </div>
     );
   }

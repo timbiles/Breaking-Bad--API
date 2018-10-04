@@ -1,31 +1,6 @@
-.header {
-    height: 30vh;
-    width: 100%;
-}
-
-.link_holder {
-    display: flex;
-    width: 50vw;
-    justify-content: space-evenly;
-}
-
 .character_map {
     background: rgb(59, 59, 59);
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-}
-
-.puppy_map {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.puppy {
-    margin: 2%;
-}
-
-.puppy img {
-    width: 300px;
 }

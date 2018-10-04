@@ -1,13 +1,23 @@
 .head_link {
     text-decoration: none;
     color: #000;
+    margin-bottom: 10px
+}
+
+.header {
+    height: 30vh;
+    width: 100%;
 }
 
 .link_holder {
     display: flex;
     align-items: center;
+    width: 50vw;
+    justify-content: space-evenly;
+    margin: 3% 0;
+    padding: 1% 0;
 }
 
 .head_link:hover {
-    border-bottom: 1px solid rgb(56, 56, 56);
+    transform: scale(1.03)
 }

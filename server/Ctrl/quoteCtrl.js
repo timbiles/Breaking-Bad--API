@@ -1,19 +1,18 @@
-// const {characters} = require('../Data/characters')
-
-const getPeople = (req, res) => {
+const getQuotes = (req, res) => {
     const db = req.app.get('db');
 
-  db.characters.get_characters()
+  db.quotesr.get_quotes()
     .then(response => {
+        console.log(response)
       res.status(200).send(response);
     })
     .catch(err => {
       res.status(500).send(err);
       console.log(`Something went wrong!`);
     });
-    // res.status(200).json(characters)
 }
 
+
 module.exports = {
-    getPeople
+    getQuotes
 }
