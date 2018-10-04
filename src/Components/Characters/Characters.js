@@ -5,7 +5,7 @@ import './Characters.css';
 const Characters = props => {
   const { person } = props;
 
-  const map = person.occupation.map((e,i)=>{
+  const map = person.occupation && person.occupation.map((e,i)=>{
     return <p key={i}>
       {e}
     </p>

@@ -1,0 +1,13 @@
+.head_link {
+    text-decoration: none;
+    color: #000;
+}
+
+.link_holder {
+    display: flex;
+    align-items: center;
+}
+
+.head_link:hover {
+    border-bottom: 1px solid rgb(56, 56, 56);
+}

@@ -19,25 +19,32 @@
 //     getPeople
 // }
 
+
+
+
 // ------------------------
 const axios = require('axios');
 const { characters } = require('../Data/characters');
 
+let pups = [];
+
 const getPeople = (req, res) => {
-  // console.log(characters);
+  console.log(characters);
   res.status(200).json(characters);
 };
 
-const getQuote = (req, res) => {
+const getPup = (req, res) => {
   axios
-    .get(`https://breaking-bad-quotes.herokuapp.com/v1/quotes`)
+    .get(`https://dog.ceo/api/breed/corgi/images`)
     .then(resp => {
-      console.log(resp.data)
-      res.status(200).send(resp.data);
+      pups = resp.data.message.slice(0,10)
+      res.status(200).send(pups);
     });
 };
 
+
+
 module.exports = {
   getPeople,
-  getQuote
+  getPup
 };

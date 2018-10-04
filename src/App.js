@@ -3,13 +3,17 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import axios from 'axios';
 
 import routes from './routes';
+import Header from './Components/Header/Header';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">{routes}</div>
+        <div className="App">
+          <Header />
+          {routes}
+        </div>
       </Router>
     );
   }
