@@ -11,9 +11,8 @@ class Home extends Component {
     pup: []
   };
   componentDidMount() {
-    this.getChar().then(() => {
-      this.getPups();
-    });
+    this.getChar();
+    this.getPups();
   }
 
   getChar() {
