@@ -1,14 +1,23 @@
-.character {
+.character{
     margin: 3%;
     width: 225px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .char_btm {
     background: #fff;
     margin-left: -20px;
     position: relative;
+    height: 120px;
+    transition: 1s;        
+}
+
+.btm2 {
+    margin-top: -150px;
+    height: 270px;
+    transition: 1s;
 }
 
 .char_btm:after {

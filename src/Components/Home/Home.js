@@ -7,11 +7,14 @@ import './Home.css';
 
 class Home extends Component {
   state = {
-    characters: []
+    characters: [],
+    episodes: [],
+    quotes: []
   };
   componentDidMount() {
     this.getChar();
     this.getEpisodes();
+    this.getQuotes();
   }
 
   getChar() {
@@ -21,22 +24,37 @@ class Home extends Component {
     });
   }
 
-getEpisodes(){
-  axios.get('/api/episodes').then(res=> {
-    console.log('episodes', res.data)
-  })
-}
+  getEpisodes() {
+    axios.get('/api/episodes').then(res => {
+      console.log('episodes', res.data);
+      this.setState({ episodes: res.data });
+    });
+  }
+
+  getQuotes() {
+    axios.get('/api/quotes').then(res => {
+      console.log('quotes >>>', res.data);
+      this.setState({ quotes: res.data });
+    });
+  }
 
   render() {
-    const { characters } = this.state;
+    const { characters, episodes, quotes } = this.state;
     const charMap = characters.map(e => {
       return <Characters key={e.id} person={e} />;
     });
 
-
     return (
       <div className="home">
         <div className="character_map">{charMap}</div>
+        <div className='home_btm'>
+
+        <div className="sub_info">
+          <p>Characters: {characters.length}</p>
+          <p>Episodes: {episodes.length}</p>
+          <p>Quotes: {quotes.length}</p>
+        </div>
+        </div>
       </div>
     );
   }

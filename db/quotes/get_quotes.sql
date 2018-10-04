@@ -1,1 +1,1 @@
-SELECT * FROM quotes
+SELECT * FROM quotes;

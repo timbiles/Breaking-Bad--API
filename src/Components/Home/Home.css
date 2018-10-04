@@ -4,3 +4,14 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+.home_btm {
+    display: flex;
+    justify-content: center;
+}
+
+.sub_info {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
