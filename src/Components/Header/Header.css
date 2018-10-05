@@ -16,8 +16,10 @@
     justify-content: space-evenly;
     margin: 3% 0;
     padding: 1% 0;
+    height: 40px;
 }
 
 .head_link:hover {
     transform: scale(1.03)
 }
+

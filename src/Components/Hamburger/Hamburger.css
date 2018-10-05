@@ -30,3 +30,11 @@
   .burger3 {
     width: 22px;
   }
+
+  .hamburger_icon:hover .burger {
+      transform: scale(1.05)
+  }
+
+  .hamburger_icon:active .burger {
+    transform: scale(.97)
+}

@@ -15,10 +15,12 @@
 }
 
 .btm2 {
-    margin-top: -150px;
-    height: 270px;
+    margin-top: -200px;
+    height: 320px;
     transition: 1s;
+    opacity: .9;
 }
+
 
 .char_btm:after {
 	content: '';
@@ -28,7 +30,7 @@
 	width: 0;
 	height: 0;
 	border: 20px solid transparent;
-	border-bottom-color: rgb(243, 243, 243);
+	border-bottom-color: rgb(172, 172, 172);
 	border-top: 0;
 	border-right: 0;
 	margin-top: -20px;
@@ -55,6 +57,10 @@
 .bee_logo {
     width: 30px !important;
     height: 30px !important;
+}
+
+.underline {
+    border-bottom: 1px solid rgb(212, 212, 212);
 }
 
 .character h4 {

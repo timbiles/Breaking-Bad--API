@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import axios from 'axios';
 
 import routes from './routes';
 import Header from './Components/Header/Header';

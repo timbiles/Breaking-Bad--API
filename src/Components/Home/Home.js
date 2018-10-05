@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Characters from '../Characters/Characters';
@@ -15,6 +14,13 @@ class Home extends Component {
     this.getChar();
     this.getEpisodes();
     this.getQuotes();
+    this.getRandom();
+  }
+
+  getRandom(){
+    axios.get('/api/character/random').then(res=> {
+      console.log('Random char>>>',res.data)
+    })
   }
 
   getChar() {

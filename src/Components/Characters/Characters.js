@@ -9,25 +9,23 @@ class Characters extends Component {
   };
 
   handleClick = () => {
-    this.setState({toggle: !this.state.toggle} )
+    this.setState({ toggle: !this.state.toggle });
   };
 
   render() {
     const { toggle } = this.state;
     const { person } = this.props;
     const map = person.occupation.split(',').map((e, i) => {
-      return <p className='occupation_map' key={i}>{e}</p>;
+      return <p className='occ_map'key={i}>{e}</p>;
     });
-
-    console.log(map)
 
     return (
       <div className="character">
         <Burger handleClick={e => this.handleClick()} />
         <img src={person.img} alt={person.name} />
-        <div className={toggle ? 'char_btm btm2' : "char_btm"}>
+        <div className={toggle ? 'char_btm btm2' : 'char_btm'}>
           <h4>{person.name}</h4>
-          <div>
+          <div className={toggle ? 'underline' : undefined}>
             <img
               className="bee_logo"
               src="https://images-na.ssl-images-amazon.com/images/I/31NhsG8XFpL._SX425_.jpg"
@@ -35,7 +33,7 @@ class Characters extends Component {
             />
             <p> {person.nickname}</p>
           </div>
-          {toggle && map }
+          {toggle && map}
         </div>
       </div>
     );
