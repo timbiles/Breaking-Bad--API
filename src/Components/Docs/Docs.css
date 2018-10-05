@@ -1,0 +1,27 @@
+.documentation {
+    background: rgb(59, 59, 59);  
+    min-height: 100vh;  
+    display: flex;
+
+}
+
+.documentation nav {
+    width: 25vw;
+    min-height: 1000px;
+    /* background: linear-gradient(to right, #0A360C 0%, #3b3b3b 90%); */
+    background: rgb(92, 92, 92);
+
+}
+
+.docs_main {
+    width: 69vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: rgb(236, 236, 236);
+    padding: 0 3%;
+}
+
+.docs_main p {
+    text-align: left;
+}

@@ -17,7 +17,7 @@ const Header = () => {
           Documentation
         </Link>
       </div>
-      <h1>Breaking Bad API</h1>
+      <h1>Breaking Bad A<mark>P</mark>I</h1>
     </div>
   );
 };
