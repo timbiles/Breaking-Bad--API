@@ -8,10 +8,11 @@ const port = process.env.SERVER_PORT || 3001;
 const {
   getPeople,
   getPeopleById,
-  getRandomChar
+  getRandomChar,
+  getAll
 } = require('./Ctrl/characterCtrl');
 const { getQuotes, getRandomQuote } = require('./Ctrl/quoteCtrl');
-const { getEpisodes } = require('./Ctrl/episodeCtrl');
+const { getEpisodes, getEpisodesById } = require('./Ctrl/episodeCtrl');
 
 const app = express();
 app.use(bodyParser.json());
@@ -35,6 +36,9 @@ app.get('/api/quote/random', getRandomQuote);
 
 // Episode endpoints
 app.get('/api/episodes', getEpisodes);
+app.get('/api/episodes/:id', getEpisodesById)
+
+app.get('/api', getAll)
 
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);

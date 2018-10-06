@@ -78,8 +78,15 @@ const characters = [
 },
 ];
 
+const all = {
+  characters: 'http://localhost:3001/api/characters',
+  episodes: 'http://localhost:3001/api/episodes',
+  quotes: 'http://localhost:3001/api/quotes'
+}
+
 module.exports = {
-  characters
+  characters,
+  all
 };
 
 // {

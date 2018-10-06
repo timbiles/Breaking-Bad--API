@@ -1,4 +1,4 @@
-// const {characters} = require('../Data/characters')
+const {all} = require('../Data/characters')
 
 const getPeople = (req, res) => {
   const db = req.app.get('db');
@@ -56,8 +56,14 @@ const getCharLimit = (req, res) => {
     });
 };
 
+const getAll = (req,res) => {
+  res.status(200).json(all)
+  
+}
+
 module.exports = {
   getPeople,
   getPeopleById,
-  getRandomChar
+  getRandomChar,
+  getAll
 };

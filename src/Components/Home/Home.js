@@ -10,11 +10,20 @@ class Home extends Component {
     episodes: [],
     quotes: []
   };
+
   componentDidMount() {
     this.getChar();
     this.getEpisodes();
     this.getQuotes();
     this.getRandom();
+    this.getTest()
+  }
+
+
+  getTest(){
+    axios.get('/api/').then(res=> {
+      console.log(res.data)
+    })
   }
 
   getRandom(){
