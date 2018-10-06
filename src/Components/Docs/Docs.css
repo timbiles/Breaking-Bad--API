@@ -25,3 +25,10 @@
 .docs_main p {
     text-align: left;
 }
+
+.example{
+    padding: 1%;
+    width: 100%;
+    background: #fff;
+    color: #000;
+}
