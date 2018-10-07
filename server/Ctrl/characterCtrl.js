@@ -1,4 +1,4 @@
-const {all} = require('../Data/characters')
+const { all } = require('../Data/characters');
 
 const getPeople = (req, res) => {
   const db = req.app.get('db');
@@ -7,27 +7,38 @@ const getPeople = (req, res) => {
   db.characters
     .get_characters()
     .then(response => {
-      res.status(200).send(response);
+      res
+        .status(200)
+        .send(limit || offset ? response.slice(offset || 0, limit) : response);
     })
     .catch(err => {
       res.status(500).send(err);
-      console.log(`Something went wrong!`);
     });
-  // res.status(200).json(characters)
 };
 
 const getPeopleById = (req, res) => {
   const db = req.app.get('db');
+  const { id } = req.params;
 
-  db.characters
-    .get_char_by_id([req.params.id])
-    .then(resp => {
-      console.log(resp);
-      res.status(200).send(resp);
-    })
-    .catch(err => {
-      res.status(500).send(err);
-    });
+  console.log(id.match(/[a-z]/) ? true : false);
+  // console.log(typeof +id === 'number')
+  id.match(/[a-z]/)
+    ? db.characters
+        .get_char_by_name([id])
+        .then(resp => {
+          res.status(200).send(resp);
+        })
+        .catch(err => {
+          res.status(500).send(err);
+        })
+    : db.characters
+        .get_char_by_id([id])
+        .then(resp => {
+          res.status(200).send(resp);
+        })
+        .catch(err => {
+          res.status(500).send(err);
+        });
 };
 
 const getRandomChar = (req, res) => {
@@ -56,10 +67,9 @@ const getCharLimit = (req, res) => {
     });
 };
 
-const getAll = (req,res) => {
-  res.status(200).json(all)
-  
-}
+const getAll = (req, res) => {
+  res.status(200).json(all);
+};
 
 module.exports = {
   getPeople,

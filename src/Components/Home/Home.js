@@ -33,7 +33,7 @@ class Home extends Component {
   }
 
   getChar() {
-    axios.get('/api/characters').then(res => {
+    axios.get(`/api/characters/${'Walter White'}`).then(res => {
       console.log('characters >>>', res.data);
       this.setState({ characters: res.data });
     });

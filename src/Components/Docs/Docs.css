@@ -34,8 +34,10 @@
 }
 
 .multi_line p {
+    margin: 0;
     margin-left: 20px;
 }
+
 .multi_line p:nth-of-type(1),
 .multi_line p:nth-of-type(9)
 {

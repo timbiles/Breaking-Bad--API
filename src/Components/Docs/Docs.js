@@ -23,25 +23,29 @@ const Docs = () => {
                 <p>Welcome to the Breaking Bad API! This documentation should supply with you all the information you need to start making your HTTP requests. Look over this before you get started on your project, and don't forget about the ice trays!</p>
             <div>
                 <h4>Base Url</h4>
-                <p>http://localhost:3001/api/</p>
+                <p>/api/</p>
             </div>
             <div>
                 <h4>Characters Endpoint</h4>
-                <p>http://localhost:3001/api/characters</p>
+                <p>/api/characters</p>
+                <p>This </p>
                 <p>Example request by character id. </p>
-                <p>http://localhost:3001/api/characters/1</p>
+                <p className='example'>/api/characters/1</p>
                 <div className='example'>
                 {example}
                 </div>
+
+                <p>Limit & Offset</p>
+                <p>/api/characters?limit=10&offset=10</p>
                 
             </div>
             <div>
                 <h4>Episode Endpoint</h4>
-                <p>http://localhost:3001/api/episode</p>
+                <p>/api/episode</p>
             </div>
             <div>
                 <h4>Quote Endpoint</h4>
-                <p>http://localhost:3001/api/quotes</p>
+                <p>/api/quotes</p>
             </div>
             </div>
         </div>
