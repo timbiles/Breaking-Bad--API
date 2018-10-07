@@ -22,7 +22,7 @@ class Home extends Component {
 
   getTest(){
     axios.get('/api/').then(res=> {
-      console.log(res.data)
+      console.log('url info >>>', res.data)
     })
   }
 
@@ -33,7 +33,7 @@ class Home extends Component {
   }
 
   getChar() {
-    axios.get(`/api/characters/${'Walter White'}`).then(res => {
+    axios.get(`/api/characters/`).then(res => {
       console.log('characters >>>', res.data);
       this.setState({ characters: res.data });
     });
@@ -41,7 +41,7 @@ class Home extends Component {
 
   getEpisodes() {
     axios.get('/api/episodes').then(res => {
-      console.log('episodes', res.data);
+      console.log('episodes >>>', res.data);
       this.setState({ episodes: res.data });
     });
   }

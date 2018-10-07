@@ -10,8 +10,8 @@
     min-height: 1000px;
     /* background: linear-gradient(to right, #0A360C 0%, #3b3b3b 90%); */
     background: rgb(92, 92, 92);
-
 }
+
 
 .docs_main {
     width: 69vw;
@@ -22,15 +22,41 @@
     padding: 0 3%;
 }
 
+.docs_main div {
+    width: 100%;
+}
+
+.docs_main h4,
+.docs_main h3 {
+    color: #a0a0a0;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: left;
+}
+
+.docs_main h3 {
+    font-size: 1.4em;
+    border-bottom: 1px solid grey;
+    padding-bottom: 1%;
+}
+
+.docs_main h4 {
+    font-size: 1.2em;
+}
+
 .docs_main p {
     text-align: left;
 }
 
 .example{
     padding: 1%;
-    width: 100%;
+    margin-left: 2%;
     background: #fff;
     color: #000;
+}
+
+.code {
+    width: auto !important;
 }
 
 .multi_line p {

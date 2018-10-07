@@ -2,43 +2,33 @@ const { all } = require('../Data/characters');
 
 const getPeople = (req, res) => {
   const db = req.app.get('db');
-  const { limit, offset } = req.query;
+  const { limit, name, offset } = req.query;
 
-  db.characters
+  !name  
+  ? db.characters
     .get_characters()
     .then(response => {
-      res
-        .status(200)
-        .send(limit || offset ? response.slice(offset || 0, limit) : response);
+      res.status(200).send(limit || offset ? response.slice(offset || 0, limit) : response)
     })
-    .catch(err => {
-      res.status(500).send(err);
-    });
+    : db.characters
+      .get_char_by_name([name])
+      .then(response => {
+        res.status(200).send(response)
+      })
 };
 
 const getPeopleById = (req, res) => {
   const db = req.app.get('db');
   const { id } = req.params;
 
-  console.log(id.match(/[a-z]/) ? true : false);
-  // console.log(typeof +id === 'number')
-  id.match(/[a-z]/)
-    ? db.characters
-        .get_char_by_name([id])
-        .then(resp => {
-          res.status(200).send(resp);
-        })
-        .catch(err => {
-          res.status(500).send(err);
-        })
-    : db.characters
-        .get_char_by_id([id])
-        .then(resp => {
-          res.status(200).send(resp);
-        })
-        .catch(err => {
-          res.status(500).send(err);
-        });
+  db.characters
+    .get_char_by_id([id])
+    .then(resp => {
+      res.status(200).send(resp);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
 };
 
 const getRandomChar = (req, res) => {

@@ -66,3 +66,13 @@
 .character h4 {
     letter-spacing: 2px;
 }
+
+.hidden_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.occ_map {
+    margin: 2% 0;
+}

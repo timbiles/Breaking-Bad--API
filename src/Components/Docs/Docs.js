@@ -23,29 +23,34 @@ const Docs = () => {
                 <p>Welcome to the Breaking Bad API! This documentation should supply with you all the information you need to start making your HTTP requests. Look over this before you get started on your project, and don't forget about the ice trays!</p>
             <div>
                 <h4>Base Url</h4>
-                <p>/api/</p>
+                <p className='example'>/api/</p>
             </div>
             <div>
-                <h4>Characters Endpoint</h4>
-                <p>/api/characters</p>
-                <p>This </p>
+                <h3>Characters Endpoint</h3>
+                <p>Endpoint to retrieve information from all characters.</p>
+                <p className='example'>/api/characters</p>
                 <p>Example request by character id. </p>
                 <p className='example'>/api/characters/1</p>
-                <div className='example'>
+                <div className='example code'>
                 {example}
                 </div>
-
-                <p>Limit & Offset</p>
-                <p>/api/characters?limit=10&offset=10</p>
+                <p>Request a random character</p>
+                <p className='example'>/api/character/random</p>
+                <h3>Character - Query Parameters</h3>
+                <h4>Limit & Offset</h4>
+                <p className='example'>/api/characters?limit=10&offset=10</p>
+                <h4>Name</h4>
+                <p className='example'>/api/characters?name=Walter+White</p>
+                <p>Notice the 'plus sign' between the first and last name represents a space. This query only works with the full name of a character. Double check your spelling!</p>
                 
             </div>
             <div>
-                <h4>Episode Endpoint</h4>
-                <p>/api/episode</p>
+                <h3>Episode Endpoint</h3>
+                <p className='example'>/api/episode</p>
             </div>
             <div>
-                <h4>Quote Endpoint</h4>
-                <p>/api/quotes</p>
+                <h3>Quote Endpoint</h3>
+                <p className='example'>/api/quotes</p>
             </div>
             </div>
         </div>

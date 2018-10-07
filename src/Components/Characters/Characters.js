@@ -16,7 +16,11 @@ class Characters extends Component {
     const { toggle } = this.state;
     const { person } = this.props;
     const map = person.occupation.split(',').map((e, i) => {
-      return <p className='occ_map'key={i}>{e}</p>;
+      return (
+        <p className="occ_map" key={i}>
+          {e}
+        </p>
+      );
     });
 
     return (
@@ -33,7 +37,12 @@ class Characters extends Component {
             />
             <p> {person.nickname}</p>
           </div>
-          {toggle && map}
+          {toggle && (
+            <div className='hidden_info'>
+              <p>Id: {person.id}</p>
+              {map}
+            </div>
+          )}
         </div>
       </div>
     );
