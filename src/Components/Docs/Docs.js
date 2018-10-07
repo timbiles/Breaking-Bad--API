@@ -3,6 +3,18 @@ import React from 'react';
 import './Docs.css';
 
 const Docs = () => {
+    var example = (<div className='multi_line'>
+        <p>{"{"}</p>
+        <p>{'"id": 1,'}</p>
+        <p>{'"name": "Walter White",'}</p>
+        <p>{'"birthday": "09-07-1958",'}</p>
+        <p>{'"occupation": "High School Chemistry Teacher, Meth King Pin",'}</p>        
+        <p>{'"img": "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg",'}</p>
+        <p>{'"status": "Deceased",'}</p>        
+        <p>{'"nickname": "Heisenberg"'}</p>        
+        <p>{"}"}</p>
+        
+    </div>);
     return (
         <div className='documentation'>
             <nav></nav>
@@ -19,8 +31,7 @@ const Docs = () => {
                 <p>Example request by character id. </p>
                 <p>http://localhost:3001/api/characters/1</p>
                 <div className='example'>
-
-                <span>{`{"id":1,"name":"Walter White","birthday":"09-07-1958","occupation":"High School Chemistry Teacher, Meth King Pin","img":"https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg","status":"Deceased?","nickname":"Heisenberg"}`}</span>
+                {example}
                 </div>
                 
             </div>

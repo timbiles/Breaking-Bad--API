@@ -32,3 +32,12 @@
     background: #fff;
     color: #000;
 }
+
+.multi_line p {
+    margin-left: 20px;
+}
+.multi_line p:nth-of-type(1),
+.multi_line p:nth-of-type(9)
+{
+margin-left: 0;
+}
