@@ -19,7 +19,7 @@
     flex-direction: column;
     align-items: flex-start;
     color: rgb(236, 236, 236);
-    padding: 0 3%;
+    padding: 0 3% 2% 3%;
 }
 
 .docs_main div {
@@ -65,7 +65,19 @@
 }
 
 .multi_line p:nth-of-type(1),
-.multi_line p:nth-of-type(9)
+.multi_line p:nth-of-type(9),
+.ml_2 p:nth-of-type(8),
+.ml_3 p:nth-of-type(5),
+.ml_3 p:nth-of-type(6),
+.ml_3 p:nth-of-type(10)
 {
 margin-left: 0;
+}
+
+.ml_3 p:nth-of-type(9) {
+    margin-left: 20px;
+}
+
+.offset {
+    margin-left: 50px;
 }

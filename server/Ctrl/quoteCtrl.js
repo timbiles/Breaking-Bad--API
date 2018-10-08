@@ -25,7 +25,21 @@ const getRandomQuote = (req, res) => {
     });
 };
 
+const getQuoteByAuthor = (req, res) => {
+  const db = req.app.get('db');
+
+  db.quotes
+    .get_quotes_from_author([req.query.author])
+    .then(resp => {
+      res.status(200).send(resp);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+};
+
 module.exports = {
   getQuotes,
-  getRandomQuote
+  getRandomQuote,
+  getQuoteByAuthor
 };

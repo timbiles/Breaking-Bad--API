@@ -26,6 +26,7 @@ class Home extends Component {
     })
   }
 
+
   getRandom(){
     axios.get('/api/character/random').then(res=> {
       console.log('Random char>>>',res.data)

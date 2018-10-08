@@ -15,6 +15,33 @@ const Docs = () => {
         <p>{"}"}</p>
         
     </div>);
+
+    var example2 = (<div className='multi_line ml_2'>
+        <p>{"{"}</p>
+        <p>{'"id": 60,'}</p>
+        <p>{'"title": "Ozymandias",'}</p>
+        <p>{'"Season": "5",'}</p>
+        <p>{'"episode": "14"'}</p>        
+        <p>{'"air_date": "09-15-2013",'}</p>        
+        <p>{'"characters": "null",'}</p>        
+        <p>{"}"}</p>
+
+    </div>);
+
+    var example3 = (<div className='multi_line ml_3'>
+        <p>{"{"}</p>
+        <p>{'"id": 9,'}</p>
+        <p>{'"quote": "Funyuns are awesome.",'}</p>
+        <p>{'"author": "Jesse Pinkman",'}</p>
+        <p>{"}"}</p>      
+        <p>{"{"}</p>
+        <p>{'"id": 10,'}</p>
+        <p>{'"quote": "Ooooooh, Wire.",'}</p>
+        <p>{'"author": "Jesse Pinkman",'}</p>
+        <p>{"}"}</p>  
+
+    </div>);
+
     return (
         <div className='documentation'>
             <nav></nav>
@@ -36,9 +63,10 @@ const Docs = () => {
                 </div>
                 <p>Request a random character</p>
                 <p className='example'>/api/character/random</p>
-                <h3>Character - Query Parameters</h3>
                 <h4>Limit & Offset</h4>
+                <p>Use a query parameter to limit the amount of characters you receive, and to offset the starting number. Consider the following request.</p>
                 <p className='example'>/api/characters?limit=10&offset=10</p>
+                <p className='offset'>This request would give you an array of 10 characters, starting at index 10 (the 11th id).</p>
                 <h4>Name</h4>
                 <p className='example'>/api/characters?name=Walter+White</p>
                 <p>Notice the 'plus sign' between the first and last name represents a space. This query only works with the full name of a character. Double check your spelling!</p>
@@ -46,11 +74,25 @@ const Docs = () => {
             </div>
             <div>
                 <h3>Episode Endpoint</h3>
+                <p>Endpoint to retrieve all Episodes</p>
                 <p className='example'>/api/episode</p>
+                <p>Example Episode Endpoint by id</p>
+                <p className='example'>/api/episode/60</p>
+                <div className='example code'>
+                {example2}
+                </div>
             </div>
             <div>
                 <h3>Quote Endpoint</h3>
+                <p>Endpoint to retrieve all Quotes</p>
                 <p className='example'>/api/quotes</p>
+                <p>Endpoint to retrieve a random quote</p>
+                <p className='example'>/api/quote/random</p>
+                <p>Endpoint to collect all quotes from a specific author. Make sure to separate the first and last name with a 'plus sign'. Like the character query, you have to use the author's full name. </p>
+                <p className='example'>/api/quote?author=Jesse+Pinkman</p>
+                <div className='example code'>
+                {example3}
+                </div>
             </div>
             </div>
         </div>
