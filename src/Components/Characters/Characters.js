@@ -15,7 +15,7 @@ class Characters extends Component {
   render() {
     const { toggle } = this.state;
     const { person } = this.props;
-    const map = person.occupation.split(',').map((e, i) => {
+    const map = person.occupation.map((e, i) => {
       return (
         <p className="occ_map" key={i}>
           {e}

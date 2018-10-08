@@ -1,4 +1,6 @@
 const { all } = require('../Data/characters');
+const allCharacters = []
+const occ = []
 
 const getPeople = (req, res) => {
   const db = req.app.get('db');
@@ -8,6 +10,20 @@ const getPeople = (req, res) => {
   ? db.characters
     .get_characters()
     .then(response => {
+
+      response.map(e=> {
+        e.occupation && occ.push(e.occupation.split(','))
+      })
+
+      response.map((e, i)=> {
+          return e.occupation = occ[i]
+      })
+
+
+      console.log(response)
+
+
+
       res.status(200).send(limit || offset ? response.slice(offset || 0, limit) : response)
     })
     : db.characters

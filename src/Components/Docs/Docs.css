@@ -1,25 +1,41 @@
 .documentation {
     background: rgb(59, 59, 59);  
-    min-height: 100vh;  
-    display: flex;
+    /* min-height: 100vh;   */
+    /* display: flex; */
 
 }
 
-.documentation nav {
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 25vw;
-    min-height: 1000px;
-    /* background: linear-gradient(to right, #0A360C 0%, #3b3b3b 90%); */
-    background: rgb(92, 92, 92);
+    min-height: 100vh;
+    background: #fff;
+    border-top: 1px solid grey;
+}
+
+.navbar p {
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-left: 15px;
+    cursor: pointer;
 }
 
 
 .docs_main {
+    overflow: scroll;
     width: 69vw;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     color: rgb(236, 236, 236);
     padding: 0 3% 2% 3%;
+    margin-left: 25vw;
+    margin-top: -70%;
 }
 
 .docs_main div {
@@ -60,18 +76,25 @@
 }
 
 .multi_line p {
+    font-size: .9em;
     margin: 0;
     margin-left: 20px;
 }
 
+
 .multi_line p:nth-of-type(1),
-.multi_line p:nth-of-type(9),
+.ml_1 p:nth-of-type(12),
 .ml_2 p:nth-of-type(8),
 .ml_3 p:nth-of-type(5),
 .ml_3 p:nth-of-type(6),
 .ml_3 p:nth-of-type(10)
 {
 margin-left: 0;
+}
+
+.ml_1 p:nth-of-type(6),
+.ml_1 p:nth-of-type(7) {
+    margin-left: 40px;
 }
 
 .ml_3 p:nth-of-type(9) {
