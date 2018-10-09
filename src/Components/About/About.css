@@ -37,3 +37,8 @@
     opacity: .7;
     transform: scale(1.02)
 }
+
+.about li {
+    margin-left: 60px;
+    font-size: .9em;
+}

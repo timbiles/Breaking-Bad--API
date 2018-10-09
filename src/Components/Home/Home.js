@@ -54,6 +54,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(window)
     const { characters, episodes, quotes } = this.state;
     const charMap = characters.map(e => {
       return <Characters key={e.id} person={e} />;
