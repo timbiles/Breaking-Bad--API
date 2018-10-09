@@ -1,6 +1,7 @@
 const { all } = require('../Data/characters');
 const allCharacters = []
 const occ = []
+const app = []
 
 const getPeople = (req, res) => {
   const db = req.app.get('db');
@@ -11,12 +12,12 @@ const getPeople = (req, res) => {
     .get_characters()
     .then(response => {
 
-      response.map(e=> {
+      response.map((e,i)=> {
         e.occupation && occ.push(e.occupation.split(','))
-      })
+        app.push(e.appearance.split(','))
 
-      response.map((e, i)=> {
-          return e.occupation = occ[i]
+        e.occupation = occ[i]
+        e.appearance = app[i]
       })
 
       res.status(200).send(limit || offset ? response.slice(offset || 0, limit) : response)

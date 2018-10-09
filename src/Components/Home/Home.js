@@ -19,7 +19,6 @@ class Home extends Component {
     this.getTest()
   }
 
-
   getTest(){
     axios.get('/api/').then(res=> {
       console.log('url info >>>', res.data)
