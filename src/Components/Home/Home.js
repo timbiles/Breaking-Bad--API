@@ -62,6 +62,11 @@ class Home extends Component {
 
     return (
       <div className="home">
+      <div className='home_title'>
+
+      <h1>The Breaking Bad A<mark>P</mark>I</h1>
+      </div>
+      
         <div className="character_map">{charMap}</div>
         <div className='home_btm'>
 

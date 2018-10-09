@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import './Docs.css';
 
 class Docs extends Component {
-
-  scrollClick = (e) => {
+  scrollClick = e => {
     document
       .getElementById(e)
       .scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
   render() {
+    console.log(window.scr);
     var example = (
       <div className="multi_line ml_1">
         <p>{'{'}</p>
@@ -64,11 +64,19 @@ class Docs extends Component {
     return (
       <div className="documentation">
         <nav className="navbar">
-          <p onClick={() => this.scrollClick('char')}>Characters</p>
-          <p onClick={() => this.scrollClick('ep')}>Episodes</p>
-          <p onClick={() => this.scrollClick('q')}>Quotes</p>
-          <p />
-          <p />
+          <h2 onClick={() => this.scrollClick('char')}>Characters</h2>
+          <p onClick={() => this.scrollClick('char_at')}>
+            Character attributes
+          </p>
+          <p onClick={() => this.scrollClick('char_all')}>Get all characters</p>
+          <p onClick={() => this.scrollClick('char_id')}>Get a specific character by id</p>
+          <p>Get a random character</p>
+          <p>Get paginated character</p>
+          <p>Get a specific character by name</p>
+          <h2 onClick={() => this.scrollClick('ep')}>Episodes</h2>
+          <p>Episode attributes</p>
+          <h2 onClick={() => this.scrollClick('q')}>Quotes</h2>
+          <p>Quote attributes</p>
         </nav>
         <div className="docs_main">
           <h2>Documentation</h2>
@@ -84,9 +92,52 @@ class Docs extends Component {
           </div>
           <div>
             <h3 id="char">Characters Endpoint</h3>
-            <p>Endpoint to retrieve information from all characters.</p>
+            <h4 id="char_at">Character Attributes</h4>
+            <div className="schema">
+              <div>
+                <p>Attribute</p>
+                <p>Type</p>
+                <p>Description</p>
+              </div>
+              <div>
+                <p>id</p>
+                <p>integer</p>
+                <p>Unique Id per character</p>
+              </div>
+              <div>
+                <p>name</p>
+                <p>string</p>
+                <p>A character's full name.</p>
+              </div>
+              <div>
+                <p>birthday</p>
+                <p>string</p>
+                <p>A character's birthday.</p>
+              </div>
+              <div>
+                <p>occupation</p>
+                <p>Array</p>
+                <p>List of character's known occupation</p>
+              </div>
+              <div>
+                <p>img</p>
+                <p>string</p>
+                <p>Character's image</p>
+              </div>
+              <div>
+                <p>status</p>
+                <p>string</p>
+                <p>Are they alive (or did Heisenberg get to them??)</p>
+              </div>
+              <div>
+                <p>nickname</p>
+                <p>string</p>
+                <p>A known nickname they are refered as.</p>
+              </div>
+            </div>
+            <p id='char_all'>Endpoint to retrieve information from all characters.</p>
             <p className="example">/api/characters</p>
-            <p>Example request by character id. </p>
+            <p id='char_id'>Example request by character id. </p>
             <p className="example">/api/characters/1</p>
             <div className="example code">{example}</div>
             <p>Request a random character</p>
@@ -111,7 +162,7 @@ class Docs extends Component {
             </p>
           </div>
           <div>
-            <h3 id='ep'>Episode Endpoint</h3>
+            <h3 id="ep">Episode Endpoint</h3>
             <p>Endpoint to retrieve all Episodes</p>
             <p className="example">/api/episode</p>
             <p>Example Episode Endpoint by id</p>
@@ -119,7 +170,7 @@ class Docs extends Component {
             <div className="example code">{example2}</div>
           </div>
           <div>
-            <h3 id='q'>Quote Endpoint</h3>
+            <h3 id="q">Quote Endpoint</h3>
             <p>Endpoint to retrieve all Quotes</p>
             <p className="example">/api/quotes</p>
             <p>Endpoint to retrieve a random quote</p>

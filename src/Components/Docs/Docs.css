@@ -1,12 +1,12 @@
 .documentation {
     background: rgb(59, 59, 59);  
     /* min-height: 100vh;   */
-    /* display: flex; */
+    display: flex;
 
 }
 
 .navbar {
-    position: sticky;
+    /* position: sticky; */
     top: 0;
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@
     border-top: 1px solid grey;
 }
 
-.navbar p {
+.navbar h2 {
     font-size: 1.2em;
     letter-spacing: 2px;
     font-weight: bold;
@@ -25,17 +25,31 @@
     cursor: pointer;
 }
 
+.navbar p {
+    margin: 5px;
+    margin-left: 30px;
+    font-size: .9em;
+    cursor: pointer;
+}
+
+.navbar h2:hover,
+.navbar p:hover {
+    color: #487F5A;
+    
+}
+
 
 .docs_main {
     overflow: scroll;
     width: 69vw;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     color: rgb(236, 236, 236);
     padding: 0 3% 2% 3%;
-    margin-left: 25vw;
-    margin-top: -70%;
+    /* margin-left: 25vw; */
+    /* margin-top: -70%; */
 }
 
 .docs_main div {
@@ -103,4 +117,22 @@ margin-left: 0;
 
 .offset {
     margin-left: 50px;
+}
+
+.schema {
+    width: 100%;
+}
+
+.schema > div {
+    display: flex;
+    margin-left: 20px;
+}
+
+.schema > div > p:nth-of-type(1),
+.schema > div > p:nth-of-type(2) {
+    width: 15%;
+}
+
+.schema > div:nth-of-type(1) {
+    border-bottom: 1px solid grey;
 }

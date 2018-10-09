@@ -19,11 +19,6 @@ const getPeople = (req, res) => {
           return e.occupation = occ[i]
       })
 
-
-      console.log(response)
-
-
-
       res.status(200).send(limit || offset ? response.slice(offset || 0, limit) : response)
     })
     : db.characters

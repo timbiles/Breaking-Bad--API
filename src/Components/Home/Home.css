@@ -1,3 +1,7 @@
+.home_title {
+    background: #fff;
+}
+
 .character_map {
     background: rgb(59, 59, 59);
     display: flex;
