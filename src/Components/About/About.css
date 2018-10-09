@@ -1,0 +1,39 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about h2{
+    letter-spacing: 2px;
+}
+
+.about h3 {
+    width: 100%;
+    color: #396447;   
+    padding-bottom: 1%;
+    border-bottom: 1px solid #c9c9c9; 
+}
+
+.about_cont {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+}
+
+.about_cont {
+    text-align: left;
+}
+
+.about a {
+    color: #396447;    
+    text-decoration: none;   
+}
+
+.about a:hover {
+    text-decoration: underline;
+    opacity: .7;
+    transform: scale(1.02)
+}

@@ -1,9 +1,28 @@
 import React from 'react';
 
+import './About.css';
+
 const About = () => {
     return (
-        <div>
-            <h2>About Page</h2>
+        <div className='about'>
+            <h2>Say my <mark>N</mark>ame</h2>
+            <div className='about_cont'>
+
+                <h3>Who</h3>
+                <p>Hi, I'm Tim Biles. I am a developer in the Dallas, Fort Worth area in Texas. Breaking Bad is my favorite TV show. Check out my portfolio <a href="https://timbilestim.netlify.com/" target='blank'>here</a>!</p>
+                <h3>What</h3>
+                <p>The Breaking Bad API is a collection of information on the Vince Gilligan series. This site is designed to make is easy on the developer to see what HTTP requests are possible, and what information is provided.</p>
+                <h3>Why</h3>
+                <p>Breaking Bad is regarded as one of the greatest television series of all time, and is worthy of it's own API. In my search, I was unable to find an API that contained the amount of information I needed, so I created one.</p>
+                <h3>Tech Stack</h3>
+                <p>This project was build using Javascript, React, Node, Express, Massive, and Axios.</p>
+                <h3>Contact</h3>
+                <p>If there are any errors that you come across, or would like to talk about a project you are wanting to build, please head over to my portfolio and send me a message. I would love to chat with you about your idea!</p>
+                <h3>Copyright</h3>
+                <p>I do not own the rights to any material provided in this API. Breaking Bad was created by Vince Gilligan, and originally aired on AMC. The majority of this data collected was from a  <a href='https://en.wikipedia.org/wiki/Breaking_Bad' target='blank'>Wikipedia.com</a> and <a href='http://breakingbad.wikia.com/wiki/Breaking_Bad_Wiki' target='blank'>Wikia.com</a></p>
+            </div>
+                
+
         </div>
     );
 };
