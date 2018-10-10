@@ -2,11 +2,21 @@
     background: #fff;
 }
 
-.character_map {
+.character_map,
+.quote_map {
     background: rgb(59, 59, 59);
     display: flex;
+    
+}
+
+.character_map {
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+
+.quote_map {
+    flex-direction: column;
+    color: #e0e0e0;
 }
 
 .home_btm {
@@ -19,3 +29,14 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.toggle_api {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+}
+
+.toggle_api p {
+    cursor: pointer;
+}
+
