@@ -44,6 +44,7 @@ class Home extends Component {
 
   getRandom(){
     axios.get('/api/character/random?limit=12').then(res=> {
+      console.log(res.data)
       this.setState({characters: res.data})
     })
   }

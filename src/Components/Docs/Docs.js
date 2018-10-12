@@ -26,6 +26,7 @@ class Docs extends Component {
           }
         </p>
         <p>{'"status": "Deceased",'}</p>
+        <p>{'"appearance":    [1,2,3,4,5],'}</p>        
         <p>{'"nickname": "Heisenberg"'}</p>
         <p>{'}'}</p>
       </div>
@@ -315,7 +316,7 @@ class Docs extends Component {
             <p>If you're curious about the total number of deaths in the series, hit this endpoint! </p>
             <p className="example">/api/death-count</p>
             <h4 id='death_name'>Get death count by name</h4>
-            <p>Interested to see the number of deaths an individual was responsible for? Enter the name in the query like the example below to find out.</p>
+            <p>Interested to see the number of deaths an individual was responsible for? Enter the name as a query parameter like the example below to find out.</p>
             <p className="example">/api/death-count?name=Gustavo+Fring</p>
             <div className="example code">{example4}</div>
             <p className='offset'>

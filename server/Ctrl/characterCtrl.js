@@ -2,6 +2,9 @@ const { all } = require('../Data/characters');
 const allCharacters = []
 const occ = []
 const app = []
+const aMap = arr => {
+  return arr.map(el=> +el)
+}
 
 const getPeople = (req, res) => {
   const db = req.app.get('db');
@@ -16,7 +19,7 @@ const getPeople = (req, res) => {
         app.push(e.appearance.split(','))
 
         e.occupation = occ[i]
-        e.appearance = app[i]
+        e.appearance = aMap(app[i])
       })
 
       res.status(200).send(limit || offset ? response.slice(offset || 0, limit) : response)
@@ -45,17 +48,19 @@ const getPeopleById = (req, res) => {
 const getRandomChar = (req, res) => {
   const db = req.app.get('db');
   const {limit} = req.query
+  const o = []
+  const a = []
 
   db.characters
     .get_random_char([limit || 1])
     .then(resp => {
 
       resp.map((e,i)=> {
-        e.occupation && occ.push(e.occupation.split(','))
-        app.push(e.appearance.split(','))
-
-        e.occupation = occ[i]
-        e.appearance = app[i]
+        e.occupation && o.push(e.occupation.split(','))
+        a.push(e.appearance.split(','))
+        
+        e.occupation = o[i]
+        e.appearance = aMap(a[i])
       })
       res.status(200).send(resp);
     })
