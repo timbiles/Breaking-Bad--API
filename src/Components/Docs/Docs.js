@@ -61,6 +61,15 @@ class Docs extends Component {
       </div>
     );
 
+    var example4 = (
+      <div className="multi_line ml_4">
+        <p>{'{'}</p>
+        <p>{'"name": "Gustavo Fring",'}</p>
+        <p>{'"deathCount": 22,'}</p>
+        <p>{'}'}</p>
+      </div>
+    )
+
     return (
       <div className="documentation">
         <nav className="navbar">
@@ -82,7 +91,12 @@ class Docs extends Component {
           <p onClick={() => this.scrollClick('q_all')}>Get all quotes</p>
           <p onClick={() => this.scrollClick('q_id')}>Get quote by id</p>          
           <p onClick={() => this.scrollClick('q_rand')}>Get random quotes</p>
-          <p onClick={() => this.scrollClick('q_auth')}>Get quote by name</p>          
+          <p onClick={() => this.scrollClick('q_auth')}>Get quote by name</p>     
+          <h2 onClick={() => this.scrollClick('death')}>Deaths</h2>
+          <p onClick={() => this.scrollClick('death_at')}>Death attributes</p>  
+          <p onClick={() => this.scrollClick('death_all')}>Death information</p>                            
+          <p onClick={() => this.scrollClick('death_count')}>Death count</p>  
+          <p onClick={() => this.scrollClick('death_name')}>Death count by individual</p>                                            
         </nav>
         <div className="docs_main">
           <h2>Documentation</h2>
@@ -97,7 +111,7 @@ class Docs extends Component {
             <p className="example">/api/</p>
           </div>
           <div>
-            <h3 id="char">Characters Endpoint</h3>
+            <h3 id="char">Character Endpoints</h3>
             <h4 id="char_at">Character Attributes</h4>
             <div className="schema">
               <div>
@@ -172,14 +186,14 @@ class Docs extends Component {
             </p>
             <h4 id='char_name'>Search character by name</h4>
             <p className="example">/api/characters?name=Walter+White</p>
-            <p>
+            <p className='offset'>
               Notice the 'plus sign' between the first and last name represents
               a space. This query only works with the full name of a character.
               Double check your spelling!
             </p>
           </div>
           <div>
-            <h3 id="ep">Episode Endpoint</h3>
+            <h3 id="ep">Episode Endpoints</h3>
             <h4 id='ep_at'>Episode Attributes</h4>
             <div className="schema">
               <div>
@@ -227,7 +241,7 @@ class Docs extends Component {
             <div className="example code">{example2}</div>
           </div>
           <div>
-            <h3 id="q">Quote Endpoint</h3>
+            <h3 id="q">Quote Endpoints</h3>
             <h4 id='q_at'>Quote Attributes</h4>
             <div className="schema">
               <div>
@@ -269,6 +283,45 @@ class Docs extends Component {
             </p>
             <p className="example">/api/quote?author=Jesse+Pinkman</p>
             <div className="example code">{example3}</div>
+          </div>
+          <div>
+          <h3 id="death">Death Endpoints</h3>
+            <h4 id='death_at'>Death Attributes</h4>
+            <div className="schema">
+              <div>
+                <p>Attribute</p>
+                <p>Type</p>
+                <p>Description</p>
+              </div>
+              <div>
+                <p>id</p>
+                <p>integer</p>
+                <p>Unique Id per quote</p>
+              </div>
+              <div>
+                <p>quote</p>
+                <p>string</p>
+                <p>The quote itself</p>
+              </div>
+              <div>
+                <p>author</p>
+                <p>string</p>
+                <p>The originator of the quote</p>
+              </div>
+              <h4 id='death_all'>Get all death information</h4>
+            <p>Endpoint to retrieve information about every death in Breaking Bad.</p>
+            <p className="example">/api/deaths</p>
+            <h4 id='death_count'>Get death count</h4>
+            <p>If you're curious about the total number of deaths in the series, hit this endpoint! </p>
+            <p className="example">/api/death-count</p>
+            <h4 id='death_name'>Get death count by name</h4>
+            <p>Interested to see the number of deaths an individual was responsible for? Enter the name in the query like the example below to find out.</p>
+            <p className="example">/api/death-count?name=Gustavo+Fring</p>
+            <div className="example code">{example4}</div>
+            <p className='offset'>
+            Be aware, not just any name will work. They have to have caused, or been afiliated with the death in some capacity. Don't forget about the 'plus sign' between names!
+            </p>
+            </div>
           </div>
         </div>
       </div>

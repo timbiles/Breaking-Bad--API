@@ -21,6 +21,7 @@ class Home extends Component {
     this.getAll();
     this.getRandom();
     this.getDeaths();
+    this.getDeathCount();
   }
 
   getDeaths(){
@@ -29,6 +30,11 @@ class Home extends Component {
     })
   }
 
+  getDeathCount(){
+    axios.get('/api/death-count?name=Gustavo+Fring').then(res=> {
+      console.log('death count', res.data)
+    })
+  }
 
   getAll() {
     axios.get('/api/').then(res => {
@@ -43,7 +49,7 @@ class Home extends Component {
   }
 
   getChar() {
-    axios.get('/api/characters/').then(res => {
+    axios.get('/api/characters').then(res => {
       console.log('All characters >>>', res.data);
       this.setState({ totalChar: res.data });            
     });

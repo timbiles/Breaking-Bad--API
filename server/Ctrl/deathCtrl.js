@@ -15,6 +15,25 @@ const getDeaths = (req, res) => {
       res.status(500).send(err)
   })
 };
+
+const getDeathTotal = (req, res) => {
+  const db = req.app.get('db');
+  const { name } = req.query
+  const newName = `%${name}%`
+  let deaths = [];
+
+  db.death.get_death_total(newName)
+  .then(response => {
+  deaths = {name, deathCount: +response[0].sum}
+    res.status(200).send(deaths)
+  })
+  .catch(err=> {
+    console.log(err)
+    res.status(500).send(err)
+  })
+}
+
 module.exports = {
-  getDeaths
+  getDeaths,
+  getDeathTotal
 };
