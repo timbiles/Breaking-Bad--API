@@ -30,13 +30,12 @@
     justify-content: space-evenly;
 }
 
-.toggle_api {
+.home input:focus {
+    outline: none;
+}
+
+.test_api > div {
     display: flex;
-    justify-content: space-between;
-    width: 25%;
+    justify-content: center;
+    align-items: center;
 }
-
-.toggle_api p {
-    cursor: pointer;
-}
-

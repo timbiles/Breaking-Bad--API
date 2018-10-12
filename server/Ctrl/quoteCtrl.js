@@ -12,6 +12,18 @@ const getQuotes = (req, res) => {
     });
 };
 
+const getQuoteById = (req, res) => {
+  const db = req.app.get('db');
+
+  db.quotes.get_quote_by_id([req.params.id])
+  .then(response => {
+    res.status(200).send(response)
+  })
+  .catch(err=> {
+    res.status(500).send(err)
+  })
+}
+
 const getRandomQuote = (req, res) => {
   const db = req.app.get('db');
 
@@ -40,6 +52,7 @@ const getQuoteByAuthor = (req, res) => {
 
 module.exports = {
   getQuotes,
+  getQuoteById,
   getRandomQuote,
   getQuoteByAuthor
 };

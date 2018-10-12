@@ -80,8 +80,9 @@ class Docs extends Component {
           <h2 onClick={() => this.scrollClick('q')}>Quotes</h2>
           <p onClick={() => this.scrollClick('q_at')}>Quote attributes</p>
           <p onClick={() => this.scrollClick('q_all')}>Get all quotes</p>
+          <p onClick={() => this.scrollClick('q_id')}>Get quote by id</p>          
           <p onClick={() => this.scrollClick('q_rand')}>Get random quotes</p>
-          <p onClick={() => this.scrollClick('q_id')}>Get quote by name</p>          
+          <p onClick={() => this.scrollClick('q_auth')}>Get quote by name</p>          
         </nav>
         <div className="docs_main">
           <h2>Documentation</h2>
@@ -155,6 +156,9 @@ class Docs extends Component {
             <h4 id='char_rand'>Get random character</h4>
             <p>Request a random character</p>
             <p className="example">/api/character/random</p>
+            <p className="offset">
+              This request accepts a query parameter of 'limit'. If no limit is passed, (like the example above) you will only receive one random character.
+            </p>
             <h4 id='char_pag'>Limit & Offset</h4>
             <p>
               Use a query parameter to limit the amount of characters you
@@ -251,10 +255,13 @@ class Docs extends Component {
             <h4 id='q_all'>Get all quotes</h4>
             <p>Endpoint to retrieve all Quotes</p>
             <p className="example">/api/quotes</p>
+            <h4 id='q_id'>Get quote by id</h4>
+            <p>Endpoint to get quote by id</p>
+            <p className="example">/api/quotes/1</p>            
             <h4 id='q_rand'>Get a random quote</h4>
             <p>Endpoint to retrieve a random quote</p>
             <p className="example">/api/quote/random</p>
-            <h4 id='q_id'>Get quote by author</h4>
+            <h4 id='q_auth'>Get quote by author</h4>
             <p>
               Endpoint to collect all quotes from a specific author. Make sure
               to separate the first and last name with a 'plus sign'. Like the

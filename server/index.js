@@ -11,8 +11,9 @@ const {
   getRandomChar,
   getAll
 } = require('./Ctrl/characterCtrl');
-const { getQuotes, getRandomQuote, getQuoteByAuthor } = require('./Ctrl/quoteCtrl');
+const { getQuotes, getQuoteById, getRandomQuote, getQuoteByAuthor } = require('./Ctrl/quoteCtrl');
 const { getEpisodes, getEpisodesById } = require('./Ctrl/episodeCtrl');
+const { getDeaths } = require('./Ctrl/deathCtrl')
 
 const app = express();
 app.use(bodyParser.json());
@@ -32,12 +33,16 @@ app.get('/api/character/random', getRandomChar);
 
 // Quote endpoints
 app.get('/api/quotes', getQuotes);
+app.get('/api/quotes/:id', getQuoteById)
 app.get('/api/quote/random', getRandomQuote);
 app.get('/api/quote', getQuoteByAuthor);
 
 // Episode endpoints
 app.get('/api/episodes', getEpisodes);
 app.get('/api/episodes/:id', getEpisodesById)
+
+// Death count
+app.get('/api/deaths', getDeaths)
 
 app.get('/api', getAll)
 

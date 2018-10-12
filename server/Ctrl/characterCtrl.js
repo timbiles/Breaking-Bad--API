@@ -11,7 +11,6 @@ const getPeople = (req, res) => {
   ? db.characters
     .get_characters()
     .then(response => {
-
       response.map((e,i)=> {
         e.occupation && occ.push(e.occupation.split(','))
         app.push(e.appearance.split(','))
@@ -45,10 +44,19 @@ const getPeopleById = (req, res) => {
 
 const getRandomChar = (req, res) => {
   const db = req.app.get('db');
+  const {limit} = req.query
 
   db.characters
-    .get_random_char()
+    .get_random_char([limit || 1])
     .then(resp => {
+
+      resp.map((e,i)=> {
+        e.occupation && occ.push(e.occupation.split(','))
+        app.push(e.appearance.split(','))
+
+        e.occupation = occ[i]
+        e.appearance = app[i]
+      })
       res.status(200).send(resp);
     })
     .catch(err => {
