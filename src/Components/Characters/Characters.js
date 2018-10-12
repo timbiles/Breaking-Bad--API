@@ -15,13 +15,9 @@ class Characters extends Component {
   render() {
     const { toggle } = this.state;
     const { person } = this.props;
-    const map = person.occupation.map((e, i) => {
-      return (
-        <p className="occ_map" key={i}>
-          {e}
-        </p>
-      );
-    });
+
+    const occ = person.occupation.join(',');
+    const app = person.appearance.join(',');
 
     return (
       <div className="character">
@@ -38,9 +34,23 @@ class Characters extends Component {
             <p> {person.nickname}</p>
           </div>
           {toggle && (
-            <div className='hidden_info'>
-              <p>Id: {person.char_id}</p>
-              {map}
+            <div className="hidden_info">
+              <div>
+                <p>Id</p>
+                <p>{person.char_id}</p>
+              </div>
+              <div>
+                <p>Occupation</p>
+                <p className="occ_map">{occ}</p>
+              </div>
+              <div>
+                <p>Seasons</p>
+                {app}
+              </div>
+              <div>
+                <p>Status</p>
+                <p>{person.status}</p>
+              </div>
             </div>
           )}
         </div>

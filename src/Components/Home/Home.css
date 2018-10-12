@@ -1,5 +1,18 @@
 .home_title {
   background: #fff;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.home_title h1 {
+  margin-bottom: 0;
+  font-size: 3.5em;
+}
+
+.home_title p {
+  margin-top: 0;
+  letter-spacing: 2px;
+  text-align: right;
 }
 
 .character_map,
@@ -16,13 +29,6 @@
 .quote_map {
   flex-direction: column;
   color: #e0e0e0;
-}
-
-.home_btm {
-  display: flex;
-  justify-content: center;
-  margin: 5% 2% 1% 2%;
-  border-top: 1px solid #7b7b7b;
 }
 
 .sub_info {
@@ -44,6 +50,7 @@
 .death_map {
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 }
 
 .death_map h3 {
@@ -92,6 +99,11 @@
   justify-content: center;
   align-items: flex-start;
   padding-left: 20px;
+  width: 400px;
+}
+
+.death_info p {
+  text-align: left;
 }
 
 @keyframes flip-in-ver-right {

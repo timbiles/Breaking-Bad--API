@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import routes from './routes';
-import Header from './Components/Header/Header';
+import Nav from './Components/Nav/Nav';
+import Footer from './Components/Footer/Footer';
 import './App.css';
 
 class App extends Component {
@@ -10,8 +11,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header />
+          <Nav />
           {routes}
+          <Footer />
         </div>
       </Router>
     )

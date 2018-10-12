@@ -7,35 +7,15 @@ import './Home.css';
 class Home extends Component {
   state = {
     characters: [],
-    totalChar: [],
-    episodes: [],
-    deaths: [],
-    quotes: [],
     input: '',
     searchResults: [],
     rd: {}
   };
 
   componentDidMount() {
-    this.getChar();
-    this.getEpisodes();
-    this.getQuotes();
     this.getAll();
     this.getRandom();
     this.getDeathCount();
-    this.getDeaths();
-  }
-
-  getDeathCount() {
-    axios.get('/api/death-count?name=Gustavo+Fring').then(res => {
-      console.log('Random Death count >>>', res.data);
-    });
-  }
-
-  getDeaths() {
-    axios.get('/api/death-count').then(res=> {
-      this.setState({deaths: res.data})
-    })
   }
 
   getAll() {
@@ -50,24 +30,9 @@ class Home extends Component {
     });
   }
 
-  getChar() {
-    axios.get('/api/characters').then(res => {
-      console.log('All characters >>>', res.data);
-      this.setState({ totalChar: res.data });
-    });
-  }
-
-  getEpisodes() {
-    axios.get('/api/episodes').then(res => {
-      console.log('All Episodes >>>', res.data);
-      this.setState({ episodes: res.data });
-    });
-  }
-
-  getQuotes() {
-    axios.get('/api/quotes').then(res => {
-      console.log('All Quotes >>>', res.data);
-      this.setState({ quotes: res.data });
+  getDeathCount() {
+    axios.get('/api/death-count?name=Gustavo+Fring').then(res => {
+      console.log('Random Death count >>>', res.data);
     });
   }
 
@@ -80,7 +45,6 @@ class Home extends Component {
   randomDeath() {
     axios.get('/api/random-death').then(res => {   
       this.setState({ rd: res.data });
-      console.log(res.data)
     });
   }
 
@@ -91,13 +55,9 @@ class Home extends Component {
   render() {
     const {
       characters,
-      totalChar,
-      episodes,
-      deaths,
-      quotes,
+      rd,
       // input,
       // searchResults,
-      rd
     } = this.state;
     const charMap = characters.map(e => {
       return <Characters key={e.char_id} person={e} />;
@@ -136,6 +96,7 @@ class Home extends Component {
           <h1>
             The Breaking Bad A<mark>P</mark>I
           </h1>
+          <p>...Tread Lightly</p>
         </div>
 
         <div className="character_map">{charMap}</div>
@@ -157,15 +118,6 @@ class Home extends Component {
             {rd.death && death}
           </div>
         </div>
-
-        <footer className="home_btm">
-          <div className="sub_info">
-            <p>Characters: {totalChar.length}</p>
-            <p>Episodes: {episodes.length}</p>
-            <p>Quotes: {quotes.length}</p>
-            <p>Death Count: {deaths.deathCount}</p>
-          </div>
-        </footer>
       </div>
     );
   }

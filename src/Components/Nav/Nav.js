@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './Header.css';
+import './Nav.css';
 
-const Header = () => {
+const Nav = () => {
   return (
     <div className="header">
       <div className="link_holder">
@@ -21,4 +21,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Nav;

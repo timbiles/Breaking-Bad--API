@@ -40,6 +40,9 @@ const getRandomDeath = (req, res) => {
   db.death
     .get_random_death()
     .then(response => {
+    const app = response[0].appearance.split(',').map(e=> +e)
+    const occ = response[0].occupation.split(',')    
+
       newResponse = {
         death_id: response[0].death_id,
         death: response[0].death,
@@ -48,12 +51,11 @@ const getRandomDeath = (req, res) => {
         last_words: response[0].last_words,
         season: response[0].season,
         episode: response[0].episode,
-        occupation: response[0].occupation,
+        occupation: occ,
         img: response[0].img,
         nickname: response[0].nickname,
-        appearance: response[0].appearance
+        appearance: app
       };
-      console.log(newResponse);
       res.status(200).send(newResponse);
     })
     .catch(err => {
