@@ -9,9 +9,11 @@ class Home extends Component {
     characters: [],
     totalChar: [],
     episodes: [],
+    deaths: [],
     quotes: [],
     input: '',
-    searchResults: []
+    searchResults: [],
+    rd: {}
   };
 
   componentDidMount() {
@@ -20,19 +22,19 @@ class Home extends Component {
     this.getQuotes();
     this.getAll();
     this.getRandom();
-    this.getDeaths();
     this.getDeathCount();
+    this.getDeaths();
   }
 
-  getDeaths(){
-    axios.get('/api/deaths').then(res=> {
-      console.log(res.data)
-    })
+  getDeathCount() {
+    axios.get('/api/death-count?name=Gustavo+Fring').then(res => {
+      console.log('Random Death count >>>', res.data);
+    });
   }
 
-  getDeathCount(){
-    axios.get('/api/death-count?name=Gustavo+Fring').then(res=> {
-      console.log('death count', res.data)
+  getDeaths() {
+    axios.get('/api/death-count').then(res=> {
+      this.setState({deaths: res.data})
     })
   }
 
@@ -42,17 +44,16 @@ class Home extends Component {
     });
   }
 
-  getRandom(){
-    axios.get('/api/character/random?limit=12').then(res=> {
-      console.log(res.data)
-      this.setState({characters: res.data})
-    })
+  getRandom() {
+    axios.get('/api/character/random?limit=12').then(res => {
+      this.setState({ characters: res.data });
+    });
   }
 
   getChar() {
     axios.get('/api/characters').then(res => {
       console.log('All characters >>>', res.data);
-      this.setState({ totalChar: res.data });            
+      this.setState({ totalChar: res.data });
     });
   }
 
@@ -70,23 +71,64 @@ class Home extends Component {
     });
   }
 
- findTest() {
-   axios.get(`/api/${this.state.input}`).then(res=> {
-     this.setState({searchResults: res.data})
-   })
- }
+  findTest() {
+    axios.get(`/api/${this.state.input}`).then(res => {
+      this.setState({ searchResults: res.data });
+    });
+  }
+
+  randomDeath() {
+    axios.get('/api/random-death').then(res => {   
+      this.setState({ rd: res.data });
+      console.log(res.data)
+    });
+  }
+
+  clickDeath = () => {
+    this.randomDeath();
+  };
 
   render() {
-    const { characters, totalChar, episodes, quotes, input, searchResults } = this.state;
+    const {
+      characters,
+      totalChar,
+      episodes,
+      deaths,
+      quotes,
+      // input,
+      // searchResults,
+      rd
+    } = this.state;
     const charMap = characters.map(e => {
-      return <Characters key={e.id} person={e} />;
+      return <Characters key={e.char_id} person={e} />;
     });
 
-    const searchMap = searchResults.map(e=> {
-      return <div className='search_res'key={e.id}>
-            <p>{e.name || e.title || e.quote}</p>
-      </div>
-    })
+    // const searchMap = searchResults.map(e => {
+    //   return (
+    //     <div className="search_res" key={e.id}>
+    //       <p>{e.name || e.title || e.quote}</p>
+    //     </div>
+    //   );
+    // });
+
+     
+      
+    const death = <div className="death_info" key={rd.death_id}>
+          <div>
+            <h2>{rd.death}</h2>
+            <img src={rd.img} alt={rd.death} />
+          </div>
+          <div>
+            <h4>Cause of death:</h4>
+            <p>{rd.cause}</p>
+            <h4>Responsible:</h4>
+            <p>{rd.responsible}</p>
+            <h4>Last words:</h4>
+            <p>"{rd.last_words}"</p>
+          </div>
+        </div>
+      
+    
 
     return (
       <div className="home">
@@ -97,25 +139,33 @@ class Home extends Component {
         </div>
 
         <div className="character_map">{charMap}</div>
-        <div className='test_api'>
-          <h3>Try it out</h3>
-          <div>
+        <div className="test_api">
+          {/* Trying out some entering in endpoints ... */}
+          {/* <div>
             <p>/api/</p>
             <input type="text" placeholder='characters/1' onChange={e=> this.setState({input: e.target.value})}/>
             <button onClick={()=> this.findTest()}>Try it!</button>
           </div>
           <div className='test_box'>
             {searchMap}
+          </div> */}
+          <div className="death_map">
+          <div>
+            <h3>Click here to find out about a random death!</h3>
+            <button onClick={() => this.clickDeath()}>Death!</button>
+          </div>
+            {rd.death && death}
           </div>
         </div>
 
-        <div className="home_btm">
+        <footer className="home_btm">
           <div className="sub_info">
             <p>Characters: {totalChar.length}</p>
             <p>Episodes: {episodes.length}</p>
             <p>Quotes: {quotes.length}</p>
+            <p>Death Count: {deaths.deathCount}</p>
           </div>
-        </div>
+        </footer>
       </div>
     );
   }

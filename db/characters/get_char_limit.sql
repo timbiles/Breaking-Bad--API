@@ -1,3 +1,3 @@
 SELECT * FROM characters
-ORDER BY id
+ORDER BY char_id
 LIMIT $1 OFFSET $2;

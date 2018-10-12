@@ -1,2 +1,2 @@
 SELECT * FROM characters
-ORDER BY id;
+ORDER BY char_id;

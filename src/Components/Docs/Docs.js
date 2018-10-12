@@ -97,7 +97,9 @@ class Docs extends Component {
           <p onClick={() => this.scrollClick('death_at')}>Death attributes</p>  
           <p onClick={() => this.scrollClick('death_all')}>Death information</p>                            
           <p onClick={() => this.scrollClick('death_count')}>Death count</p>  
-          <p onClick={() => this.scrollClick('death_name')}>Death count by individual</p>                                            
+          <p onClick={() => this.scrollClick('death_name')}>Death count by individual</p> 
+          <p onClick={() => this.scrollClick('death_rand')}>Random death information</p>                                            
+                                                     
         </nav>
         <div className="docs_main">
           <h2>Documentation</h2>
@@ -300,14 +302,39 @@ class Docs extends Component {
                 <p>Unique Id per quote</p>
               </div>
               <div>
-                <p>quote</p>
+                <p>death</p>
                 <p>string</p>
-                <p>The quote itself</p>
+                <p>The name of the deceased individual</p>
               </div>
               <div>
-                <p>author</p>
+                <p>cause</p>
                 <p>string</p>
-                <p>The originator of the quote</p>
+                <p>How the character met their demise</p>
+              </div>
+              <div>
+                <p>responsible</p>
+                <p>string</p>
+                <p>The person(s) responsible or affliated with the death</p>
+              </div>
+              <div>
+                <p>last words</p>
+                <p>string</p>
+                <p>The famous last words!</p>
+              </div>
+              <div>
+                <p>season</p>
+                <p>integer</p>
+                <p>The season the death occured in</p>
+              </div>
+              <div>
+                <p>episode</p>
+                <p>integer</p>
+                <p>The episode of the season</p>
+              </div>
+              <div>
+                <p className='schema_long'>number_of_deaths</p>
+                <p>integer</p>
+                <p>The number of deaths that occured for this instance</p>
               </div>
               <h4 id='death_all'>Get all death information</h4>
             <p>Endpoint to retrieve information about every death in Breaking Bad.</p>
@@ -322,6 +349,9 @@ class Docs extends Component {
             <p className='offset'>
             Be aware, not just any name will work. They have to have caused, or been afiliated with the death in some capacity. Don't forget about the 'plus sign' between names!
             </p>
+            <h4 id='death_rand'>Get random death information about an individual</h4>
+            <p>Hit this endpoint to find out some interesting information about a death at random!</p>
+            <p className="example">/api/random-death</p>
             </div>
           </div>
         </div>

@@ -1,39 +1,69 @@
 const getDeaths = (req, res) => {
   const db = req.app.get('db');
 
-  db.death.get_deaths().then(response => {
+  db.death
+    .get_deaths()
+    .then(response => {
+      response.map(e => {
+        if (e.number_of_deaths === null) e.number_of_deaths = 1;
+      });
 
-
-    response.map(e=> {
-      if(e.number_of_deaths === null) e.number_of_deaths = 1
+      res.status(200).send(response);
     })
-
-    res.status(200).send(response)
-  })
-  .catch(err=> {
-      console.log('err', err)
-      res.status(500).send(err)
-  })
+    .catch(err => {
+      console.log('err', err);
+      res.status(500).send(err);
+    });
 };
 
 const getDeathTotal = (req, res) => {
   const db = req.app.get('db');
-  const { name } = req.query
-  const newName = `%${name}%`
+  const { name } = req.query;
+  const newName = name ? `%${name}%` : '%%';
   let deaths = [];
 
-  db.death.get_death_total(newName)
-  .then(response => {
-  deaths = {name, deathCount: +response[0].sum}
-    res.status(200).send(deaths)
-  })
-  .catch(err=> {
-    console.log(err)
-    res.status(500).send(err)
-  })
-}
+  db.death
+    .get_death_total(newName)
+    .then(response => {
+      deaths = { name, deathCount: +response[0].sum };
+      res.status(200).send(deaths);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send(err);
+    });
+};
+
+const getRandomDeath = (req, res) => {
+  const db = req.app.get('db');
+
+  db.death
+    .get_random_death()
+    .then(response => {
+      newResponse = {
+        death_id: response[0].death_id,
+        death: response[0].death,
+        cause: response[0].cause,
+        responsible: response[0].responsible,
+        last_words: response[0].last_words,
+        season: response[0].season,
+        episode: response[0].episode,
+        occupation: response[0].occupation,
+        img: response[0].img,
+        nickname: response[0].nickname,
+        appearance: response[0].appearance
+      };
+      console.log(newResponse);
+      res.status(200).send(newResponse);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send(err);
+    });
+};
 
 module.exports = {
   getDeaths,
-  getDeathTotal
+  getDeathTotal,
+  getRandomDeath
 };

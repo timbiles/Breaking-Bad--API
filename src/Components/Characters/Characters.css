@@ -30,7 +30,7 @@
 	width: 0;
 	height: 0;
 	border: 20px solid transparent;
-	border-bottom-color: rgb(172, 172, 172);
+	border-bottom-color: #acacac;
 	border-top: 0;
 	border-right: 0;
 	margin-top: -20px;
@@ -60,7 +60,7 @@
 }
 
 .underline {
-    border-bottom: 1px solid rgb(212, 212, 212);
+    border-bottom: 1px solid #d4d4d4;
 }
 
 

@@ -1,2 +1,2 @@
 SELECT * FROM characters
-WHERE id = $1;
+WHERE char_id = $1;

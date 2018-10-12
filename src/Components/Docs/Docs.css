@@ -134,9 +134,17 @@ margin-left: 0;
 
 .schema > div > p:nth-of-type(1),
 .schema > div > p:nth-of-type(2) {
-    width: 15%;
+    width: 120px;
+}
+
+.schema_long {
+    font-size: .85em;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
 }
 
 .schema > div:nth-of-type(1) {
     border-bottom: 1px solid #ececec;
 }
+

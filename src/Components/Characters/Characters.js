@@ -39,7 +39,7 @@ class Characters extends Component {
           </div>
           {toggle && (
             <div className='hidden_info'>
-              <p>Id: {person.id}</p>
+              <p>Id: {person.char_id}</p>
               {map}
             </div>
           )}
