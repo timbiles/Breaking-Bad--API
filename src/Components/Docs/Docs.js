@@ -347,7 +347,7 @@ class Docs extends Component {
             <p className="example">/api/death-count?name=Gustavo+Fring</p>
             <div className="example code">{example4}</div>
             <p className='offset'>
-            Be aware, not just any name will work. They have to have caused, or been afiliated with the death in some capacity. Don't forget about the 'plus sign' between names!
+            Be aware, not just any name will work. They have to have caused, or been afiliated with the death in some capacity. Don't forget about the 'plus sign' between the first and last name!
             </p>
             <h4 id='death_rand'>Get random death information about an individual</h4>
             <p>Hit this endpoint to find out some interesting information about a death at random!</p>

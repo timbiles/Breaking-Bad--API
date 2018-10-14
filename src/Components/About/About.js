@@ -18,7 +18,7 @@ const About = () => {
                 <li>Quotes</li>
                 <li>Deaths</li>
                 <h3>Why</h3>
-                <p>Breaking Bad is regarded as one of the greatest television series of all time, and is worthy of it's own API. In my search, I was unable to find an API that contained the amount of information I needed, so I created one.</p>
+                <p>Breaking Bad is regarded as one of the greatest television series of all time, and with 16 Primetime Emmy Awards, it is worthy of it's own API. In my search, I was unable to find an API that contained the amount of information I needed, so I created one.</p>
                 <h3>Tech Stack</h3>
                 <p>This project was build using Javascript, React, Node, Express, Massive, and Axios.</p>
                 <h3>Issues</h3>
