@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const massive = require('massive');
+const rateLimit = require('express-rate-limit');
 
 const port = process.env.SERVER_PORT || 3001;
 
@@ -27,6 +28,14 @@ massive(process.env.CONNECTION_STRING)
   .catch(err => {
     console.log('Database connection error', err);
   });
+
+  const limiter = rateLimit({
+    windowMs: 1000 * 60 * 60 * 24,
+    max: 10000,
+    message: "Too many hits. Plz try again l8tr.."
+  })
+  
+  app.use(limiter)
 
 // Character endpoints
 app.get('/api/characters', getPeople);

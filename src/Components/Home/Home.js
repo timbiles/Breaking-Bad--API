@@ -16,6 +16,13 @@ class Home extends Component {
     this.getAll();
     this.getRandom();
     this.getDeathCount();
+    this.getTest();
+  }
+
+  getTest() {
+    axios.get('http://api.tvmaze.com/search/shows?q=girls').then(res => {
+      console.log('tv', res.data);
+    });
   }
 
   getAll() {
@@ -43,7 +50,7 @@ class Home extends Component {
   }
 
   randomDeath() {
-    axios.get('/api/random-death').then(res => {   
+    axios.get('/api/random-death').then(res => {
       this.setState({ rd: res.data });
     });
   }
@@ -53,10 +60,9 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.props)
     const {
       characters,
-      rd,
+      rd
       // input,
       // searchResults,
     } = this.state;
@@ -72,24 +78,22 @@ class Home extends Component {
     //   );
     // });
 
-     
-      
-    const death = <div className="death_info" key={rd.death_id}>
-          <div>
-            <h2>{rd.death}</h2>
-            <img src={rd.img} alt={rd.death} />
-          </div>
-          <div>
-            <h4>Cause of death:</h4>
-            <p>{rd.cause}</p>
-            <h4>Responsible:</h4>
-            <p>{rd.responsible}</p>
-            <h4>Last words:</h4>
-            <p>"{rd.last_words}"</p>
-          </div>
+    const death = (
+      <div className="death_info" key={rd.death_id}>
+        <div>
+          <h2>{rd.death}</h2>
+          <img src={rd.img} alt={rd.death} />
         </div>
-      
-    
+        <div>
+          <h4>Cause of death:</h4>
+          <p>{rd.cause}</p>
+          <h4>Responsible:</h4>
+          <p>{rd.responsible}</p>
+          <h4>Last words:</h4>
+          <p>"{rd.last_words}"</p>
+        </div>
+      </div>
+    );
 
     return (
       <div className="home">
@@ -112,10 +116,10 @@ class Home extends Component {
             {searchMap}
           </div> */}
           <div className="death_map">
-          <div>
-            <h3>Click here to find out about a random death!</h3>
-            <button onClick={() => this.clickDeath()}>Death!</button>
-          </div>
+            <div>
+              <h3>Click here to find out about a random death!</h3>
+              <button onClick={() => this.clickDeath()}>Death!</button>
+            </div>
             {rd.death && death}
           </div>
         </div>
