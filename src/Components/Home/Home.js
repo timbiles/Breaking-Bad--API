@@ -16,13 +16,6 @@ class Home extends Component {
     this.getAll();
     this.getRandom();
     this.getDeathCount();
-    this.getTest();
-  }
-
-  getTest() {
-    axios.get('http://api.tvmaze.com/search/shows?q=girls').then(res => {
-      console.log('tv', res.data);
-    });
   }
 
   getAll() {
