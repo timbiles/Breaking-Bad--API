@@ -33,5 +33,5 @@
   "devDependencies": {
     "concurrently": "^4.0.1"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "https://sad-pike-5b95ba.netlify.com/"
 }
