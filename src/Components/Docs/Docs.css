@@ -17,11 +17,12 @@
 }
 
 .navbar h2 {
-    font-size: 1.2em;
+    font-size: 1.1em;
     letter-spacing: 2px;
     font-weight: bold;
     margin-left: 15px;
     cursor: pointer;
+    margin-bottom: 0px;
 }
 
 .navbar p {

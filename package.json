@@ -8,6 +8,7 @@
     "express": "^4.16.3",
     "express-rate-limit": "^3.2.1",
     "massive": "^5.5.0",
+    "path": "^0.12.7",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",
