@@ -133,7 +133,7 @@ class Docs extends Component {
           </p>
           <div>
             <h4 id="base">Base Url</h4>
-            <p className="example">www.breakingbadapi.com/api/</p>
+            <p className="example">http:breakingbadapi.com/api/</p>
           </div>
           <div>
             <h3 id="char">Character Endpoints</h3>
