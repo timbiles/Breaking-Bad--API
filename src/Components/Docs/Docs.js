@@ -126,8 +126,7 @@ class Docs extends Component {
           <h4 id="rate">Rate Limit</h4>
           <p>
             This API is free, I have no intention of creating authentication.
-            However, to prevent harmful activity that would need the attention
-            of the DEA, there is a rate limit of 10,000 requests a day. If you
+            However, to prevent harmful activity, there is a rate limit of 10,000 requests a day. If you
             happen to reach that limit, you will receive a 429 status code, and
             regain access after 24 hours.
           </p>

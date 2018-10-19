@@ -42,3 +42,17 @@
     margin-left: 60px;
     font-size: .9em;
 }
+
+@media (max-width: 900px) {
+    .about_cont {
+        width: 90%;
+    }
+}
+
+@media (max-width: 500px) {
+    .about_cont p,
+    .about_cont ul,
+    .about_cont li {
+        font-size: .8em;
+    }
+}

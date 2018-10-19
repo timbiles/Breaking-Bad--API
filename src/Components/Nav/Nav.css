@@ -31,3 +31,15 @@ mark {
     text-shadow: 1px 1px #000;
 }
 
+@media (max-width: 680px) {
+    .link_holder {
+      width: 70vw;
+    }
+}
+
+@media (max-width: 450px) {
+    .head_link {
+        font-size: .9em;
+    }
+}
+

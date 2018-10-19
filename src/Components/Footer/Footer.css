@@ -18,3 +18,27 @@
     fill: #487F5A;
     transition: .7s;
   }
+
+  @media (max-width: 800px) {
+    .sub_info {
+      width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    justify-content: flex-end;
+  }
+  .sub_info {
+    width: 90%;
+  }
+  .footer p {
+    font-size: .7em;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer p {
+    font-size: .6em;
+  }
+}
