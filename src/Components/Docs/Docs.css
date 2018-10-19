@@ -1,7 +1,7 @@
 .documentation {
     background: #3b3b3b;  
     display: flex;
-
+    position: relative;
 }
 
 .navbar {
@@ -149,3 +149,25 @@ margin-left: 0;
     border-bottom: 1px solid #ececec;
 }
 
+.hamb {
+    display:none;
+    position: absolute;
+    top: 2%;
+    right: -5vw;
+    height: 25px;
+    width: 25px;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* @media(max-width: 1020px) {
+    .navbar {
+        position: absolute;
+        left: -25vw;
+    }
+
+    .docs_main {
+        width: 90vw;
+        padding-left: 5vw;
+    }
+} */

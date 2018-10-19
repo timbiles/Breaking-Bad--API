@@ -1,0 +1,132 @@
+[
+    {
+        "id": "doc",
+        "name": "Introduction",
+        "tag": "h2"
+      },
+      {
+        "id": "rate",
+        "name": "Rate Limit",
+        "tag": "p"
+      },
+      {
+        "id": "base",
+        "name": "Base URL",
+        "tag": "p"
+      },
+      {
+        "id": "char",
+        "name": "Characters",
+        "tag": "h2"
+      },
+      {
+        "id": "char_at",
+        "name": "Character attributes",
+        "tag": "p"
+      },
+      {
+        "id": "char_all",
+        "name": "Get all characters",
+        "tag": "p"
+      },
+      {
+        "id": "char_id",
+        "name": "Get a specific character by id",
+        "tag": "p"
+      },
+      {
+        "id": "char_rand",
+        "name": "Get a random character",
+        "tag": "p"
+      },
+      {
+        "id": "char_pag",
+        "name": "Get paginated characters",
+        "tag": "p"
+      },
+      {
+        "id": "char_name",
+        "name": "Get a specific character by name",
+        "tag": "p"
+      },
+      {
+        "id": "ep",
+        "name": "Episodes",
+        "tag": "h2"
+      },
+      {
+        "id": "ep_at",
+        "name": "Episode attributes",
+        "tag": "p"
+      },
+      {
+        "id": "ep_all",
+        "name": "Get all episodes",
+        "tag": "p"
+      },
+      {
+        "id": "ep_id",
+        "name": "Get episode by id",
+        "tag": "p"
+      },
+      {
+        "id": "q",
+        "name": "Quote",
+        "tag": "h2"
+      },
+      {
+        "id": "q_at",
+        "name": "Quote attributes",
+        "tag": "p"
+      },
+      {
+        "id": "q_all",
+        "name": "Get all quotes",
+        "tag": "p"
+      },
+      {
+        "id": "q_id",
+        "name": "Get quote by id",
+        "tag": "p"
+      },
+      {
+        "id": "q_rand",
+        "name": "Get random quotes",
+        "tag": "p"
+      },
+      {
+        "id": "q_auth",
+        "name": "Get quote by name",
+        "tag": "p"
+      },
+      {
+        "id": "death",
+        "name": "Deaths",
+        "tag": "h2"
+      },
+      {
+        "id": "death_at",
+        "name": "Death Attributes",
+        "tag": "p"
+      },
+      {
+        "id": "death_all",
+        "name": "Death information",
+        "tag": "p"
+      },
+      {
+        "id": "death_count",
+        "name": "Death count",
+        "tag": "p"
+      },
+      {
+        "id": "death_name",
+        "name": "Death Count by individual",
+        "tag": "p"
+      },
+      {
+        "id": "death_rand",
+        "name": "Random death information",
+        "tag": "p"
+      }
+]

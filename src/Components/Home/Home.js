@@ -15,7 +15,6 @@ class Home extends Component {
   componentDidMount() {
     this.getAll();
     this.getRandom();
-    this.getDeathCount();
   }
 
   getAll() {
@@ -26,14 +25,7 @@ class Home extends Component {
 
   getRandom() {
     axios.get('/api/character/random?limit=12').then(res => {
-      console.log(res.data)
       this.setState({ characters: res.data });
-    });
-  }
-
-  getDeathCount() {
-    axios.get('/api/death-count?name=Gustavo+Fring').then(res => {
-      console.log('Random Death count >>>', res.data);
     });
   }
 

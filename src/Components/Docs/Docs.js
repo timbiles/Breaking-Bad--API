@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './Docs.css';
+import navigation from './navigation.json'
 
 class Docs extends Component {
   scrollClick = e => {
@@ -8,6 +9,10 @@ class Docs extends Component {
       .getElementById(e)
       .scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
+
+  hiddenNav = () => {
+    
+  }
 
   render() {
     var example = (
@@ -71,49 +76,21 @@ class Docs extends Component {
       </div>
     );
 
+    const map = navigation.map((e,i) => {
+      return (
+        React.createElement(
+          e.tag,
+          {onClick: () => this.scrollClick(e.id), key: i},
+          e.name
+        )
+      )
+    })
+
     return (
       <div className="documentation">
         <nav className="navbar">
-          <h2 onClick={() => this.scrollClick('doc')}>Introduction</h2>
-          <p onClick={() => this.scrollClick('rate')}>Rate Limit</p>
-          <p onClick={() => this.scrollClick('base')}>Base URL</p>
-          <h2 onClick={() => this.scrollClick('char')}>Characters</h2>
-          <p onClick={() => this.scrollClick('char_at')}>
-            Character attributes
-          </p>
-          <p onClick={() => this.scrollClick('char_all')}>Get all characters</p>
-          <p onClick={() => this.scrollClick('char_id')}>
-            Get a specific character by id
-          </p>
-          <p onClick={() => this.scrollClick('char_rand')}>
-            Get a random character
-          </p>
-          <p onClick={() => this.scrollClick('char_pag')}>
-            Get paginated character
-          </p>
-          <p onClick={() => this.scrollClick('char_name')}>
-            Get a specific character by name
-          </p>
-          <h2 onClick={() => this.scrollClick('ep')}>Episodes</h2>
-          <p onClick={() => this.scrollClick('ep_at')}>Episode attributes</p>
-          <p onClick={() => this.scrollClick('ep_all')}>Get all episodes</p>
-          <p onClick={() => this.scrollClick('ep_id')}>Get episode by id</p>
-          <h2 onClick={() => this.scrollClick('q')}>Quotes</h2>
-          <p onClick={() => this.scrollClick('q_at')}>Quote attributes</p>
-          <p onClick={() => this.scrollClick('q_all')}>Get all quotes</p>
-          <p onClick={() => this.scrollClick('q_id')}>Get quote by id</p>
-          <p onClick={() => this.scrollClick('q_rand')}>Get random quotes</p>
-          <p onClick={() => this.scrollClick('q_auth')}>Get quote by name</p>
-          <h2 onClick={() => this.scrollClick('death')}>Deaths</h2>
-          <p onClick={() => this.scrollClick('death_at')}>Death attributes</p>
-          <p onClick={() => this.scrollClick('death_all')}>Death information</p>
-          <p onClick={() => this.scrollClick('death_count')}>Death count</p>
-          <p onClick={() => this.scrollClick('death_name')}>
-            Death count by individual
-          </p>
-          <p onClick={() => this.scrollClick('death_rand')}>
-            Random death information
-          </p>
+        {map}
+        <div className='hamb' onClick={() => this.hiddenNav()}/>
         </nav>
         <div className="docs_main">
           <h2 id="doc">Documentation</h2>
