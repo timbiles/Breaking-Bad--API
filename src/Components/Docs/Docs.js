@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './Docs.css';
-import navigation from './navigation.json'
+import navigation from './navigation.json';
 
 class Docs extends Component {
   scrollClick = e => {
@@ -10,32 +10,33 @@ class Docs extends Component {
       .scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
-  hiddenNav = () => {
-    
-  }
+  hiddenNav = () => {};
 
   render() {
-    var example = (
-      <div className="multi_line ml_1">
-        <p>{'{'}</p>
-        <p>{'"id": 1,'}</p>
-        <p>{'"name": "Walter White",'}</p>
-        <p>{'"birthday": "09-07-1958",'}</p>
-        <p>{'"occupation": ['}</p>
-        <p>{'"High School Chemistry Teacher",'}</p>
-        <p>{'"Meth King Pin",'}</p>
-        <p>],</p>
-        <p>
-          {
-            '"img": "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg",'
-          }
-        </p>
-        <p>{'"status": "Deceased",'}</p>
-        <p>{'"appearance":    [1,2,3,4,5],'}</p>
-        <p>{'"nickname": "Heisenberg"'}</p>
-        <p>{'}'}</p>
-      </div>
-    );
+    const code = '{ id: 1 }';
+    var example = <pre>{code}</pre>;
+    // (
+    //   <pre>{code}</pre>
+    //   <div className="multi_line ml_1">
+    //     <p>{'{'}</p>
+    //     <p>{'"id": 1,'}</p>
+    //     <p>{'"name": "Walter White",'}</p>
+    //     <p>{'"birthday": "09-07-1958",'}</p>
+    //     <p>{'"occupation": ['}</p>
+    //     <p>{'"High School Chemistry Teacher",'}</p>
+    //     <p>{'"Meth King Pin",'}</p>
+    //     <p>],</p>
+    //     <p>
+    //       {
+    //         '"img": "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg",'
+    //       }
+    //     </p>
+    //     <p>{'"status": "Deceased",'}</p>
+    //     <p>{'"appearance":    [1,2,3,4,5],'}</p>
+    //     <p>{'"nickname": "Heisenberg"'}</p>
+    //     <p>{'}'}</p>
+    //   </div>
+    // );
 
     var example2 = (
       <div className="multi_line ml_2">
@@ -76,21 +77,19 @@ class Docs extends Component {
       </div>
     );
 
-    const map = navigation.map((e,i) => {
-      return (
-        React.createElement(
-          e.tag,
-          {onClick: () => this.scrollClick(e.id), key: i},
-          e.name
-        )
-      )
-    })
+    const map = navigation.map((e, i) => {
+      return React.createElement(
+        e.tag,
+        { onClick: () => this.scrollClick(e.id), key: i },
+        e.name
+      );
+    });
 
     return (
       <div className="documentation">
         <nav className="navbar">
-        {map}
-        <div className='hamb' onClick={() => this.hiddenNav()}/>
+          {map}
+          <div className="hamb" onClick={() => this.hiddenNav()} />
         </nav>
         <div className="docs_main">
           <h2 id="doc">Documentation</h2>
@@ -103,9 +102,9 @@ class Docs extends Component {
           <h4 id="rate">Rate Limit</h4>
           <p>
             This API is free, I have no intention of creating authentication.
-            However, to prevent harmful activity, there is a rate limit of 10,000 requests a day. If you
-            happen to reach that limit, you will receive a 429 status code, and
-            regain access after 24 hours.
+            However, to prevent harmful activity, there is a rate limit of
+            10,000 requests a day. If you happen to reach that limit, you will
+            receive a 429 status code, and regain access after 24 hours.
           </p>
           <div>
             <h4 id="base">Base Url</h4>
