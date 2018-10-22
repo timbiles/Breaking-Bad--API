@@ -52,7 +52,6 @@ class Home extends Component {
       // input,
       // searchResults,
     } = this.state;
-    console.log(characters);
     const charMap = characters.map(e => {
       return <Characters key={e.char_id} person={e} />;
     });

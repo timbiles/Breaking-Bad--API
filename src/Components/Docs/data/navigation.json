@@ -91,12 +91,12 @@
       },
       {
         "id": "q_rand",
-        "name": "Get random quotes",
+        "name": "Get random quote",
         "tag": "p"
       },
       {
         "id": "q_auth",
-        "name": "Get quote by name",
+        "name": "Get quote by author",
         "tag": "p"
       },
       {

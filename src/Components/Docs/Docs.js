@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './Docs.css';
-import navigation from './navigation.json';
+import navigation from './data/navigation.json';
 
 class Docs extends Component {
   scrollClick = e => {
@@ -13,30 +13,29 @@ class Docs extends Component {
   hiddenNav = () => {};
 
   render() {
-    const code = '{ id: 1 }';
-    var example = <pre>{code}</pre>;
-    // (
-    //   <pre>{code}</pre>
-    //   <div className="multi_line ml_1">
-    //     <p>{'{'}</p>
-    //     <p>{'"id": 1,'}</p>
-    //     <p>{'"name": "Walter White",'}</p>
-    //     <p>{'"birthday": "09-07-1958",'}</p>
-    //     <p>{'"occupation": ['}</p>
-    //     <p>{'"High School Chemistry Teacher",'}</p>
-    //     <p>{'"Meth King Pin",'}</p>
-    //     <p>],</p>
-    //     <p>
-    //       {
-    //         '"img": "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg",'
-    //       }
-    //     </p>
-    //     <p>{'"status": "Deceased",'}</p>
-    //     <p>{'"appearance":    [1,2,3,4,5],'}</p>
-    //     <p>{'"nickname": "Heisenberg"'}</p>
-    //     <p>{'}'}</p>
-    //   </div>
-    // );
+    // var example = <pre>{data}</pre>;
+
+    var example = (
+      <div className="multi_line ml_1">
+        <p>{'{'}</p>
+        <p>{'"id": 1,'}</p>
+        <p>{'"name": "Walter White",'}</p>
+        <p>{'"birthday": "09-07-1958",'}</p>
+        <p>{'"occupation": ['}</p>
+        <p>{'"High School Chemistry Teacher",'}</p>
+        <p>{'"Meth King Pin",'}</p>
+        <p>],</p>
+        <p>
+          {
+            '"img": "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg",'
+          }
+        </p>
+        <p>{'"status": "Deceased",'}</p>
+        <p>{'"appearance":    [1,2,3,4,5],'}</p>
+        <p>{'"nickname": "Heisenberg"'}</p>
+        <p>{'}'}</p>
+      </div>
+    );
 
     var example2 = (
       <div className="multi_line ml_2">
@@ -77,7 +76,7 @@ class Docs extends Component {
       </div>
     );
 
-    const map = navigation.map((e, i) => {
+    const navMap = navigation.map((e, i) => {
       return React.createElement(
         e.tag,
         { onClick: () => this.scrollClick(e.id), key: i },
@@ -88,11 +87,11 @@ class Docs extends Component {
     return (
       <div className="documentation">
         <nav className="navbar">
-          {map}
+          {navMap}
           <div className="hamb" onClick={() => this.hiddenNav()} />
         </nav>
         <div className="docs_main">
-          <h2 id="doc">Documentation</h2>
+          <h3 id="doc">Documentation</h3>
           <p>
             Welcome to the Breaking Bad API! This documentation should supply
             with you all the information you need to start making your HTTP
@@ -108,7 +107,7 @@ class Docs extends Component {
           </p>
           <div>
             <h4 id="base">Base Url</h4>
-            <p className="example">http:breakingbadapi.com/api/</p>
+            <p className="example">http://www.breakingbadapi.com/api/</p>
           </div>
           <div>
             <h3 id="char">Character Endpoints</h3>
@@ -334,40 +333,40 @@ class Docs extends Component {
                 <p>integer</p>
                 <p>The number of deaths that occured for this instance</p>
               </div>
-              <h4 id="death_all">Get all death information</h4>
-              <p>
-                Endpoint to retrieve information about every death in Breaking
-                Bad.
-              </p>
-              <p className="example">/api/deaths</p>
-              <h4 id="death_count">Get death count</h4>
-              <p>
-                If you're curious about the total number of deaths in the
-                series, hit this endpoint!{' '}
-              </p>
-              <p className="example">/api/death-count</p>
-              <h4 id="death_name">Get death count by name</h4>
-              <p>
-                Interested to see the number of deaths an individual was
-                responsible for? Enter the name as a query parameter like the
-                example below to find out.
-              </p>
-              <p className="example">/api/death-count?name=Gustavo+Fring</p>
-              <div className="example code">{example4}</div>
-              <p className="offset">
-                Be aware, not just any name will work. They have to have caused,
-                or been afiliated with the death in some capacity. Don't forget
-                about the 'plus sign' between the first and last name!
-              </p>
-              <h4 id="death_rand">
-                Get random death information about an individual
-              </h4>
-              <p>
-                Hit this endpoint to find out some interesting information about
-                a death at random!
-              </p>
-              <p className="example">/api/random-death</p>
             </div>
+            <h4 id="death_all">Get all death information</h4>
+            <p>
+              Endpoint to retrieve information about every death in Breaking
+              Bad.
+            </p>
+            <p className="example">/api/deaths</p>
+            <h4 id="death_count">Get death count</h4>
+            <p>
+              If you're curious about the total number of deaths in the series,
+              hit this endpoint!{' '}
+            </p>
+            <p className="example">/api/death-count</p>
+            <h4 id="death_name">Get death count by name</h4>
+            <p>
+              Interested to see the number of deaths an individual was
+              responsible for? Enter the name as a query parameter like the
+              example below to find out.
+            </p>
+            <p className="example">/api/death-count?name=Gustavo+Fring</p>
+            <div className="example code">{example4}</div>
+            <p className="offset">
+              Be aware, not just any name will work. They have to have caused,
+              or been afiliated with the death in some capacity. Don't forget
+              about the 'plus sign' between the first and last name!
+            </p>
+            <h4 id="death_rand">
+              Get random death information about an individual
+            </h4>
+            <p>
+              Hit this endpoint to find out some interesting information about a
+              death at random!
+            </p>
+            <p className="example">/api/random-death</p>
           </div>
         </div>
       </div>

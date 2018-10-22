@@ -5,7 +5,6 @@
 }
 
 .navbar {
-    /* position: sticky; */
     top: 0;
     display: flex;
     flex-direction: column;
@@ -58,25 +57,29 @@
 
 .docs_main h4,
 .docs_main h3 {
-    color: #a0a0a0;
     font-weight: bold;
     letter-spacing: 2px;
     text-align: left;
+    padding-top: 10px;    
+}
+
+.docs_main h4 {
+    color: #a0a0a0;   
+    font-size: 1.2em;     
 }
 
 .docs_main h3 {
     font-size: 1.5em;
     border-bottom: 1px solid grey;
     padding-bottom: 1%;
-    /* color: #797979; */
-}
-
-.docs_main h4 {
-    font-size: 1.2em;
 }
 
 .docs_main p {
     text-align: left;
+}
+
+#doc {
+    width: 100%;
 }
 
 .example{
