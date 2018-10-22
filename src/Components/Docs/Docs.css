@@ -163,6 +163,10 @@ margin-left: 0;
     cursor: pointer;
 }
 
+#doc_mark {
+    background: inherit;
+}
+
 /* @media(max-width: 1020px) {
     .navbar {
         position: absolute;

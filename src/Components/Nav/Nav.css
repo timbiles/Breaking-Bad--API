@@ -7,7 +7,6 @@
 }
 
 .header {
-    height: 15vh;
     width: 100%;
 }
 
@@ -22,7 +21,7 @@
 }
 
 .head_link:hover {
-    transform: scale(1.03)
+    transform: scale(1.02)
 }
 
 mark {

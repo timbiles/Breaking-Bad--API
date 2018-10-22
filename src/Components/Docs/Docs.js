@@ -91,7 +91,7 @@ class Docs extends Component {
           <div className="hamb" onClick={() => this.hiddenNav()} />
         </nav>
         <div className="docs_main">
-          <h3 id="doc">Documentation</h3>
+          <h3 id="doc">Document<mark id='doc_mark'>At</mark>ion</h3>
           <p>
             Welcome to the Breaking Bad API! This documentation should supply
             with you all the information you need to start making your HTTP
@@ -235,10 +235,10 @@ class Docs extends Component {
             </div>
             <h4 id="ep_all">Get all episodes</h4>
             <p>Endpoint to retrieve all Episodes</p>
-            <p className="example">/api/episode</p>
+            <p className="example">/api/episodes</p>
             <h4 id="ep_id">Get episode by id</h4>
             <p>Example Episode Endpoint by id</p>
-            <p className="example">/api/episode/60</p>
+            <p className="example">/api/episodes/60</p>
             <div className="example code">{example2}</div>
           </div>
           <div>
@@ -296,7 +296,7 @@ class Docs extends Component {
               <div>
                 <p>id</p>
                 <p>integer</p>
-                <p>Unique Id per quote</p>
+                <p>Unique Id per death</p>
               </div>
               <div>
                 <p>death</p>
@@ -311,7 +311,7 @@ class Docs extends Component {
               <div>
                 <p>responsible</p>
                 <p>string</p>
-                <p>The person(s) responsible or affliated with the death</p>
+                <p>The person(s) responsible or affiliated with the death</p>
               </div>
               <div>
                 <p>last words</p>
@@ -356,7 +356,7 @@ class Docs extends Component {
             <div className="example code">{example4}</div>
             <p className="offset">
               Be aware, not just any name will work. They have to have caused,
-              or been afiliated with the death in some capacity. Don't forget
+              or been affiliated with the death in some capacity. Don't forget
               about the 'plus sign' between the first and last name!
             </p>
             <h4 id="death_rand">

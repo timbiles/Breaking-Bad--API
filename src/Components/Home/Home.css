@@ -71,8 +71,8 @@
 }
 
 .death_map button:hover {
-  background: #ededed;
-  transform: scale(1.05);
+  background: #f5f5f5;
+  transform: scale(1.03);
 }
 
 .death_map button:focus {
