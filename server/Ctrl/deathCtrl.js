@@ -14,6 +14,7 @@ const getDeaths = (req, res) => {
       console.log('err', err);
       res.status(500).send(err);
     });
+  db.count.counter(4);
 };
 
 const getDeathTotal = (req, res) => {
@@ -32,6 +33,7 @@ const getDeathTotal = (req, res) => {
       console.log(err);
       res.status(500).send(err);
     });
+  db.count.counter(4);
 };
 
 const getRandomDeath = (req, res) => {
@@ -40,8 +42,8 @@ const getRandomDeath = (req, res) => {
   db.death
     .get_random_death()
     .then(response => {
-    const app = response[0].appearance.split(',').map(e=> +e)
-    const occ = response[0].occupation.split(',')    
+      const app = response[0].appearance.split(',').map(e => +e);
+      const occ = response[0].occupation.split(',');
 
       newResponse = {
         death_id: response[0].death_id,
@@ -62,6 +64,7 @@ const getRandomDeath = (req, res) => {
       console.log(err);
       res.status(500).send(err);
     });
+  db.count.counter(4);
 };
 
 module.exports = {

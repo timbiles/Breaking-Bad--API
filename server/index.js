@@ -5,7 +5,7 @@ const massive = require('massive');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
 
-const port = process.env.SERVER_PORT || 3001;
+const port = process.env.SERVER_PORT || 3002;
 
 const {
   getPeople,
