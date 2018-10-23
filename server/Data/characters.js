@@ -79,21 +79,13 @@ const characters = [
 ];
 
 const all = {
-  characters: 'http://localhost:3001/api/characters',
-  episodes: 'http://localhost:3001/api/episodes',
-  quotes: 'http://localhost:3001/api/quotes'
+  characters: 'https://breakingbadapi.com/api/characters',
+  episodes: 'https://breakingbadapi.com/api/episodes',
+  quotes: 'https://breakingbadapi.com/api/quotes',
+  deaths: 'https://breakingbadapi.com/api/deaths'
 }
 
 module.exports = {
   characters,
   all
 };
-
-// {
-//     id: ,
-//     name:,
-//     birthday: ,
-//     occupation: ,
-//     img:
-
-// },
