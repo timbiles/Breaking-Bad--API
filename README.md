@@ -8,7 +8,7 @@ requests. Give our documentation a read before you get started on
 your project, and don't forget about the ice trays!
 
 ## Base URL
-http://www.breakingbadapi.com/api/
+https://www.breakingbadapi.com/api/
 
 ## Rate Limit
 This API is free, I have no intention of creating authentication. However, to prevent harmful activity, there is a rate limit of 10,000 requests a day. If you happen to reach that limit, you will receive a 429 status code, and regain access after 24 hours.
