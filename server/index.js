@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const massive = require('massive');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
+const cors = require('cors');
 
 const port = process.env.SERVER_PORT || 3002;
 
@@ -28,6 +29,7 @@ const {
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(express.static(`${__dirname}/../build`));
 
