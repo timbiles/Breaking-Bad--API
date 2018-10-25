@@ -1,6 +1,7 @@
 const getEpisodes = (req, res) => {
   const db = req.app.get('db');
 
+  
   db.episodes
     .get_episodes()
     .then(resp => {
