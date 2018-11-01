@@ -1,4 +1,6 @@
-.hamburger_icon {
+import styled from 'styled-components';
+
+export const BurgerWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -9,32 +11,19 @@
     right: 2%;
     z-index: 1;
     cursor: pointer;
-  }
-  
-  .burger {
+`
+
+export const Burger = styled.div`
     height: 0.5px;
     border: 1px solid #fff;
     border-radius: 25%;
     background-color: #fff;
     margin: 2px 0;
-  }
-  
-  .burger1 {
-    width: 30px;
-  }
-  
-  .burger2 {
-    width: 40px;
-  }
-  
-  .burger3 {
-    width: 22px;
-  }
+    width: ${props => props.width};
 
-  .hamburger_icon:hover .burger {
-      transform: scale(1.05)
-  }
-
-  .hamburger_icon:active .burger {
-    transform: scale(.97)
-}
+    ${BurgerWrapper}:hover & {
+      transform: scale(1.05)        
+    }${BurgerWrapper}:active & {
+      transform: scale(.97)        
+    }
+`
