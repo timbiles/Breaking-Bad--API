@@ -1,23 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {StyledLink, MainWrapper, Wrapper} from '../../styles/nav';
 
 import './Nav.css';
 
+const nav = ['Home', 'About', 'Documentation'];
+
+const map = nav.map((e, i) => {
+  return (
+    <StyledLink key={i} to={e === 'Home' ? '/' : `/${e}`}>
+      {e}
+    </StyledLink>
+  );
+});
+
 const Nav = () => {
   return (
-    <div className="header">
-      <div className="link_holder">
-        <Link className="head_link" to="/">
-          Home
-        </Link>
-        <Link className="head_link" to="/about">
-          About
-        </Link>
-        <Link className="head_link" to="/documentation">
-          Documentation
-        </Link>
-      </div>
-    </div>
+    <MainWrapper>
+      <Wrapper>{map}</Wrapper>
+    </MainWrapper>
   );
 };
 

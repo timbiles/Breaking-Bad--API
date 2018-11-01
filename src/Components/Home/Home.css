@@ -1,20 +1,3 @@
-.home_title {
-  background: #fff;
-  display: inline-block;
-  margin-bottom: 30px;
-}
-
-.home_title h1 {
-  margin-bottom: 0;
-  font-size: 3.5em;
-}
-
-.home_title p {
-  margin-top: 0;
-  letter-spacing: 2px;
-  text-align: right;
-}
-
 .character_map,
 .quote_map {
   background: #3b3b3b;
@@ -35,10 +18,6 @@
   width: 60%;
   display: flex;
   justify-content: space-evenly;
-}
-
-.home input:focus {
-  outline: none;
 }
 
 .test_api > div {
@@ -120,14 +99,6 @@
 @media (max-width: 680px) {
   .death_map div {
     width: 95%;
-  }
-
-  .home_title h1 {
-    font-size: 2em;
-  }
-
-  .home_title p {
-    font-size: 0.9em;
   }
 
   .death_info {

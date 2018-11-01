@@ -13,67 +13,61 @@ class Docs extends Component {
   hiddenNav = () => {};
 
   render() {
-    // var example = <pre>{data}</pre>;
-
     var example = (
-      <div className="multi_line ml_1">
-        <p>{'{'}</p>
-        <p>{'"id": 1,'}</p>
-        <p>{'"name": "Walter White",'}</p>
-        <p>{'"birthday": "09-07-1958",'}</p>
-        <p>{'"occupation": ['}</p>
-        <p>{'"High School Chemistry Teacher",'}</p>
-        <p>{'"Meth King Pin",'}</p>
-        <p>],</p>
-        <p>
-          {
-            '"img": "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg",'
-          }
-        </p>
-        <p>{'"status": "Deceased",'}</p>
-        <p>{'"appearance":    [1,2,3,4,5],'}</p>
-        <p>{'"nickname": "Heisenberg"'}</p>
-        <p>{'}'}</p>
-      </div>
+      <pre>
+        {`{
+  id: 1,
+  name: "Walter White",
+  birthday: "09-07-1958",
+  occupation: [
+    "High School Chemistry Teacher",
+    "Meth King Pin"
+  ],
+  img: "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg",
+  status: "Deceased",
+  appearance: [1, 2, 3, 4, 5],
+  nickname: "Heisenberg"
+}`}
+      </pre>
     );
 
     var example2 = (
-      <div className="multi_line ml_2">
-        <p>{'{'}</p>
-        <p>{'"id": 60,'}</p>
-        <p>{'"title": "Ozymandias",'}</p>
-        <p>{'"Season": "5",'}</p>
-        <p>{'"episode": "14"'}</p>
-        <p>{'"air_date": "09-15-2013",'}</p>
-        <p>{'"characters": "null",'}</p>
-        <p>{'}'}</p>
-      </div>
+      <pre>{`{
+  id: 60,
+  title: "Ozymandias",
+  season: 5,
+  episode: 14,
+  air_date: "09-15-2013",
+  characters: [
+    "Walter White",
+    "Jesse Pinkman",
+    "Skyler White",
+    Walter White Jr.",
+    ...
+  ]
+}`}</pre>
     );
 
     var example3 = (
-      <div className="multi_line ml_3">
-        <p>[</p>
-        <p>{'{'}</p>
-        <p>{'"id": 9,'}</p>
-        <p>{'"quote": "Funyuns are awesome.",'}</p>
-        <p>{'"author": "Jesse Pinkman"'}</p>
-        <p>{'},'}</p>
-        <p>{'{'}</p>
-        <p>{'"id": 10,'}</p>
-        <p>{'"quote": "Ooooooh, Wire.",'}</p>
-        <p>{'"author": "Jesse Pinkman"'}</p>
-        <p>{'},'}</p>
-        <p>. . .</p>
-      </div>
+      <pre>{`[
+  {
+    id: 9,
+    quote: "Funyuns are awesome.",
+    author: "Jesse Pinkman"
+  },
+  {
+    id: 10,
+    quote: "Ooooooh, Wire.",
+    author: "Jesse Pinkman"
+  },
+  . . .`}</pre>
     );
 
     var example4 = (
-      <div className="multi_line ml_4">
-        <p>{'{'}</p>
-        <p>{'"name": "Gustavo Fring",'}</p>
-        <p>{'"deathCount": 22,'}</p>
-        <p>{'}'}</p>
-      </div>
+      <pre>{`{
+  name: "Gustavo Fring",
+  deathCount: 22
+}`}</pre>
     );
 
     const navMap = navigation.map((e, i) => {
@@ -91,7 +85,11 @@ class Docs extends Component {
           <div className="hamb" onClick={() => this.hiddenNav()} />
         </nav>
         <div className="docs_main">
-          <h3 id="doc">Document<mark id='doc_mark'>At</mark>ion</h3>
+          <h3 id="doc">
+            Document
+            <mark id="doc_mark">At</mark>
+            ion
+          </h3>
           <p>
             Welcome to the Breaking Bad API! This documentation should supply
             with you all the information you need to start making your HTTP

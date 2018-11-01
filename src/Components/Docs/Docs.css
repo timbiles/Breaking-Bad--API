@@ -4,6 +4,12 @@
     position: relative;
 }
 
+pre {
+    text-align: left;
+    font-family: inherit;
+    overflow: hidden;
+}
+
 .navbar {
     top: 0;
     display: flex;
@@ -34,7 +40,6 @@
 .navbar h2:hover,
 .navbar p:hover {
     color: #487F5A;
-    
 }
 
 
@@ -47,8 +52,6 @@
     align-items: flex-start;
     color: #ececec;
     padding: 0 3% 2% 3%;
-    /* margin-left: 25vw; */
-    /* margin-top: -70%; */
 }
 
 .docs_main div {
@@ -91,36 +94,6 @@
 
 .code {
     width: auto !important;
-}
-
-.multi_line p {
-    font-size: .9em;
-    margin: 0;
-    margin-left: 20px;
-}
-
-
-.multi_line p:nth-of-type(1),
-.ml_1 p:nth-of-type(13),
-.ml_2 p:nth-of-type(8),
-.ml_4 p:nth-of-type(4)
-{
-margin-left: 0;
-}
-
-.ml_1 p:nth-of-type(6),
-.ml_1 p:nth-of-type(7) {
-    margin-left: 40px;
-}
-
-.ml_3 p:nth-of-type(3),
-.ml_3 p:nth-of-type(4),
-.ml_3 p:nth-of-type(5),
-.ml_3 p:nth-of-type(8),
-.ml_3 p:nth-of-type(9),
-.ml_3 p:nth-of-type(10)
- {
-    margin-left: 40px;
 }
 
 .offset {
@@ -166,15 +139,3 @@ margin-left: 0;
 #doc_mark {
     background: inherit;
 }
-
-/* @media(max-width: 1020px) {
-    .navbar {
-        position: absolute;
-        left: -25vw;
-    }
-
-    .docs_main {
-        width: 90vw;
-        padding-left: 5vw;
-    }
-} */

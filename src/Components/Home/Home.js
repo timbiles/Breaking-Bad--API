@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
+
+import { Container, Text, Highlight } from '../../styles/homeStyle';
 
 import Characters from '../Characters/Characters';
 import './Home.css';
@@ -46,23 +48,10 @@ class Home extends Component {
   };
 
   render() {
-    const {
-      characters,
-      rd
-      // input,
-      // searchResults,
-    } = this.state;
+    const { characters, rd } = this.state;
     const charMap = characters.map(e => {
       return <Characters key={e.char_id} person={e} />;
     });
-
-    // const searchMap = searchResults.map(e => {
-    //   return (
-    //     <div className="search_res" key={e.id}>
-    //       <p>{e.name || e.title || e.quote}</p>
-    //     </div>
-    //   );
-    // });
 
     const death = (
       <div className="death_info" key={rd.death_id}>
@@ -82,25 +71,16 @@ class Home extends Component {
     );
 
     return (
-      <div className="home">
-        <div className="home_title">
-          <h1>
-            The Breaking Bad A<mark>P</mark>I
-          </h1>
-          <p>...Tread Lightly</p>
-        </div>
+      <Fragment>
+        <Container>
+          <Text primary>
+            The Breaking Bad A<Highlight>P</Highlight>I            
+          </Text>
+          <Text secondary>...Tread Lightly</Text>
+        </Container>
 
         <div className="character_map">{charMap}</div>
         <div className="test_api">
-          {/* Trying out some entering in endpoints ... */}
-          {/* <div>
-            <p>/api/</p>
-            <input type="text" placeholder='characters/1' onChange={e=> this.setState({input: e.target.value})}/>
-            <button onClick={()=> this.findTest()}>Try it!</button>
-          </div>
-          <div className='test_box'>
-            {searchMap}
-          </div> */}
           <div className="death_map">
             <div>
               <h3>Click here to find out about a random death!</h3>
@@ -109,7 +89,7 @@ class Home extends Component {
             {rd.death && death}
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

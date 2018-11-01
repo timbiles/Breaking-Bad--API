@@ -1,44 +1,8 @@
-.head_link {
-    text-decoration: none;
-    color: #000;
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    letter-spacing: 1px;
-}
-
-.header {
-    width: 100%;
-}
-
-.link_holder {
-    display: flex;
-    align-items: center;
-    width: 50vw;
-    justify-content: space-evenly;
-    margin: 3% 0;
-    padding: 1% 0;
-    height: 40px;
-}
-
-.head_link:hover {
-    transform: scale(1.02)
-}
-
 mark {
     color: #487F5A;
     background: #fff;
     text-shadow: 1px 1px #000;
 }
 
-@media (max-width: 680px) {
-    .link_holder {
-      width: 70vw;
-    }
-}
 
-@media (max-width: 450px) {
-    .head_link {
-        font-size: .9em;
-    }
-}
 

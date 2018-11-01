@@ -60,10 +60,3 @@ class Characters extends Component {
 }
 
 export default Characters;
-
-// random
-// const occupation = person.occupation.split(',').map((e,i)=> {
-//   return <div key={i}>
-//     {e}
-//   </div>
-// })
