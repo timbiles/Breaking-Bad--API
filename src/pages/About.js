@@ -1,11 +1,12 @@
 import React from 'react';
 
-import './About.css';
+import {Highlight} from '../styles/homeStyle'
+import '../Components/About/About.css';
 
 const About = () => {
     return (
         <div className='about'>
-            <h2>Say my <mark>N</mark>ame</h2>
+            <h2>Say my <Highlight>N</Highlight>ame</h2>
             <div className='about_cont'>
 
                 <h3>Who</h3>

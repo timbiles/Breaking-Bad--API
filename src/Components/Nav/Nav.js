@@ -1,8 +1,6 @@
 import React from 'react';
 import {StyledLink, MainWrapper, Wrapper} from '../../styles/nav';
 
-import './Nav.css';
-
 const nav = ['Home', 'About', 'Documentation'];
 
 const map = nav.map((e, i) => {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import {Character} from '../../styles/characters';
 import Burger from '../Hamburger/Hamburger';
 import './Characters.css';
 
@@ -20,11 +21,11 @@ class Characters extends Component {
     const app = person.appearance.join(',');
 
     return (
-      <div className="character">
+      <Character>
         <Burger handleClick={e => this.handleClick()} />
-        <img src={person.img} alt={person.name} />
+        <img className='char_img'src={person.img} alt={person.name} />
         <div className={toggle ? 'char_btm btm2' : 'char_btm'}>
-          <h4>{person.name}</h4>
+          <h4 className='char_name'>{person.name}</h4>
           <div className={toggle ? 'underline' : undefined}>
             <img
               className="bee_logo"
@@ -54,7 +55,7 @@ class Characters extends Component {
             </div>
           )}
         </div>
-      </div>
+      </Character>
     );
   }
 }

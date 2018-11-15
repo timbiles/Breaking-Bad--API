@@ -1,11 +1,3 @@
-.character{
-    margin: 3%;
-    width: 225px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
 .char_btm {
     background: #fff;
     margin-left: -20px;
@@ -40,7 +32,7 @@
     font-size: .9em;
 }
 
-.character img {
+.char_img {
     height: 300px;
     width: 100%;
     object-fit: fill;
@@ -64,7 +56,7 @@
 }
 
 
-.character h4 {
+.char_name {
     letter-spacing: 2px;
 }
 

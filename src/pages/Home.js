@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
-import { Container, Text, Highlight } from '../../styles/homeStyle';
+import { Container, Text, Highlight } from '../styles/homeStyle';
 
-import Characters from '../Characters/Characters';
-import './Home.css';
+import Characters from '../Components/Characters/Characters';
+import '../Components/Home/Home.css';
 
 class Home extends Component {
   state = {
@@ -71,7 +71,7 @@ class Home extends Component {
     );
 
     return (
-      <Fragment>
+      <>
         <Container>
           <Text primary>
             The Breaking Bad A<Highlight>P</Highlight>I            
@@ -89,7 +89,7 @@ class Home extends Component {
             {rd.death && death}
           </div>
         </div>
-      </Fragment>
+      </>
     );
   }
 }

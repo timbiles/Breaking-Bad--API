@@ -7,8 +7,13 @@ export const StyledLink = styled(Link)`
   margin-bottom: 10px;
   font-size: 1.2em;
   letter-spacing: 1px;
+  padding-top: 10px;  
+  margin-top: 1.5px;
   &:hover {
-    transform: scale(1.02);
+    /* transform: scale(1.02); */
+    margin-top: 0;
+    border-top: 1.5px inset rgba(121, 180, 115, .4);
+
   }
   @media (max-width: 450px) {
     font-size: 0.9em;
@@ -17,6 +22,7 @@ export const StyledLink = styled(Link)`
 
 export const MainWrapper = styled.div`
   width: 100%;
+  /* border-bottom: 1px solid #f4f4f4; */
 `;
 
 export const Wrapper = styled.div`
@@ -24,7 +30,7 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 50vw;
   justify-content: space-evenly;
-  margin: 3% 0;
+  margin: 2% 0;
   padding: 1% 0;
   height: 40px;
 

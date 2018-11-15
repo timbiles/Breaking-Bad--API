@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import './Docs.css';
-import navigation from './data/navigation.json';
+import {Highlight} from '../styles/homeStyle'
+import '../Components/Docs/Docs.css';
+import navigation from '../data/navigation.json';
 
 class Docs extends Component {
   scrollClick = e => {
@@ -87,7 +88,7 @@ class Docs extends Component {
         <div className="docs_main">
           <h3 id="doc">
             Document
-            <mark id="doc_mark">At</mark>
+            <Highlight id="doc_mark">At</Highlight>
             ion
           </h3>
           <p>
