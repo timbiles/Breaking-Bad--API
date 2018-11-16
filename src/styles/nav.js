@@ -10,11 +10,14 @@ export const StyledLink = styled(Link)`
   padding-top: 10px;  
   margin-top: 1.5px;
   &:hover {
-    /* transform: scale(1.02); */
     margin-top: 0;
     border-top: 1.5px inset rgba(121, 180, 115, .4);
-
   }
+
+   &:active {
+    color: #487f5a;
+  }
+
   @media (max-width: 450px) {
     font-size: 0.9em;
   }
@@ -22,7 +25,6 @@ export const StyledLink = styled(Link)`
 
 export const MainWrapper = styled.div`
   width: 100%;
-  /* border-bottom: 1px solid #f4f4f4; */
 `;
 
 export const Wrapper = styled.div`
