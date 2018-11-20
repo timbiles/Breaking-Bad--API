@@ -2,9 +2,9 @@
 
 ## Documentation
 
-Welcome to the Breaking Bad API! This documentation should supply
+Welcome to the Breaking Bad API! This documentation will supply
 with you all the information you need to start making your HTTP
-requests. Give our documentation a read before you get started on
+requests on this iconic TV-series. Give our documentation a read before you get started on
 your project, and don't forget about the ice trays!
 
 ## Base URL
