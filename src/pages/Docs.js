@@ -11,8 +11,6 @@ class Docs extends Component {
       .scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
-  hiddenNav = () => {};
-
   render() {
     var example = (
       <pre>
