@@ -30,14 +30,23 @@ const getQuoteById = (req, res) => {
 const getRandomQuote = (req, res) => {
   const db = req.app.get('db');
 
-  db.quotes
-    .get_random_quote()
-    .then(resp => {
-      res.status(200).send(resp);
-    })
-    .catch(err => {
-      res.status(500).send(err);
-    });
+  req.query.author
+    ? db.quotes
+        .random_by_auth([req.query.author])
+        .then(resp => {
+          res.status(200).send(resp);
+        })
+        .catch(err => {
+          res.status(500).send(err);
+        })
+    : db.quotes
+        .get_random_quote()
+        .then(resp => {
+          res.status(200).send(resp);
+        })
+        .catch(err => {
+          res.status(500).send(err);
+        });
   db.count.counter(3);
 };
 
