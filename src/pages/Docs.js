@@ -81,7 +81,7 @@ class Docs extends Component {
       <div className="documentation">
         <nav className="navbar">
           {navMap}
-          <div className="hamb" onClick={() => this.hiddenNav()} />
+          {/* <div className="hamb" onClick={() => this.hiddenNav()} /> */}
         </nav>
         <div className="docs_main">
           <h3 id="doc">
@@ -282,7 +282,7 @@ class Docs extends Component {
             <div className="example code">{example3}</div>
             <h4 id="q_rand_auth">Get a random quote by author</h4>
             <p>Endpoint to retrieve a random quote by a specific author</p>
-            <p className="example">/api/quote/random?author=Skylar+White</p>            
+            <p className="example">/api/quote/random?author=Skyler+White</p>            
           </div>
           <div>
             <h3 id="death">Death Endpoints</h3>

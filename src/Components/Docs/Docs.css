@@ -8,7 +8,6 @@ pre {
     text-align: left;
     font-family: inherit;
     overflow: hidden;
-    /* color: #f4f4f4; */
 }
 
 .navbar {
@@ -126,17 +125,32 @@ pre {
     border-bottom: 1px solid #ececec;
 }
 
-.hamb {
-    display:none;
-    position: absolute;
-    top: 2%;
-    right: -5vw;
-    height: 25px;
-    width: 25px;
-    background: #fff;
-    cursor: pointer;
-}
-
 #doc_mark {
     background: inherit;
 }
+
+.hiddenMenu {
+    display: none;
+    position: fixed;
+    color: #fff;
+    cursor: pointer;
+}
+/* 
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+
+    .hiddenMenu {
+        display: block;
+    }
+
+    .docs_main {
+        width: 100%;
+    }
+
+    .schema > div:nth-of-type(1) {
+        width: calc(100% - 20px)
+    }
+
+} */
