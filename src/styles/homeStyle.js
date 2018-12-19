@@ -14,16 +14,17 @@ export const Text = styled.p`
     props.primary &&
     css`
       font-weight: 700;
-    `} ${props =>
+    `}
+  ${props =>
     props.secondary &&
     css`
       letter-spacing: 2px;
       text-align: right;
     `};
 
-    @media (max-width: 680px) {
-    font-size: ${props => props.primary ? '2em' : '.9em'};
-      }
+  @media (max-width: 680px) {
+    font-size: ${props => (props.primary ? '2em' : '.9em')};
+  }
 `;
 
 export const Highlight = styled.mark`

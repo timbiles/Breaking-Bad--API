@@ -45,6 +45,7 @@ pre {
 
 .docs_main {
     overflow: scroll;
+    overflow-x: hidden;
     width: 69vw;
     height: 90vh;
     display: flex;

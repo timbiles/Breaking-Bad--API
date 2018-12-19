@@ -81,7 +81,6 @@ class Docs extends Component {
       <div className="documentation">
         <nav className="navbar">
           {navMap}
-          {/* <div className="hamb" onClick={() => this.hiddenNav()} /> */}
         </nav>
         <div className="docs_main">
           <h3 id="doc">
