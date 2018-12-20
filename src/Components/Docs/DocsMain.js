@@ -20,35 +20,45 @@ class DocsMain extends Component {
   }
 
   changeClass = () => {
-    this.setState({ highlight: this.highlight(navigation) });
+    // this.setState({ highlight: this.highlight(navigation) });
+    this.highlight(navigation)
   };
 
   highlight = nav => {
     const header = document.querySelector('.header');
     const top = header.getBoundingClientRect().height || 0;
 
-    // console.log(nav);
     for (let i = 0; i < nav.length; i++) {
-      //   const loop = nav[nav.length - i - 1];
-      const find = document.getElementById(nav[i].id);
-
-      if (find) {
+        const find = document.getElementById(nav[i].id);
         const individualTop = find.getBoundingClientRect().top;
+        const individualBottom = find.getBoundingClientRect().bottom
+        const navId = document.getElementById(`${nav[i].id}b`);
+        let current; 
 
-        if (individualTop - top * 2 < 0) {
-          const navId = document.getElementById(`${nav[i].id}b`);
+        if(individualTop - top <=10 && individualBottom - top >= 0) {
           navId.className = 'active';
-          console.log('hit', navId);
-        }
-
-        // if (individualTop - top <= 200 && individualTop - top >= 0) {
-        //   const navId = document.getElementById(`${nav[i].id}b`);
-        //   navId.className = 'active';
-        //   return loop
+          current = navId.id
+        //   while (current === navId.id){
+        //     navId.className = 'active'
+        //     console.log(current, navId.id)
         // }
-      }
+        } else {
+                navId.className = ''            
+            }
+        // console.log(current, navId.id)
 
-      return;
+        // while (current === navId.id){
+        //     navId.className = 'active'
+        // }
+
+        // if(current === navId.id) {
+        //     document.getElementById(current).className = 'active'
+        //     // navId.className = 'active'
+        //     // navId.className = 'active'
+        //     console.log(current)
+        // } else {
+        //     navId.className = ''            
+        // }
     }
   };
 

@@ -42,6 +42,10 @@ pre {
     color: #487F5A;
 }
 
+.active {
+    background: green;
+}
+
 
 .docs_main {
     overflow: scroll;
