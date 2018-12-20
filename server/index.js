@@ -1,12 +1,12 @@
 require('dotenv').config();
-const express = require('express');
-const bodyParser = require('body-parser');
-const massive = require('massive');
-const path = require('path');
-const rateLimit = require('express-rate-limit');
-const cors = require('cors');
-const routes = require('./routes')
-const port = process.env.SERVER_PORT || 3002;
+const express = require('express'),
+  bodyParser = require('body-parser'),
+  massive = require('massive'),
+  path = require('path'),
+  rateLimit = require('express-rate-limit'),
+  cors = require('cors'),
+  routes = require('./routes'),
+  port = process.env.SERVER_PORT || 3002;
 
 const app = express();
 app.use(bodyParser.json());
@@ -29,11 +29,8 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
-app.use('*', (req,res) => {
-  req.app.get('db').count.counter(1)
-})
 
-routes(app)
+routes(app);
 
 //run build
 app.get('*', (req, res) => {

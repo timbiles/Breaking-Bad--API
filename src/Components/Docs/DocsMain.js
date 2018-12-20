@@ -5,6 +5,7 @@ import { example, example2, example3, example4 } from '../Code/code';
 import navigation from '../../data/navigation.json';
 
 class DocsMain extends Component {
+  
   componentDidMount() {
     if (navigation.length > 0) {
       this.changeClass();
@@ -23,16 +24,16 @@ class DocsMain extends Component {
   };
 
   highlight = nav => {
-    const header = document.querySelector('.header');
-    const top = header.getBoundingClientRect().height || 0;
+    const header = document.querySelector('.header'),
+      top = header.getBoundingClientRect().height;
 
     for (let i = 0; i < nav.length; i++) {
-      const find = document.getElementById(nav[i].id);
-      const individualTop = find.getBoundingClientRect().top;
-      const individualBottom = find.getBoundingClientRect().bottom;
-      const navId = document.getElementById(`${nav[i].id}b`);
+      const find = document.getElementById(nav[i].id),
+        idTop = find.getBoundingClientRect().top,
+        idBottom = find.getBoundingClientRect().bottom,
+        navId = document.getElementById(`${nav[i].id}b`);
 
-      if (individualTop - top <= 5 && individualBottom - top >= 0) {
+      if (idTop - top <= 10 && idBottom - top >= 0) {
         navId.className = 'active';
       } else {
         navId.className = '';
@@ -361,14 +362,12 @@ class DocsMain extends Component {
             </p>
           </div>
           <div id="death_rand">
-          <h4>
-            Get random death information about an individual
-          </h4>
-          <p>
-            Hit this endpoint to find out some interesting information about a
-            death at random!
-          </p>
-          <p className="example">/api/random-death</p>
+            <h4>Get random death information about an individual</h4>
+            <p>
+              Hit this endpoint to find out some interesting information about a
+              death at random!
+            </p>
+            <p className="example">/api/random-death</p>
           </div>
         </div>
       </div>

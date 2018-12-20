@@ -20,6 +20,21 @@ const {
 } = require('./Ctrl/deathCtrl');
 
 module.exports = app => {
+  //counter
+  app.use('/', (req, res, next) => {
+    const db = req.app.get('db').count;
+    req.originalUrl.includes('character')
+      ? db.counter(1)
+      : req.originalUrl.includes('episode')
+      ? db.counter(2)
+      : req.originalUrl.includes('quote')
+      ? db.counter(3)
+      : req.originalUrl.includes('death')
+      ? db.counter(4)
+      : null
+    next();
+  });
+
   // Character endpoints
   app.get('/api/characters', getPeople);
   app.get('/api/characters/:id', getPeopleById);

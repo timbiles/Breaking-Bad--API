@@ -1,4 +1,4 @@
-const { all } = require('../Data/characters');
+const { all } = require('../Data/url');
 const allCharacters = [];
 const occ = [];
 const app = [];

@@ -10,7 +10,6 @@ class Home extends Component {
   state = {
     characters: [],
     input: '',
-    searchResults: [],
     rd: {}
   };
 
@@ -28,12 +27,6 @@ class Home extends Component {
   getRandom() {
     axios.get('/api/character/random?limit=12').then(res => {
       this.setState({ characters: res.data });
-    });
-  }
-
-  findTest() {
-    axios.get(`/api/${this.state.input}`).then(res => {
-      this.setState({ searchResults: res.data });
     });
   }
 

@@ -5,9 +5,6 @@ import DocsMain from '../Components/Docs/DocsMain';
 import navigation from '../data/navigation.json';
 
 class Docs extends Component {
-  state = {
-    highlight: null
-  };
 
   scrollClick = e => {
     document
