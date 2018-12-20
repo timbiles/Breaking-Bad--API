@@ -13,7 +13,7 @@ const map = nav.map((e, i) => {
 
 const Nav = () => {
   return (
-    <MainWrapper>
+    <MainWrapper className='header'>
       <Wrapper>{map}</Wrapper>
     </MainWrapper>
   );
