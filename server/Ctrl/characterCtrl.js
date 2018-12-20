@@ -47,7 +47,6 @@ const getPeople = (req, res) => {
         res.status(200).send(response);
       });
 
-  db.count.counter(1);
 };
 
 const getPeopleById = (req, res) => {
@@ -62,7 +61,6 @@ const getPeopleById = (req, res) => {
     .catch(err => {
       res.status(500).send(err);
     });
-  db.count.counter(1);
 };
 
 const getRandomChar = (req, res) => {
@@ -86,7 +84,6 @@ const getRandomChar = (req, res) => {
     .catch(err => {
       res.status(500).send(err);
     });
-  db.count.counter(1);
 };
 
 const getCharLimit = (req, res) => {
@@ -100,12 +97,10 @@ const getCharLimit = (req, res) => {
     .catch(err => {
       res.status(500).send(err);
     });
-  db.count.counter(1);
 };
 
 const getAll = (req, res) => {
   res.status(200).json(all);
-  db.count.counter(1);
 };
 
 module.exports = {
