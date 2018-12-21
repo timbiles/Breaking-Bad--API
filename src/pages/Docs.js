@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../Components/Docs/Docs.css';
+import '../Components/Docs/Docs.scss';
 import DocsMain from '../Components/Docs/DocsMain';
 import navigation from '../data/navigation.json';
 
@@ -23,8 +23,11 @@ class Docs extends Component {
 
     return (
       <div className="documentation">
-        <nav className="navbar">{navMap}</nav>
+        <nav className="navbar">
+        {navMap}
+        </nav>
         <DocsMain />
+
       </div>
     );
   }
