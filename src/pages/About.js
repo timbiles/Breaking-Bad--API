@@ -8,7 +8,6 @@ const About = () => {
         <div className='about'>
             <h2>Say my <Highlight>N</Highlight>ame</h2>
             <div className='about_cont'>
-
                 <h3>Who</h3>
                 <p>Hi, I'm Tim Biles. I am a developer in the Dallas, Fort Worth area in Texas. Currently, I work for DevMountain Dallas as a Full Stack developer and Lead Mentor. Breaking Bad is my favorite TV show. Check out my portfolio <a href="https://timbilestim.netlify.com/" target='blank'>here</a>!</p>
                 <h3>What</h3>

@@ -14,7 +14,6 @@ const getDeaths = (req, res) => {
       console.log('err', err);
       res.status(500).send(err);
     });
-  db.count.counter(4);
 };
 
 const getDeathTotal = (req, res) => {
@@ -33,7 +32,6 @@ const getDeathTotal = (req, res) => {
       console.log(err);
       res.status(500).send(err);
     });
-  db.count.counter(4);
 };
 
 const getRandomDeath = (req, res) => {
@@ -64,7 +62,6 @@ const getRandomDeath = (req, res) => {
       console.log(err);
       res.status(500).send(err);
     });
-  db.count.counter(4);
 };
 
 module.exports = {

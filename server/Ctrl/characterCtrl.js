@@ -1,7 +1,7 @@
 const { all } = require('../Data/url');
 const allCharacters = [];
-const occ = [];
-const app = [];
+let occ = [],
+  app = [];
 const aMap = arr => {
   return arr.map(el => +el);
 };
@@ -11,6 +11,10 @@ const moment = require('moment');
 const getPeople = (req, res) => {
   const db = req.app.get('db');
   const { limit, name, offset } = req.query;
+
+  let newName = name && name.split(' ').map(e=> {
+    return e.charAt(0).toUpperCase() + e.slice(1)
+  }).join(' ')
 
   !name
     ? db.characters.get_characters().then(response => {
@@ -25,14 +29,13 @@ const getPeople = (req, res) => {
               ? 'Unknown'
               : moment(e.birthday, 'MM-DD-YYYY').format('MM-DD-YYYY');
         });
-
         res
           .status(200)
           .send(
             limit || offset ? response.splice(offset || 0, limit) : response
           );
       })
-    : db.characters.get_char_by_name([name]).then(response => {
+    : db.characters.get_char_by_name([newName]).then(response => {
         response.map((e, i) => {
           e.occupation && occ.push(e.occupation.split(','));
           app.push(e.appearance.split(','));
@@ -46,7 +49,8 @@ const getPeople = (req, res) => {
         });
         res.status(200).send(response);
       });
-
+      occ = []
+      app = []
 };
 
 const getPeopleById = (req, res) => {

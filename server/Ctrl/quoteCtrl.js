@@ -10,7 +10,6 @@ const getQuotes = (req, res) => {
       res.status(500).send(err);
       console.log(`Something went wrong!`);
     });
-  db.count.counter(3);
 };
 
 const getQuoteById = (req, res) => {
@@ -24,7 +23,6 @@ const getQuoteById = (req, res) => {
     .catch(err => {
       res.status(500).send(err);
     });
-  db.count.counter(3);
 };
 
 const getRandomQuote = (req, res) => {
@@ -47,7 +45,6 @@ const getRandomQuote = (req, res) => {
         .catch(err => {
           res.status(500).send(err);
         });
-  db.count.counter(3);
 };
 
 const getQuoteByAuthor = (req, res) => {
@@ -61,7 +58,6 @@ const getQuoteByAuthor = (req, res) => {
     .catch(err => {
       res.status(500).send(err);
     });
-  db.count.counter(3);
 };
 
 module.exports = {

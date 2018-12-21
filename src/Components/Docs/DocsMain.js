@@ -36,7 +36,7 @@ class DocsMain extends Component {
       if (idTop - top <= 10 && idBottom - top >= 0) {
         navId.className = 'active';
       } else {
-        navId.className = '';
+        navId.classList.remove('active');
       }
     }
   };

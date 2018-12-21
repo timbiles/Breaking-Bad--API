@@ -1,7 +1,6 @@
 const getEpisodes = (req, res) => {
   const db = req.app.get('db');
 
-  
   db.episodes
     .get_episodes()
     .then(resp => {
@@ -15,7 +14,6 @@ const getEpisodes = (req, res) => {
     .catch(err => {
       res.status(500).send('Episode err >>>', err);
     });
-  db.count.counter(2);
 };
 
 const getEpisodesById = (req, res) => {
@@ -29,7 +27,6 @@ const getEpisodesById = (req, res) => {
     .catch(err => {
       res.status(500).send(err);
     });
-  db.count.counter(2);
 };
 
 module.exports = {
