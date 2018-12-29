@@ -4,7 +4,8 @@ const {
   getPeople,
   getPeopleById,
   getRandomChar,
-  getAll
+  getAll,
+  getEverything
 } = require('./Ctrl/characterCtrl');
 const {
   getQuotes,
@@ -56,4 +57,5 @@ module.exports = app => {
   app.get('/api/random-death', getRandomDeath);
 
   app.get('/api', getAll);
+  app.get('/api/complete', getEverything)
 };

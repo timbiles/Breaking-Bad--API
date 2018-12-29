@@ -107,9 +107,35 @@ const getAll = (req, res) => {
   res.status(200).json(all);
 };
 
+const getEverything = async (req, res) => {
+  const db = req.app.get('db')
+  let everything = []
+
+  await db.characters.get_characters()
+  .then(resp => {
+    everything.push(...resp)
+  })
+  await db.episodes.get_episodes()
+  .then(resp => {
+    everything.push(...resp)
+  })
+  await db.quotes.get_quotes()
+  .then(resp => {
+    everything.push(...resp)
+  })
+  await db.death.get_deaths()
+  .then(resp => {
+    everything.push(...resp)
+  })
+
+  await res.status(200).send(everything)
+
+}
+
 module.exports = {
   getPeople,
   getPeopleById,
   getRandomChar,
-  getAll
+  getAll,
+  getEverything
 };

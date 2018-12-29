@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledLink = styled(Link)`
@@ -24,6 +24,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const MainWrapper = styled.div`
+  display: flex;
   width: 100%;
 `;
 
@@ -36,7 +37,28 @@ export const Wrapper = styled.div`
   padding: 1% 0;
   height: 40px;
 
+  ${props =>
+    props.secondary &&
+    css`
+      justify-content: flex-end;
+      margin-right: 3%;
+    `};
+
   @media (max-width: 680px) {
     width: 70vw;
   }
 `;
+
+export const Input = styled.input`
+  height: 2em;
+  width: ${props => props && props.width};
+
+  :focus {
+    outline: none;
+  }
+`
+
+export const Btn = styled.button`
+  height: 2em;
+  margin: 0 5px;
+`

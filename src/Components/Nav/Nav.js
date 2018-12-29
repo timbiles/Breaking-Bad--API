@@ -1,22 +1,53 @@
-import React from 'react';
-import {StyledLink, MainWrapper, Wrapper} from '../../styles/nav';
+import React, { Component } from 'react';
+import axios from 'axios';
+import {StyledLink, MainWrapper, Wrapper, Input, Btn} from '../../styles/nav';
 
-const nav = ['Home', 'About', 'Documentation'];
+export default class Nav extends Component {
+  state = {
+    nav: ['Home', 'About', 'Documentation'],
+    data: [],
+    search: ''
+  }
 
-const map = nav.map((e, i) => {
-  return (
-    <StyledLink key={i} to={e === 'Home' ? '/' : `/${e}`}>
-      {e}
-    </StyledLink>
-  );
-});
+  componentDidMount() {
+    axios('/api/complete').then((res) => {
+      this.setState({data: res.data})
+    })
+  }
+  
+  render() {
+    const {data, search} = this.state
+    console.log('data', this.state.data)
 
-const Nav = () => {
-  return (
-    <MainWrapper className='header'>
-      <Wrapper>{map}</Wrapper>
-    </MainWrapper>
-  );
-};
+    let results = []
 
-export default Nav;
+      for(var i=0; i<data.length; i++) {
+        for(let key in data[i]) {
+          if (typeof data[i][key] === 'string'){
+            if(data[i][key].indexOf(search)!=-1) {
+              results.push(data[i]);
+            }
+        }
+      }
+    }
+      console.log(results)
+
+    const map = this.state.nav.map((e, i) => {
+      return (
+        <StyledLink key={i} to={e === 'Home' ? '/' : `/${e}`}>
+          {e}
+        </StyledLink>
+      );
+    });
+
+    return (
+      <MainWrapper className='header'>
+        <Wrapper main>{map}</Wrapper>
+        <Wrapper secondary>
+          <Input type="text" placeholder='Search Breaking Bad API' name="" id="" width='300px'/>
+          <Btn>Press</Btn>
+          </Wrapper>
+      </MainWrapper>
+    );
+  };
+}
