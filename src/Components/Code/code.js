@@ -14,7 +14,8 @@ export const example = (
     img: "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg",
     status: "Deceased",
     appearance: [1, 2, 3, 4, 5],
-    nickname: "Heisenberg"
+    nickname: "Heisenberg",
+    portrayed: "Bryan Cranston"
 }`}
     </pre>
   );

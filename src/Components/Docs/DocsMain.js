@@ -88,12 +88,12 @@ class DocsMain extends Component {
               <div>
                 <p>name</p>
                 <p>string</p>
-                <p>A character's full name.</p>
+                <p>A character's full name</p>
               </div>
               <div>
                 <p>birthday</p>
                 <p>string</p>
-                <p>A character's birthday.</p>
+                <p>A character's birthday</p>
               </div>
               <div>
                 <p>occupation</p>
@@ -119,6 +119,11 @@ class DocsMain extends Component {
                 <p>appearance</p>
                 <p>array</p>
                 <p>List of seasons that the character appeared in</p>
+              </div>
+              <div>
+                <p>portrayed</p>
+                <p>string</p>
+                <p>The actor / actress that portrayed the character</p>
               </div>
             </div>
           </div>
