@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Highlight} from '../styles/homeStyle'
-import '../Components/About/About.css';
+import '../Components/About/About.scss';
 
 const About = () => {
     return (

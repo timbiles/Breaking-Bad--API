@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Character} from '../../styles/characters';
 import Burger from '../Hamburger/Hamburger';
-import './Characters.css';
+import './Characters.scss';
 
 class Characters extends Component {
   state = {

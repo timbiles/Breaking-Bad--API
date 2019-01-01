@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Container, Text, Highlight } from '../styles/homeStyle';
 
 import Characters from '../Components/Characters/Characters';
-import '../Components/Home/Home.css';
+import '../Components/Home/Home.scss';
 
 class Home extends Component {
   state = {

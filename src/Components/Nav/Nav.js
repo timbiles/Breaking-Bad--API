@@ -7,7 +7,8 @@ export default class Nav extends Component {
     nav: ['Home', 'About', 'Documentation'],
     data: [],
     search: 'ice trays',
-    width: '300px'
+    width: '300px',
+    color: '#4b4b4b'
   };
 
   componentDidMount() {
@@ -17,7 +18,7 @@ export default class Nav extends Component {
   }
 
   render() {
-    const { data, search, width } = this.state;
+    const { data, search, width, color } = this.state;
     // console.log('data', this.state.data);
 
     let results = [];
@@ -47,15 +48,16 @@ export default class Nav extends Component {
         <Wrapper secondary>
           <Input
             type="text"
-            placeholder="Search Breaking Bad API"
+            placeholder={width === '300px' ? 'Search 🔍' : "Search the Breaking Bad API ..."}
             onChange={e => this.setState({ search: e.target.value })}
-            onFocus={()=> this.setState({width: '600px'})}
-            onBlur={()=> this.setState({width: '300px'})}            
+            onFocus={()=> this.setState({width: '600px', color: '#487f5a'})}
+            onBlur={()=> this.setState({width: '300px', color: '#4b4b4b'})}            
             name=""
             id=""
             width={width}
+            color={color}
           />
-          <Btn>Press</Btn>
+          <Btn>Search</Btn>
         </Wrapper>
       </MainWrapper>
     );

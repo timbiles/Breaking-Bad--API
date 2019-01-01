@@ -54,6 +54,10 @@ export const Input = styled.input`
   width: ${props => props && props.width};
   transition: .5s;
 
+  ::placeholder {
+    color: ${props => props && props.color};
+  }
+
   :focus {
     outline: none;
   }
