@@ -43,14 +43,19 @@
     letter-spacing: 1.5px;
     background: transparent;
     border-radius: 5%;
+    &:hover {
+      background: #f5f5f5;
+      transform: scale(1.03);
+      cursor: pointer;
+    }
+    &:active {
+      transform: scale(.98);
+    }
+    &:focus {
+      outline: none;
+    }
   }
-  :hover {
-    background: #f5f5f5;
-    transform: scale(1.03);
-  }
-  :focus {
-    outline: none;
-  }
+  
 }
 
 .death_info {

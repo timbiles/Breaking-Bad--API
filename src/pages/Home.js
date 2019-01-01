@@ -36,10 +36,6 @@ class Home extends Component {
     });
   }
 
-  clickDeath = () => {
-    this.randomDeath();
-  };
-
   render() {
     const { characters, rd } = this.state;
     const charMap = characters.map(e => {
@@ -77,7 +73,7 @@ class Home extends Component {
           <div className="death_map">
             <div>
               <h3>Click here to find out about a random death!</h3>
-              <button onClick={() => this.clickDeath()}>Death!</button>
+              <button onClick={() => this.randomDeath()}>Death!</button>
             </div>
             {rd.death && death}
           </div>
