@@ -5,7 +5,7 @@
   height: 120px;
   transition: 1s;
 
-  :after {
+  &:after {
     content: '';
     position: absolute;
     top: 0;

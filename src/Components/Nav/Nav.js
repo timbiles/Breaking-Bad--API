@@ -6,15 +6,21 @@ export default class Nav extends Component {
   state = {
     nav: ['Home', 'About', 'Documentation'],
     data: [],
-    search: 'ice trays',
+    search: '',
     width: '300px',
-    color: '#4b4b4b'
+    color: '#4b4b4b',
   };
 
   componentDidMount() {
     axios('/api/complete').then(res => {
       this.setState({ data: res.data });
     });
+  }
+
+  showSearch = (res) => {
+    res.length === 0 
+      ? console.log('There are no results, double check your spelling!')
+      : console.log(res)
   }
 
   render() {
@@ -26,13 +32,12 @@ export default class Nav extends Component {
     for (var i = 0; i < data.length; i++) {
       for (let key in data[i]) {
         if (typeof data[i][key] === 'string' && search !== '') {
-          if (data[i][key].indexOf(search) != -1) {
+          if (data[i][key].toLowerCase().indexOf(search.toLowerCase()) != -1) {
             results.push(data[i]);
           }
-        }
+        } 
       }
     }
-    console.log(results);
 
     const map = this.state.nav.map((e, i) => {
       return (
@@ -57,7 +62,9 @@ export default class Nav extends Component {
             width={width}
             color={color}
           />
-          <Btn>Search</Btn>
+          <Btn
+            onClick={()=> {this.showSearch(results)}}
+          >Search</Btn>
         </Wrapper>
       </MainWrapper>
     );
