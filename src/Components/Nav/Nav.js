@@ -6,7 +6,8 @@ export default class Nav extends Component {
   state = {
     nav: ['Home', 'About', 'Documentation'],
     data: [],
-    search: 'ice trays'
+    search: 'ice trays',
+    width: '300px'
   };
 
   componentDidMount() {
@@ -16,8 +17,8 @@ export default class Nav extends Component {
   }
 
   render() {
-    const { data, search } = this.state;
-    console.log('data', this.state.data);
+    const { data, search, width } = this.state;
+    // console.log('data', this.state.data);
 
     let results = [];
 
@@ -48,9 +49,11 @@ export default class Nav extends Component {
             type="text"
             placeholder="Search Breaking Bad API"
             onChange={e => this.setState({ search: e.target.value })}
+            onFocus={()=> this.setState({width: '600px'})}
+            onBlur={()=> this.setState({width: '300px'})}            
             name=""
             id=""
-            width="300px"
+            width={width}
           />
           <Btn>Press</Btn>
         </Wrapper>

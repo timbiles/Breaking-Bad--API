@@ -52,6 +52,7 @@ export const Wrapper = styled.div`
 export const Input = styled.input`
   height: 2em;
   width: ${props => props && props.width};
+  transition: .5s;
 
   :focus {
     outline: none;
