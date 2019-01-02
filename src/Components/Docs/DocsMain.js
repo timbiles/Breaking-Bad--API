@@ -97,7 +97,7 @@ class DocsMain extends Component {
               </div>
               <div>
                 <p>occupation</p>
-                <p>Array</p>
+                <p>array</p>
                 <p>List of character's known occupation</p>
               </div>
               <div>
