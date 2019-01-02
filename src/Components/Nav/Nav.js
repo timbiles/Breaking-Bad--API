@@ -52,7 +52,7 @@ export default class Nav extends Component {
     return (
       <MainWrapper className="header">
         <Wrapper main>{map}</Wrapper>
-        <Wrapper secondary>
+        {/* <Wrapper secondary>
           <Input
             type="text"
             placeholder={width === '300px' ? 'Search 🔍' : "Search the Breaking Bad API..."}
@@ -70,7 +70,7 @@ export default class Nav extends Component {
         </Wrapper>
         <Toaster
           search={searchResults}
-        />
+        /> */}
       </MainWrapper>
     );
   }

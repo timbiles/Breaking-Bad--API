@@ -1,2 +1,2 @@
 SELECT * FROM episodes
-ORDER BY id;
+ORDER BY episode_id;

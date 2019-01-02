@@ -1,2 +1,2 @@
 SELECT * FROM episodes
-WHERE id = $1;
+WHERE episode_id = $1;

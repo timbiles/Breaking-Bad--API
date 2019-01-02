@@ -2,14 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const index = (props) => {
-    // console.log('search this', props.search)
     let arr = []
 
     for(let i =0; i<=props.search.length; i++){
         for(let key in props.search[i]){
-            console.log(Object.keys(props.search[i]).find(a => props.search[i][a] === props.search[i][key]))
-            console.log(props.search[i][key])
-
             let x = Object.keys(props.search[i]).find(a => props.search[i][a] === props.search[i][key]);
             let y = props.search[i][key]
 
@@ -17,17 +13,19 @@ const index = (props) => {
         }
     }
 
-    console.log(arr.length > 1 && arr)
+    console.log(arr.length !== 0 && arr)
 
     const map = arr.map((e,i) => {
         return <Cont key={i}>
-            <p>{e[0]}</p>
-            <p>{e[1]}</p>
+        {
+`${e[0]}: ${e[1]}
+`
+        }
         </Cont>
     })
     return (
         <Container>
-            {map && map}
+            {map}
         </Container>
     );
 };
@@ -45,6 +43,6 @@ const Container = styled.div`
     width: 80vw;
 `
 
-const Cont = styled.div`
+const Cont = styled.pre`
     display: flex;
 `

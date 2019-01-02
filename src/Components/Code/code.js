@@ -4,7 +4,7 @@ export const example = (
     <pre>
       {
 `{
-    id: 1,
+    char_id: 1,
     name: "Walter White",
     birthday: "09-07-1958",
     occupation: [
@@ -23,7 +23,7 @@ export const example = (
 export const example2 = (
     <pre>{
 `{
-    id: 60,
+    episode_id: 60,
     title: "Ozymandias",
     season: 5,
     episode: 14,
@@ -42,12 +42,12 @@ export const example3 = (
     <pre>{
 `[
     {
-        id: 9,
+        quote_id: 9,
         quote: "Funyuns are awesome.",
         author: "Jesse Pinkman"
     },
     {
-        id: 10,
+        quote_id: 10,
         quote: "Ooooooh, Wire.",
         author: "Jesse Pinkman"
     },

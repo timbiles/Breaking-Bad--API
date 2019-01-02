@@ -1,2 +1,2 @@
 SELECT * FROM quotes
-WHERE id = $1;
+WHERE quote_id = $1;
