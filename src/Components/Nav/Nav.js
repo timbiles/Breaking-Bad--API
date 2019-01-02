@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { StyledLink, MainWrapper, Wrapper, Input, Btn } from '../../styles/nav';
+import Toaster from '../Toaster/index';
 
 export default class Nav extends Component {
   state = {
@@ -9,6 +10,7 @@ export default class Nav extends Component {
     search: '',
     width: '300px',
     color: '#4b4b4b',
+    searchResults: []
   };
 
   componentDidMount() {
@@ -20,11 +22,11 @@ export default class Nav extends Component {
   showSearch = (res) => {
     res.length === 0 
       ? console.log('There are no results, double check your spelling!')
-      : console.log(res)
+      : this.setState({searchResults: res}, () => console.log(res))
   }
 
   render() {
-    const { data, search, width, color } = this.state;
+    const { data, search, width, color, searchResults } = this.state;
     // console.log('data', this.state.data);
 
     let results = [];
@@ -53,7 +55,7 @@ export default class Nav extends Component {
         <Wrapper secondary>
           <Input
             type="text"
-            placeholder={width === '300px' ? 'Search 🔍' : "Search the Breaking Bad API ..."}
+            placeholder={width === '300px' ? 'Search 🔍' : "Search the Breaking Bad API..."}
             onChange={e => this.setState({ search: e.target.value })}
             onFocus={()=> this.setState({width: '600px', color: '#487f5a'})}
             onBlur={()=> this.setState({width: '300px', color: '#4b4b4b'})}            
@@ -63,9 +65,12 @@ export default class Nav extends Component {
             color={color}
           />
           <Btn
-            onClick={()=> {this.showSearch(results)}}
+            onClick={()=> this.showSearch(results)}
           >Search</Btn>
         </Wrapper>
+        <Toaster
+          search={searchResults}
+        />
       </MainWrapper>
     );
   }
