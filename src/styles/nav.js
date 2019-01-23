@@ -9,9 +9,13 @@ export const StyledLink = styled(Link)`
   letter-spacing: 1px;
   padding-top: 10px;  
   margin-top: 1.5px;
-  &:hover {
+  &:hover{
     margin-top: 0;
     border-top: 1.5px inset rgba(121, 180, 115, .4);
+  }
+
+  &.location {
+    color: #487f5a;
   }
 
    &:active {

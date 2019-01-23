@@ -10,7 +10,9 @@ class Home extends Component {
   state = {
     characters: [],
     input: '',
-    rd: {}
+    rd: {},
+    toggle: false,
+    id: ''
   };
 
   componentDidMount() {
@@ -36,10 +38,23 @@ class Home extends Component {
     });
   }
 
+  navigation = (e) => {
+    const {id} = e.target
+    if(id.includes('burg')) {
+      this.setState({id: +id.replace(/\D/g,''), toggle: !this.state.toggle})
+    } else { 
+      this.setState({toggle: false})
+    }
+  }
+
+  handlePress = (e) => e.key === 'Enter' && this.setState({ id: e.target.id}, () => {
+    this.setState({toggle: !this.state.toggle})
+  })
+
   render() {
-    const { characters, rd } = this.state;
+    const { characters, rd, id } = this.state;
     const charMap = characters.map(e => {
-      return <Characters key={e.char_id} person={e} />;
+      return <Characters toggle={id === e.char_id && this.state.toggle} key={e.char_id} person={e} handlePress={this.handlePress}/>;
     });
 
     const death = (
@@ -60,7 +75,7 @@ class Home extends Component {
     );
 
     return (
-      <>
+      <div onClick={this.navigation}>
         <Container>
           <Text primary>
             The Breaking Bad A<Highlight>P</Highlight>I            
@@ -78,7 +93,7 @@ class Home extends Component {
             {rd.death && death}
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

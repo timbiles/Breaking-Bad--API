@@ -18,10 +18,10 @@ export const Icon = styled.svg`
   left: 1%;
   top: 20%;
   cursor: pointer;
+  transition: ease-out 1s;
 
   &:hover {
     fill: #487f5a;
-    transition: 0.7s;
   }
 `;
 

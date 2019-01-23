@@ -2,6 +2,7 @@
   background: #3b3b3b;
   display: flex;
   position: relative;
+  // height: 82vh;
 }
 
 pre {
@@ -16,9 +17,11 @@ pre {
   flex-direction: column;
   align-items: flex-start;
   width: 25vw;
-  min-height: 100vh;
+  min-height: 90vh;
   background: #fff;
   border-top: 1px solid grey;
+  overflow: scroll;
+  overflow-x: hidden;
 
   h2 {
     font-size: 1.1em;

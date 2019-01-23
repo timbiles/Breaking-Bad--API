@@ -22,7 +22,7 @@ const About = () => {
                 <h3>Tech Stack</h3>
                 <p>This project was build using Javascript, React, Node, Express, Massive, and Axios.</p>
                 <h3>Issues</h3>
-                <p>If you come across any errors, please contribute by creating an issue on <a href="https://github.com/" target='blank'>GitHub</a>! I will gladly correct them as soon as I can.</p>
+                <p>If you come across any errors, please contribute by creating an issue on <a href="https://github.com/timbiles/Breaking-Bad--API" target='blank'>GitHub</a>! I will gladly correct them as soon as I can.</p>
                 <h3>Contact</h3>
                 <p>If you would like to talk about a project you are wanting to build, or just to connect, please head over to my portfolio and send me a message. I would love to chat with you about your idea!</p>
                 <h3>Copyright</h3>

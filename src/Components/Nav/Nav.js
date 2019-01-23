@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { StyledLink, MainWrapper, Wrapper } from '../../styles/nav';
 
 export default class Nav extends Component {
   state = {
-    nav: ['Home', 'About', 'Documentation']
+    nav: ['', 'About', 'Documentation'],
+    active: false
   };
 
   render() {
-
+const {pathname} = window.location
     const map = this.state.nav.map((e, i) => {
       return (
-        <StyledLink key={i} to={e === 'Home' ? '/' : `/${e}`}>
-          {e}
+        <StyledLink className={pathname === `/${e}` ? 'location' : null} key={i} to={`/${e}`}>
+          {e ? e : 'Home'}
         </StyledLink>
       );
     });

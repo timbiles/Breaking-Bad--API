@@ -1,13 +1,14 @@
 import React from 'react';
 
-import { BurgerWrapper, Burger } from '../../styles/burger';
+import { BurgerWrapper, Burger} from '../../styles/burger';
 
 const Hamburger = props => {
   return (
-    <BurgerWrapper onClick={props.handleClick}>
-      <Burger width="30px" />
-      <Burger width="40px" />
-      <Burger width="22px" />
+    <BurgerWrapper id={`${props.id}burg`} tabIndex='0' onKeyDown={props.handlePress}>
+      <Burger id={`${props.id}burga`} width="30px" />
+      <Burger id={`${props.id}burgb`} width="40px" />
+      <Burger id={`${props.id}burgc`} width="22px" />
+
     </BurgerWrapper>
   );
 };

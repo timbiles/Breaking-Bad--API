@@ -1,34 +1,40 @@
 const { all } = require('../Data/url');
-const allCharacters = [];
+const moment = require('moment');
 let occ = [],
   app = [];
 const aMap = arr => {
   return arr.map(el => +el);
 };
 
-const moment = require('moment');
+const charactersFunc = func => {
+  func.map((e, i) => {
+    e.occupation && occ.push(e.occupation.split(',').map(el => el.trim()));
+    app.push(e.appearance.split(','));
+
+    e.occupation = occ[i];
+    e.appearance = aMap(app[i]);
+    e.birthday = e.birthday
+      ? moment(e.birthday, 'MM-DD-YYYY').format('MM-DD-YYYY')
+      : 'Unknown';
+  });
+};
 
 const getPeople = (req, res) => {
   const db = req.app.get('db');
   const { limit, name, offset } = req.query;
 
-  let newName = name && name.split(' ').map(e=> {
-    return e.charAt(0).toUpperCase() + e.slice(1)
-  }).join(' ')
+  let newName =
+    name &&
+    name
+      .split(' ')
+      .map(e => {
+        return e.charAt(0).toUpperCase() + e.slice(1);
+      })
+      .join(' ');
 
   !name
     ? db.characters.get_characters().then(response => {
-        response.map((e, i) => {
-          e.occupation && occ.push(e.occupation.split(','));
-          app.push(e.appearance.split(','));
-
-          e.occupation = occ[i];
-          e.appearance = aMap(app[i]);
-          e.birthday =
-            e.birthday === null
-              ? 'Unknown'
-              : moment(e.birthday, 'MM-DD-YYYY').format('MM-DD-YYYY');
-        });
+        charactersFunc(response);
         res
           .status(200)
           .send(
@@ -36,21 +42,11 @@ const getPeople = (req, res) => {
           );
       })
     : db.characters.get_char_by_name([newName]).then(response => {
-        response.map((e, i) => {
-          e.occupation && occ.push(e.occupation.split(','));
-          app.push(e.appearance.split(','));
-
-          e.occupation = occ[i];
-          e.appearance = aMap(app[i]);
-          e.birthday =
-            e.birthday === null
-              ? 'Unknown'
-              : moment(e.birthday).format('MM-DD-YYYY');
-        });
+        charactersFunc(response);
         res.status(200).send(response);
       });
-      occ = []
-      app = []
+  occ = [];
+  app = [];
 };
 
 const getPeopleById = (req, res) => {
@@ -108,29 +104,24 @@ const getAll = (req, res) => {
 };
 
 const getEverything = async (req, res) => {
-  const db = req.app.get('db')
-  let everything = []
+  const db = req.app.get('db');
+  let everything = [];
 
-  await db.characters.get_characters()
-  .then(resp => {
-    everything.push(...resp)
-  })
-  await db.episodes.get_episodes()
-  .then(resp => {
-    everything.push(...resp)
-  })
-  await db.quotes.get_quotes()
-  .then(resp => {
-    everything.push(...resp)
-  })
-  await db.death.get_deaths()
-  .then(resp => {
-    everything.push(...resp)
-  })
+  await db.characters.get_characters().then(resp => {
+    everything.push(...resp);
+  });
+  await db.episodes.get_episodes().then(resp => {
+    everything.push(...resp);
+  });
+  await db.quotes.get_quotes().then(resp => {
+    everything.push(...resp);
+  });
+  await db.death.get_deaths().then(resp => {
+    everything.push(...resp);
+  });
 
-  await res.status(200).send(everything)
-
-}
+  await res.status(200).send(everything);
+};
 
 module.exports = {
   getPeople,
