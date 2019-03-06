@@ -12,8 +12,6 @@ class Docs extends Component {
       .scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
-  //document.getElementById('id').scrollIntoView({block: start, bahavior: 'smooth'})
-
   render() {
     const navMap = navigation.map((e, i) => {
       return React.createElement(
