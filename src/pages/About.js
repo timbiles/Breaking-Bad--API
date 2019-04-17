@@ -66,11 +66,11 @@ const About = () => (
       <Title secondary>Who</Title>
       <Text>
         Hi, I'm Tim Biles. I am a developer in the Dallas, Fort Worth area in
-        Texas. Breaking Bad is my favorite TV show. Check out my portfolio
+        Texas. Breaking Bad is my favorite TV show. Check out my portfolio{' '} 
         <Link href="https://timbilestim.netlify.com/" target="blank">
           here
-        </Link>
-        !
+        </Link>{' '} 
+         !
       </Text>
       <Title secondary>What</Title>
       <Text>
@@ -100,11 +100,11 @@ const About = () => (
       </Text>
       <Title secondary>Issues</Title>
       <Text>
-        If you come across any errors, please contribute by creating an issue on
+        If you come across any errors, please contribute by creating an issue on{' '} 
         <Link
           href="https://github.com/timbiles/Breaking-Bad--API"
           target="blank"
-        >
+        >{' '} 
           GitHub
         </Link>
         ! I will gladly correct them as soon as I can.
@@ -119,17 +119,17 @@ const About = () => (
       <Text>
         I do not own the rights to any material provided in this API. Breaking
         Bad was created by Vince Gilligan, and originally aired on AMC. The
-        majority of this data collected was from a
+        majority of this data collected was from a{' '} 
         <Link href="https://en.wikipedia.org/wiki/Breaking_Bad" target="blank">
           Wikipedia.com
-        </Link>
-        and
+        </Link>{' '} 
+        and{' '} 
         <Link
           href="http://breakingbad.wikia.com/wiki/Breaking_Bad_Wiki"
           target="blank"
-        >
+        >{' '} 
           Wikia.com
-        </Link>
+        </Link>.
       </Text>
       <Text>This site is licensed under the "New" BSD 3-Clause License.</Text>
     </Container>
