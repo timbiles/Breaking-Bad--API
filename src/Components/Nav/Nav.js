@@ -8,10 +8,14 @@ export default class Nav extends Component {
   };
 
   render() {
-const {pathname} = window.location
+    const { pathname } = window.location;
     const map = this.state.nav.map((e, i) => {
       return (
-        <StyledLink className={pathname === `/${e}` ? 'location' : null} key={i} to={`/${e}`}>
+        <StyledLink
+          className={pathname === `/${e}` ? 'location' : null}
+          key={i}
+          to={`/${e}`}
+        >
           {e ? e : 'Home'}
         </StyledLink>
       );

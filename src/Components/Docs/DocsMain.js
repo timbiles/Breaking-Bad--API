@@ -113,7 +113,7 @@ class DocsMain extends Component {
               <div>
                 <p>nickname</p>
                 <p>string</p>
-                <p>A known nickname they are refered as.</p>
+                <p>A known nickname they are referred as.</p>
               </div>
               <div>
                 <p>appearance</p>

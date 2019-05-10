@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Playground from '../Components/Playground';
 
 import { Container, Text, Highlight } from '../styles/homeStyle';
 
@@ -82,6 +83,7 @@ class Home extends Component {
           </Text>
           <Text secondary>...Tread Lightly</Text>
         </Container>
+        <Playground />
 
         <div className="character_map">{charMap}</div>
         <div className="test_api">

@@ -69,7 +69,7 @@ const About = () => (
         Texas. Breaking Bad is my favorite TV show. Check out my portfolio{' '} 
         <Link href="https://timbilestim.netlify.com/" target="blank">
           here
-        </Link>{' '} 
+        </Link> 
          !
       </Text>
       <Title secondary>What</Title>
