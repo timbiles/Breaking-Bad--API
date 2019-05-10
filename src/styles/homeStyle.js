@@ -31,4 +31,5 @@ export const Highlight = styled.mark`
   color: #487f5a;
   background: #fff;
   text-shadow: 1px 1px #000;
+  text-shadow: ${props => props.secondary && 'none'}
 `;

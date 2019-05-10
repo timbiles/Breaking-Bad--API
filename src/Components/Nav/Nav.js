@@ -9,20 +9,18 @@ export default class Nav extends Component {
 
   render() {
     const { pathname } = window.location;
-    const map = this.state.nav.map((e, i) => {
-      return (
-        <StyledLink
-          className={pathname === `/${e}` ? 'location' : null}
-          key={i}
-          to={`/${e}`}
-        >
-          {e ? e : 'Home'}
-        </StyledLink>
-      );
-    });
+    const map = this.state.nav.map((e, i) => (
+      <StyledLink
+        className={pathname === `/${e}` ? 'location' : null}
+        key={i}
+        to={`/${e}`}
+      >
+        {e ? e : 'Home'}
+      </StyledLink>
+    ));
 
     return (
-      <MainWrapper className="header">
+      <MainWrapper>
         <Wrapper main>{map}</Wrapper>
       </MainWrapper>
     );

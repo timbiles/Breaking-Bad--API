@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import axios from 'axios';
+import request from '../../utils/request';
 
 import { FooterWrap, Icon, TextWrapper, Text } from '../../styles/footer';
 
