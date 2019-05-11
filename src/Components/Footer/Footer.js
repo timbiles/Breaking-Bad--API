@@ -1,6 +1,6 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
-import request from '../../utils/request';
+// import request from '../../utils/request';
 
 import { FooterWrap, Icon, TextWrapper, Text } from '../../styles/footer';
 
@@ -20,21 +20,18 @@ class Footer extends Component {
 
   getChar() {
     axios.get('/api/characters').then(res => {
-      console.log('All characters >>>', res.data);
       this.setState({ totalChar: res.data });
     });
   }
 
   getEpisodes() {
     axios.get('/api/episodes').then(res => {
-      console.log('All Episodes >>>', res.data);
       this.setState({ episodes: res.data });
     });
   }
 
   getQuotes() {
     axios.get('/api/quotes').then(res => {
-      console.log('All Quotes >>>', res.data);
       this.setState({ quotes: res.data });
     });
   }

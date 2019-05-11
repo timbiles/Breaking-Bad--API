@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { hot } from 'react-hot-loader/root'
 
 import routes from './routes';
 import Nav from './Components/Nav/Nav';
@@ -16,4 +17,4 @@ const App = () => (
   </Router>
 );
 
-export default App;
+export default hot(App);

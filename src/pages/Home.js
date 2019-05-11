@@ -23,7 +23,6 @@ class Home extends Component {
 
   getAll() {
     axios.get('/api/').then(res => {
-      console.log('url info >>>', res.data);
     });
   }
 

@@ -20,7 +20,7 @@ export default class Nav extends Component {
     ));
 
     return (
-      <MainWrapper>
+      <MainWrapper className='header'>
         <Wrapper main>{map}</Wrapper>
       </MainWrapper>
     );
