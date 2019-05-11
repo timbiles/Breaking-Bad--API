@@ -3,7 +3,7 @@ import { StyledLink, MainWrapper, Wrapper } from '../../styles/nav';
 
 export default class Nav extends Component {
   state = {
-    nav: ['', 'About', 'Documentation'],
+    nav: ['', 'About', 'Playground', 'Documentation'],
     active: false
   };
 

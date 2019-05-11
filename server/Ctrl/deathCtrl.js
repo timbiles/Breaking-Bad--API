@@ -22,10 +22,13 @@ const getDeathTotal = (req, res) => {
   const newName = name ? `%${name}%` : '%%';
   let deaths = [];
 
+  // upper or lower case name option
+
+
   db.death
     .get_death_total(newName)
     .then(response => {
-      deaths = { name, deathCount: +response[0].sum };
+      deaths = [{ name, deathCount: +response[0].sum }];
       res.status(200).send(deaths);
     })
     .catch(err => {

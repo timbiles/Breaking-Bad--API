@@ -20,7 +20,7 @@ const Container = styled.div`
     `}
 `;
 
-const Title = styled.h2`
+export const Title = styled.h2`
   letter-spacing: 2px;
 
   ${props =>
