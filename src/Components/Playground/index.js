@@ -63,6 +63,7 @@ const ButtonContainer = styled.div`
     cursor: pointer;
     border: none;
     border-bottom: 1px solid grey;
+    padding: 5px 0;
 
     &:active {
       transform: scale(0.98);
@@ -75,12 +76,13 @@ const ButtonContainer = styled.div`
 
 const DataDisplay = styled.pre`
   width: 90vw;
-  max-height: 350px;
+  max-height: 500px;
   margin: 30px auto;
   padding: 10px;
   text-overflow: ellipsis;
   box-shadow: 1px 1px 5px 2px #ddd;
   overflow: scroll;
+  background: #fafafa;
 `;
 
 const Playground = () => {
@@ -151,15 +153,13 @@ const Playground = () => {
         <p>https://www.breakingbadapi.com/api/</p>
         <input
           type="text"
-          placeholder="characters/1"
           onChange={updateSearch}
           onKeyDown={keydown}
-          value={search}
+          defaultValue="characters/1"
         />
       </SearchBar>
       <SmallText>
-        Try typing in <Highlight secondary>'characters/1'</Highlight> and see
-        what shows up!
+        Click one of the options below to test some results!
       </SmallText>
       <ButtonContainer>
         <button onClick={clickSearch}>characters/8</button>

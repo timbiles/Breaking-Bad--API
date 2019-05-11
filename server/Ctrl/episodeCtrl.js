@@ -22,6 +22,11 @@ const getEpisodesById = (req, res) => {
   db.episodes
     .get_episodes_by_id([req.params.id])
     .then(resp => {
+      resp.map(e => {
+        const char =
+          e.characters && e.characters.split(',').map(e => e.trim(''));
+        e.characters = char;
+      });
       res.status(200).send(resp);
     })
     .catch(err => {

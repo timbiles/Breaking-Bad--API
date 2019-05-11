@@ -56,6 +56,7 @@ const getPeopleById = (req, res) => {
   db.characters
     .get_char_by_id([id])
     .then(resp => {
+      charactersFunc(resp)
       res.status(200).send(resp);
     })
     .catch(err => {
