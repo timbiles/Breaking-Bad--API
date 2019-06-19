@@ -12,9 +12,9 @@
     "massive": "^5.5.0",
     "moment": "^2.22.2",
     "path": "^0.12.7",
-    "react": "^16.5.2",
+    "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-hot-loader": "^4.8.4",
+    "react-hot-loader": "^4.11.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.3",
     "styled-components": "^4.0.3"
