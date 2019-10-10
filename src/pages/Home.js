@@ -29,15 +29,16 @@ const Home = () => {
   }, []);
 
   const getRandom = async () => {
-    const getCharacters = await fetch('/api/character/random?limit=12');
+    const getCharacters = await fetch('/api/home-page-characters?limit=12');
     const response = await getCharacters.json();
+    console.log('home page response');
     await setCharacters(response);
   };
 
   const randomDeath = async () => {
     const getDeath = await fetch('/api/random-death');
     const response = await getDeath.json();
-    setRd(response)
+    setRd(response);
   };
 
   const navigation = e => {

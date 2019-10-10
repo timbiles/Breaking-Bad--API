@@ -49,6 +49,36 @@ const getPeople = (req, res) => {
   app = [];
 };
 
+const getPeopleFooter = (req, res) => {
+  const db = req.app.get('db');
+  const { limit, name, offset } = req.query;
+
+  let newName =
+    name &&
+    name
+      .split(' ')
+      .map(e => {
+        return e.charAt(0).toUpperCase() + e.slice(1);
+      })
+      .join(' ');
+
+  !name
+    ? db.characters.get_characters().then(response => {
+        charactersFunc(response);
+        res
+          .status(200)
+          .send(
+            limit || offset ? response.splice(offset || 0, limit) : response
+          );
+      })
+    : db.characters.get_char_by_name([newName]).then(response => {
+        charactersFunc(response);
+        res.status(200).send(response);
+      });
+  occ = [];
+  app = [];
+};
+
 const getPeopleById = (req, res) => {
   const db = req.app.get('db');
   const { id } = req.params;
@@ -65,6 +95,29 @@ const getPeopleById = (req, res) => {
 };
 
 const getRandomChar = (req, res) => {
+  const db = req.app.get('db');
+  const { limit } = req.query;
+  const o = [];
+  const a = [];
+
+  db.characters
+    .get_random_char([limit || 1])
+    .then(resp => {
+      resp.map((e, i) => {
+        e.occupation && o.push(e.occupation.split(','));
+        a.push(e.appearance.split(','));
+
+        e.occupation = o[i];
+        e.appearance = aMap(a[i]);
+      });
+      res.status(200).send(resp);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+};
+
+const getHomePage = (req, res) => {
   const db = req.app.get('db');
   const { limit } = req.query;
   const o = [];
@@ -128,6 +181,8 @@ module.exports = {
   getPeople,
   getPeopleById,
   getRandomChar,
+  getHomePage,
   getAll,
-  getEverything
+  getEverything,
+  getPeopleFooter
 };

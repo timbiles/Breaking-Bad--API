@@ -2,8 +2,10 @@ const {
   getPeople,
   getPeopleById,
   getRandomChar,
+  getHomePage,
   getAll,
-  getEverything
+  getEverything,
+  getPeopleFooter
 } = require('./Ctrl/characterCtrl');
 const {
   getQuotes,
@@ -22,7 +24,10 @@ module.exports = app => {
   //counter
   app.use('/', (req, res, next) => {
     const db = req.app.get('db').count;
-    req.originalUrl.includes('character')
+
+    req.originalUrl.includes('home-page')
+      ? db.counter(5)
+      : req.originalUrl.includes('character')
       ? db.counter(1)
       : req.originalUrl.includes('episode')
       ? db.counter(2)
@@ -30,7 +35,7 @@ module.exports = app => {
       ? db.counter(3)
       : req.originalUrl.includes('death')
       ? db.counter(4)
-      : null
+      : null;
     next();
   });
 
@@ -38,6 +43,8 @@ module.exports = app => {
   app.get('/api/characters', getPeople);
   app.get('/api/characters/:id', getPeopleById);
   app.get('/api/character/random', getRandomChar);
+  app.get('/api/home-page-characters', getHomePage);
+  app.get('/api/footer-char-info', getPeopleFooter);
 
   // Quote endpoints
   app.get('/api/quotes', getQuotes);
@@ -55,5 +62,5 @@ module.exports = app => {
   app.get('/api/random-death', getRandomDeath);
 
   app.get('/api', getAll);
-  app.get('/api/complete', getEverything)
+  app.get('/api/complete', getEverything);
 };
