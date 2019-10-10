@@ -19,7 +19,7 @@ class Footer extends Component {
   }
 
   getChar() {
-    axios.get('/api/characters').then(res => {
+    axios.get('/api/footer-char-info').then(res => {
       this.setState({ totalChar: res.data });
     });
   }
@@ -50,7 +50,7 @@ class Footer extends Component {
           <Text>Characters: {totalChar.length}</Text>
           <Text>Episodes: {episodes.length}</Text>
           <Text>Quotes: {quotes.length}</Text>
-          <Text>Death Count: {deaths.deathCount}</Text>
+          <Text>Death Count: {deaths[0] && deaths[0].deathCount}</Text>
         </TextWrapper>
         <a href="https://github.com/timbiles/Breaking-Bad--API" target="blank">
           <Icon viewBox="0 0 128 128">

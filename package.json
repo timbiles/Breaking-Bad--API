@@ -20,7 +20,7 @@
     "styled-components": "^4.0.3"
   },
   "scripts": {
-    "start": "concurrently --kill-others \"nodemon server/index.js\" \"react-scripts start\"",
+    "dev": "concurrently --kill-others \"nodemon server/index.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
