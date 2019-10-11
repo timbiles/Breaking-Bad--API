@@ -52,7 +52,7 @@ class Footer extends Component {
           <Text>Quotes: {quotes.length}</Text>
           <Text>Death Count: {deaths[0] && deaths[0].deathCount}</Text>
         </TextWrapper>
-        <a href="https://github.com/timbiles/Breaking-Bad--API" target="blank">
+        <a href="https://github.com/timbiles/Breaking-Bad--API" aria-label="Github link" target="blank">
           <Icon viewBox="0 0 128 128">
             <path
               fillRule="evenodd"

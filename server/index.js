@@ -5,12 +5,16 @@ const express = require('express'),
   path = require('path'),
   rateLimit = require('express-rate-limit'),
   cors = require('cors'),
+  compression = require('compression'),
   routes = require('./routes'),
   port = process.env.SERVER_PORT || 3002;
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+
+// compress all responses
+app.use(compression())
 
 app.use(express.static(`${__dirname}/../build`));
 
