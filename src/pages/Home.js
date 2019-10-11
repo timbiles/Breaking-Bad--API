@@ -31,7 +31,6 @@ const Home = () => {
   const getRandom = async () => {
     const getCharacters = await fetch('/api/home-page-characters?limit=12');
     const response = await getCharacters.json();
-    console.log('home page response');
     await setCharacters(response);
   };
 

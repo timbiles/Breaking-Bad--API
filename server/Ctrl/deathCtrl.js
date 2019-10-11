@@ -11,7 +11,6 @@ const getDeaths = (req, res) => {
       res.status(200).send(response);
     })
     .catch(err => {
-      console.log('err', err);
       res.status(500).send(err);
     });
 };
@@ -32,7 +31,6 @@ const getDeathTotal = (req, res) => {
       res.status(200).send(deaths);
     })
     .catch(err => {
-      console.log(err);
       res.status(500).send(err);
     });
 };
@@ -62,7 +60,6 @@ const getRandomDeath = (req, res) => {
       res.status(200).send(newResponse);
     })
     .catch(err => {
-      console.log(err);
       res.status(500).send(err);
     });
 };

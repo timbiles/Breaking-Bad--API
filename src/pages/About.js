@@ -125,7 +125,7 @@ const About = () => (
         </Link>{' '} 
         and{' '} 
         <Link
-          href="http://breakingbad.wikia.com/wiki/Breaking_Bad_Wiki"
+          href="https://breakingbad.wikia.com/wiki/Breaking_Bad_Wiki"
           target="blank"
         >{' '} 
           Wikia.com
