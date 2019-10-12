@@ -1,5 +1,18 @@
 const getEpisodes = (req, res) => {
   const db = req.app.get('db');
+  const { series } = req.query;
+
+  if (series) {
+    db.episodes.get_episodes_by_category([`%${series}%`]).then(response => {
+      response.map(e => {
+        const char =
+          e.characters && e.characters.split(',').map(e => e.trim(''));
+        e.characters = char;
+      });
+      res.status(200).send(response);
+      return;
+    });
+  }
 
   db.episodes
     .get_episodes()

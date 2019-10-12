@@ -11,6 +11,10 @@ const charactersFunc = func => {
     e.occupation && occ.push(e.occupation.split(',').map(el => el.trim()));
     app.push(e.appearance.split(','));
 
+    if (!e.category) {
+      e.category = 'Breaking Bad';
+    } 
+
     e.occupation = occ[i];
     e.appearance = aMap(app[i]);
     e.birthday = e.birthday
@@ -21,7 +25,18 @@ const charactersFunc = func => {
 
 const getPeople = (req, res) => {
   const db = req.app.get('db');
-  const { limit, name, offset } = req.query;
+  const { limit, name, offset, category } = req.query;
+
+  if(category) {
+    db.characters.get_char_by_category([`%${category}%`]).then(response => {
+      charactersFunc(response);
+      res.status(200)
+      .send(
+        limit || offset ? response.splice(offset || 0, limit) : response
+      )
+    })
+    return;
+  }
 
   let newName =
     name &&
@@ -119,14 +134,28 @@ const getRandomChar = (req, res) => {
 
 const getHomePage = (req, res) => {
   const db = req.app.get('db');
-  const { limit } = req.query;
+  const { limit, category, offset } = req.query;
   const o = [];
   const a = [];
+
+  if(category) {
+    db.characters.get_char_by_category_homepage([`%${category}%`, limit || 1]).then(response => {
+      charactersFunc(response);
+      res.status(200)
+      .send(
+        limit || offset ? response.splice(offset || 0, limit) : response
+      )
+    })
+    return;
+  }
 
   db.characters
     .get_random_char([limit || 1])
     .then(resp => {
       resp.map((e, i) => {
+        if (!e.category) {
+          e.category = 'Breaking Bad';
+        } 
         e.occupation && o.push(e.occupation.split(','));
         a.push(e.appearance.split(','));
 

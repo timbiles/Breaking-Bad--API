@@ -1,5 +1,13 @@
 const getQuotes = (req, res) => {
   const db = req.app.get('db');
+  const { series } = req.query;
+
+  if (series) {
+    db.quotes.get_quotes_by_series([`%${series}%`]).then(response => {
+      res.status(200).send(response);
+    });
+    return;
+  }
 
   db.quotes
     .get_quotes()

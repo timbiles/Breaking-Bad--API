@@ -7,6 +7,9 @@ import { Container, Text, Highlight } from '../styles/homeStyle';
 import Characters from '../Components/Characters/Characters';
 import '../Components/Home/Home.scss';
 
+import betterCallSaulLogo from '../utils/assets/icons/button.jpg';
+import breakingBadLogo from '../utils/assets/icons/breaking_bad.jpg';
+
 const StyledLink = styled(Link)`
   color: #396447;
   text-decoration: none;
@@ -17,8 +20,37 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const StyledText = styled.p`
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+`;
+
+const IconContainer = styled.section`
+    width: max-content;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: -60px;
+`;
+
+const StyledIcon = styled.img`
+  height: ${({height}) => height && height};
+  width: ${({width}) => width && width};
+  margin: 5px;
+  cursor: pointer;
+
+  padding-bottom: ${({secondary}) => secondary && '5px'};
+  margin-bottom: ${({primary}) => primary && '3px'};
+  border-bottom: ${({primary}) => primary && '2px inset rgba(121, 180, 115, .4)'};
+
+  &:hover {
+    opacity: .6;
+  }
+`;
+
 const Home = () => {
   const [characters, setCharacters] = useState([]);
+  const [display, setDisplay] = useState('Breaking Bad');
   // Change this name Plz
   const [rd, setRd] = useState({});
   const [toggle, setToggle] = useState(false);
@@ -26,10 +58,10 @@ const Home = () => {
 
   useEffect(() => {
     getRandom();
-  }, []);
+  }, [display]);
 
   const getRandom = async () => {
-    const getCharacters = await fetch('/api/home-page-characters?limit=12');
+    const getCharacters = await fetch(`/api/home-page-characters?limit=12&category=${display}`);
     const response = await getCharacters.json();
     await setCharacters(response);
   };
@@ -92,11 +124,32 @@ const Home = () => {
         <Text secondary>...Tread Lightly</Text>
       </Container>
       <>
+        <StyledText>Now with Better Call Saul Data!</StyledText>
         <h3>
           Check out the{' '}
           <StyledLink to="/documentation">documentation</StyledLink>!
         </h3>
       </>
+      <IconContainer>
+        <StyledIcon
+          primary={display === 'Breaking Bad'}
+          secondary
+          height="40px"
+          width="40px"
+          onClick={() => setDisplay('Breaking Bad')}
+          style={{ height: '40px', width: '40px' }}
+          src={breakingBadLogo}
+          alt="Breaking Bad Icon"
+        />
+        <StyledIcon
+          primary={display === 'Better Call Saul'}
+          height="50px"
+          width="50px"
+          onClick={() => setDisplay('Better Call Saul')}
+          src={betterCallSaulLogo}
+          alt="Better Call Saul Icon"
+        />
+      </IconContainer>
 
       <div className="character_map">{charMap}</div>
       <div className="test_api">

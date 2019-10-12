@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {
   getPeople,
   getPeopleById,
@@ -24,7 +25,11 @@ module.exports = app => {
   //counter
   app.use('/', (req, res, next) => {
     const db = req.app.get('db').count;
-
+    if(process.env.mode === 'development') {
+      console.log('development')
+      req.originalUrl.includes('home-page')
+      && db.counter(6)
+    } else {
     req.originalUrl.includes('home-page')
       ? db.counter(5)
       : req.originalUrl.includes('character')
@@ -36,6 +41,8 @@ module.exports = app => {
       : req.originalUrl.includes('death')
       ? db.counter(4)
       : null;
+    }
+
     next();
   });
 

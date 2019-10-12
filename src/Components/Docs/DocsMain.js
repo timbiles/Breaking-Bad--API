@@ -5,7 +5,6 @@ import { example, example2, example3, example4 } from '../Code/code';
 import navigation from '../../data/navigation.json';
 
 class DocsMain extends Component {
-  
   componentDidMount() {
     if (navigation.length > 0) {
       this.changeClass();
@@ -42,6 +41,13 @@ class DocsMain extends Component {
   };
 
   render() {
+
+    const updateStyles = {
+      background: '#3b3b3b',
+      fontWeight: '900',
+      fontSize: '16px',
+      textDecoration: 'underline'
+    }
     return (
       <div ref="holder" className="docs_main">
         <div id="doc">
@@ -55,6 +61,12 @@ class DocsMain extends Component {
             with you all the information you need to start making your HTTP
             requests. Give our documentation a read before you get started on
             your project, and don't forget about the ice trays!
+          </p>
+          <p>
+            <Highlight style={updateStyles}>All New</Highlight> -- Better Call Saul Data! Check out
+            the new additions to characters, episodes, and quotes associated to the Vince
+            Gilligan spin-off series. Since this show is currently airing, I
+            have decided to leave out the deaths (for now).
           </p>
         </div>
         <div id="rate">
@@ -125,6 +137,11 @@ class DocsMain extends Component {
                 <p>string</p>
                 <p>The actor / actress that portrayed the character</p>
               </div>
+              <div>
+                <p>category</p>
+                <p>array</p>
+                <p>Series that the character is involved with. </p>
+              </div>
             </div>
           </div>
           <div id="char_all">
@@ -137,6 +154,19 @@ class DocsMain extends Component {
             <p>Example request by character id. </p>
             <p className="example">/api/characters/1</p>
             <div className="example code">{example}</div>
+          </div>
+
+          <div id="char_cat">
+            <h4>Get character by category</h4>
+            <p>
+              Request characters by category, like 'Breaking Bad' or 'Better
+              Call Saul'.
+            </p>
+            <p className="example">/api/characters?category=Better+Call+Saul</p>
+            <p className="offset">
+              This request accepts a query parameter of 'category'. You can also
+              use the 'limit' and 'offset' query parameters.
+            </p>
           </div>
           <div id="char_rand">
             <h4>Get random character</h4>
@@ -211,6 +241,11 @@ class DocsMain extends Component {
                 <p>array</p>
                 <p>Main characters that are associated with the episode</p>
               </div>
+              <div>
+                <p>series</p>
+                <p>string</p>
+                <p>Series that the episode belongs to</p>
+              </div>
             </div>
           </div>
           <div id="ep_all">
@@ -218,6 +253,16 @@ class DocsMain extends Component {
             <p>Endpoint to retrieve all Episodes</p>
             <p className="example">/api/episodes</p>
           </div>
+
+          <div id="ep_cat">
+            <h4>Get episodes by series</h4>
+            <p>
+              Request to grab episodes by series (like 'Breaking Bad' or 'Better
+              Call Saul').
+            </p>
+            <p className="example">/api/character?series=Better+Call+Saul</p>
+          </div>
+
           <div id="ep_id">
             <h4>Get episode by id</h4>
             <p>Example Episode Endpoint by id</p>
@@ -250,6 +295,11 @@ class DocsMain extends Component {
                 <p>string</p>
                 <p>The originator of the quote</p>
               </div>
+              <div>
+                <p>series</p>
+                <p>string</p>
+                <p>The series the quote was told in</p>
+              </div>
             </div>
           </div>
           <div id="q_all">
@@ -261,6 +311,11 @@ class DocsMain extends Component {
             <h4>Get quote by id</h4>
             <p>Endpoint to get quote by id</p>
             <p className="example">/api/quotes/1</p>
+          </div>
+          <div id="q_series">
+            <h4>Get quotes by series</h4>
+            <p>Endpoint to retrieve all quotes from a series</p>
+            <p className="example">/api/quote?series=Better+Call+Saul</p>
           </div>
           <div id="q_rand">
             <h4>Get a random quote</h4>

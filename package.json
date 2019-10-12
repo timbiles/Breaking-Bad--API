@@ -24,7 +24,9 @@
     "dev": "concurrently --kill-others \"nodemon server/index.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "ser": "nodemon server/index.js",
+    "dev:front-end": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"

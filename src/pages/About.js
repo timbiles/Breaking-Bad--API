@@ -66,18 +66,18 @@ const About = () => (
       <Title secondary>Who</Title>
       <Text>
         Hi, I'm Tim Biles. I am a developer in the Dallas, Fort Worth area in
-        Texas. Breaking Bad is my favorite TV show. Check out my portfolio{' '} 
+        Texas. Breaking Bad is my favorite TV show. Check out my portfolio{' '}
         <Link href="https://timbilestim.netlify.com/" target="blank">
           here
-        </Link> 
-         !
+        </Link>
+        !
       </Text>
       <Title secondary>What</Title>
       <Text>
         The Breaking Bad API is a collection of information on the Vince
-        Gilligan series. This site is designed to make it easy on the developer
-        to see what HTTP requests are possible, and what information is
-        available.
+        Gilligan series Breaking Bad, as well as his incredible spin-off Better
+        Call Saul. This site is designed to make it easy on the developer to see
+        what HTTP requests are possible, and what information is available.
       </Text>
       <ul>
         <Text>The following information is provided through this API...</Text>
@@ -94,42 +94,43 @@ const About = () => (
         information I wanted, so I created one.
       </Text>
       <Title secondary>Tech Stack</Title>
-      <Text>
-        This project was build using Javascript, React, Node, Express, and
-        Massive.
-      </Text>
+      <Text>This project was built using React and Node. Massive.</Text>
       <Title secondary>Issues</Title>
       <Text>
-        If you come across any errors, please contribute by creating an issue on{' '} 
+        If you come across any errors, please contribute by creating an issue or
+        a pull request on{' '}
         <Link
           href="https://github.com/timbiles/Breaking-Bad--API"
           target="blank"
-        >{' '} 
+        >
+          {' '}
           GitHub
         </Link>
         ! I will gladly correct them as soon as I can.
       </Text>
       <Title secondary>Contact</Title>
       <Text>
-        If you would like to talk about a project you are wanting to build, or
-        just to connect, please head over to my portfolio and send me a message.
-        I would love to chat with you about your idea!
+        If you would like to talk about a project you have in mind, or just to
+        connect, please head over to my portfolio and send me a message. I would
+        love to chat with you!
       </Text>
       <Title secondary>Copyright</Title>
       <Text>
         I do not own the rights to any material provided in this API. Breaking
         Bad was created by Vince Gilligan, and originally aired on AMC. The
-        majority of this data collected was from a{' '} 
+        majority of this data collected was from a{' '}
         <Link href="https://en.wikipedia.org/wiki/Breaking_Bad" target="blank">
           Wikipedia.com
-        </Link>{' '} 
-        and{' '} 
+        </Link>{' '}
+        and{' '}
         <Link
           href="https://breakingbad.wikia.com/wiki/Breaking_Bad_Wiki"
           target="blank"
-        >{' '} 
+        >
+          {' '}
           Wikia.com
-        </Link>.
+        </Link>
+        .
       </Text>
       <Text>This site is licensed under the "New" BSD 3-Clause License.</Text>
     </Container>

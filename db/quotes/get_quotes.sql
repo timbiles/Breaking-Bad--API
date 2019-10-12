@@ -1,1 +1,2 @@
-SELECT * FROM quotes;
+SELECT * FROM quotes
+ORDER BY quote_id;
