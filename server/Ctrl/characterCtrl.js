@@ -1,15 +1,17 @@
 const { all } = require('../Data/url');
 const moment = require('moment');
 let occ = [],
-  app = [];
+  app = [],
+  betterApp = [];
 const aMap = arr => {
-  return arr.map(el => +el);
+  return arr ? arr.map(el => +el) : [];
 };
 
 const charactersFunc = func => {
   func.map((e, i) => {
     e.occupation && occ.push(e.occupation.split(',').map(el => el.trim()));
-    app.push(e.appearance.split(','));
+    e.appearance && app.push(e.appearance.split(','));
+    betterApp.push(e.better_call_saul_appearance && e.better_call_saul_appearance.split(','));
 
     if (!e.category) {
       e.category = 'Breaking Bad';
@@ -17,6 +19,7 @@ const charactersFunc = func => {
 
     e.occupation = occ[i];
     e.appearance = aMap(app[i]);
+    e.better_call_saul_appearance = aMap(betterApp[i]);
     e.birthday = e.birthday
       ? moment(e.birthday, 'MM-DD-YYYY').format('MM-DD-YYYY')
       : 'Unknown';
@@ -137,15 +140,36 @@ const getHomePage = (req, res) => {
   const { limit, category, offset } = req.query;
   const o = [];
   const a = [];
+  const betterCallA = [];
 
   if(category) {
-    db.characters.get_char_by_category_homepage([`%${category}%`, limit || 1]).then(response => {
-      charactersFunc(response);
+    db.characters.get_char_by_category_homepage([`%${category}%`, limit || 1])
+    .then(resp => {
+      resp.map((e, i) => {
+        if (!e.category) {
+          e.category = 'Breaking Bad';
+        } 
+        e.occupation && o.push(e.occupation.split(','));
+        e.appearance && a.push(e.appearance.split(','));
+        betterCallA.push(e.better_call_saul_appearance && e.better_call_saul_appearance.split(','));
+
+        e.occupation = o[i];
+        e.appearance = aMap(a[i]);
+        e.better_call_saul_appearance = aMap(betterCallA[i]);
+      });
+      // res.status(200).send(resp);
       res.status(200)
       .send(
-        limit || offset ? response.splice(offset || 0, limit) : response
+        limit || offset ? resp.splice(offset || 0, limit) : resp
       )
     })
+    // .then(response => {
+    //   charactersFunc(response);
+    //   res.status(200)
+    //   .send(
+    //     limit || offset ? response.splice(offset || 0, limit) : response
+    //   )
+    // })
     return;
   }
 
