@@ -95,6 +95,7 @@ const Home = () => {
       key={e.char_id}
       person={e}
       handlePress={handlePress}
+      homeDisplay={display}
     />
   ));
 
@@ -150,6 +151,9 @@ const Home = () => {
           alt="Better Call Saul Icon"
         />
       </IconContainer>
+      {/* <div>
+        {display} characters
+      </div> */}
 
       <div className="character_map">{charMap}</div>
       <div className="test_api">
