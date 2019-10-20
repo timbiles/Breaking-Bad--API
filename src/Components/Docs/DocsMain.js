@@ -260,7 +260,7 @@ class DocsMain extends Component {
               Request to grab episodes by series (like 'Breaking Bad' or 'Better
               Call Saul').
             </p>
-            <p className="example">/api/character?series=Better+Call+Saul</p>
+            <p className="example">/api/characters?series=Better+Call+Saul</p>
           </div>
 
           <div id="ep_id">
