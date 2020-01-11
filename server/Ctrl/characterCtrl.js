@@ -110,6 +110,9 @@ const getPeopleById = (req, res) => {
     .catch(err => {
       res.status(500).send(err);
     });
+
+    occ = [];
+    app = [];
 };
 
 const getRandomChar = (req, res) => {
