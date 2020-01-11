@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Container, Text, Highlight } from '../styles/homeStyle';
+import { Container, HomeHeader, SubText, Highlight } from '../styles/homeStyle';
 
 import Characters from '../Components/Characters/Characters';
 import '../Components/Home/Home.scss';
 
 import betterCallSaulLogo from '../utils/assets/icons/button.jpg';
 import breakingBadLogo from '../utils/assets/icons/breaking_bad.jpg';
+
+const HomeWrapper = styled.main`
+  text-align: center;
+`;
 
 const StyledLink = styled(Link)`
   color: #396447;
@@ -117,19 +121,19 @@ const Home = () => {
   );
 
   return (
-    <div onClick={navigation}>
+    <HomeWrapper onClick={navigation} role="main">
       <Container>
-        <Text primary>
+        <HomeHeader>
           The Breaking Bad A<Highlight>P</Highlight>I
-        </Text>
-        <Text secondary>...Tread Lightly</Text>
+        </HomeHeader>
+        <SubText>...Tread Lightly</SubText>
       </Container>
       <>
         <StyledText>Now with Better Call Saul Data!</StyledText>
-        <h3>
+        <h2 style={{ fontSize: '18px' }}>
           Check out the{' '}
           <StyledLink to="/documentation">documentation</StyledLink>!
-        </h3>
+        </h2>
       </>
       <IconContainer>
         <StyledIcon
@@ -165,7 +169,7 @@ const Home = () => {
           {rd.death && death}
         </div>
       </div>
-    </div>
+    </HomeWrapper>
   );
 };
 

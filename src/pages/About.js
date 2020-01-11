@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { Highlight } from '../styles/homeStyle';
 
-const Container = styled.div`
+const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: ${props => (props.primary ? 'center' : 'flex-start')};
@@ -58,7 +58,7 @@ const List = styled.li`
 `;
 
 const About = () => (
-  <Container primary>
+  <Container primary role="main">
     <Title>
       Say my <Highlight>N</Highlight>ame
     </Title>

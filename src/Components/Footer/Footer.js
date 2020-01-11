@@ -45,7 +45,7 @@ class Footer extends Component {
   render() {
     const { totalChar, episodes, quotes, deaths } = this.state;
     return (
-      <FooterWrap>
+      <FooterWrap role="contentinfo">
         <TextWrapper>
           <Text>Characters: {totalChar.length}</Text>
           <Text>Episodes: {episodes.length}</Text>

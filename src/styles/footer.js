@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FooterWrap = styled.div`
+export const FooterWrap = styled.footer`
   display: flex;
   justify-content: center;
   margin: 5% 2% 1% 2%;
