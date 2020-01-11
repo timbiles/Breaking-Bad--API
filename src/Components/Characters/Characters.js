@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-
+import styled from 'styled-components';
 import { Character } from '../../styles/characters';
 import Burger from '../Hamburger/Hamburger';
 import './Characters.scss';
+
+const CharacterTitle = styled.p`
+  font-size: 16px;
+  font-weight: 700;
+`;
 
 class Characters extends Component {
   render() {
@@ -20,7 +25,7 @@ class Characters extends Component {
           className={toggle ? 'char_btm btm2' : 'char_btm'}
           id={`character-info-${person.char_id}`}
         >
-          <h4 className="char_name">{person.name}</h4>
+          <CharacterTitle>{person.name}</CharacterTitle>
           <div className={toggle ? 'underline' : undefined}>
             <img
               className="bee_logo"

@@ -27,7 +27,7 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const MainWrapper = styled.div`
+export const MainWrapper = styled.nav`
   display: flex;
   width: 100%;
 `;

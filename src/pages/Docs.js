@@ -22,13 +22,12 @@ class Docs extends Component {
     });
 
     return (
-      <div className="documentation">
-        <nav className="navbar">
+      <main className="documentation" role="main">
+        <aside className="navbar">
         {navMap}
-        </nav>
+        </aside>
         <DocsMain />
-
-      </div>
+      </main>
     );
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root'
 
@@ -9,11 +9,11 @@ import './App.css';
 
 const App = () => (
   <Router>
-    <div className="App">
+    <Fragment>
       <Nav />
       {routes}
       <Footer />
-    </div>
+    </Fragment>
   </Router>
 );
 

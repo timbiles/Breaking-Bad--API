@@ -6,24 +6,25 @@ export const Container = styled.div`
   margin-bottom: 30px;
 `;
 
-export const Text = styled.p`
+export const HomeHeader = styled.h1`
   margin: 0;
-  font-size: ${props => (props.primary ? '3.5em' : '1em')};
-
-  ${props =>
-    props.primary &&
-    css`
-      font-weight: 700;
-    `}
-  ${props =>
-    props.secondary &&
-    css`
-      letter-spacing: 2px;
-      text-align: right;
-    `};
+  font-weight: 700;
+  font-size: 56px;
 
   @media (max-width: 680px) {
-    font-size: ${props => (props.primary ? '2em' : '.9em')};
+    font-size: 32px;
+  }
+
+`;
+
+export const SubText = styled.p`
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-align: right;
+
+  @media (max-width: 680px) {
+    font-size: 14px;
   }
 `;
 
