@@ -27,9 +27,8 @@ massive(process.env.CONNECTION_STRING)
   });
 
 const limiter = rateLimit({
-  windowMs: 1000 * 60 * 60,
-  max: 1000,
-  message: 'Too many hits. Try again in an hour.'
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100
 });
 
 app.use(limiter);
