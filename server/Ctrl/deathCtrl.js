@@ -1,3 +1,7 @@
+const capitalizeFirstLetter = (string) => {
+  return string.split(' ').map( w =>  w.substring(0,1).toUpperCase()+ w.substring(1)).join(' ')
+}
+
 const getDeaths = (req, res) => {
   const db = req.app.get('db');
 
@@ -18,11 +22,10 @@ const getDeaths = (req, res) => {
 const getDeathTotal = (req, res) => {
   const db = req.app.get('db');
   const { name } = req.query;
-  const newName = name ? `%${name}%` : '%%';
+  const newName = name ? `%${capitalizeFirstLetter(name)}%` : '%%';
   let deaths = [];
 
   // upper or lower case name option
-
 
   db.death
     .get_death_total(newName)
