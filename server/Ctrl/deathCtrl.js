@@ -1,6 +1,4 @@
-const capitalizeFirstLetter = (string) => {
-  return string.split(' ').map( w =>  w.substring(0,1).toUpperCase()+ w.substring(1)).join(' ')
-}
+const { capitalizeFirstLetter } = require('../utils/character');
 
 const getDeaths = (req, res) => {
   const db = req.app.get('db');
@@ -30,6 +28,7 @@ const getDeathTotal = (req, res) => {
   db.death
     .get_death_total(newName)
     .then(response => {
+      console.log("res", response)
       deaths = [{ name, deathCount: +response[0].sum }];
       res.status(200).send(deaths);
     })

@@ -134,6 +134,10 @@ const Home = () => {
           Check out the{' '}
           <StyledLink to="/documentation">documentation</StyledLink>!
         </h2>
+        <h2 style={{ fontSize: '18px' }}>
+          Try our information playground{' '}
+          <StyledLink to="/playground">here</StyledLink>!
+        </h2>
       </>
       <IconContainer>
         <StyledIcon

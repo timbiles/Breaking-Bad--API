@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import { Highlight } from '../styles/homeStyle';
 import { Title } from './About';
 
+const PlaygroundTitle = styled(Title)`
+  width: max-content;
+  margin: 30px auto;
+`;
+
 const SearchBar = styled.div`
   display: flex;
   align-items: center;
@@ -17,20 +22,23 @@ const SearchBar = styled.div`
     border-radius: 5px 0 0 5px;
     font-size: 0.8em;
   }
+`;
 
-  input {
-    margin: 0;
-    padding: 10px;
-    width: 50vw;
+const SearchInput = styled.input`
+  margin: 0;
+  padding: 10px;
+  width: 50vw;
+  border: 1px solid #000;
 
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
   }
 `;
 
-const SmallText = styled.p`
-  margin: 0;
+const SubHeader = styled.h4`
+  margin: 50px auto 10px;
+  width: 60vw;
+  font-weight: 400;
 `;
 
 const SearchButton = styled.button`
@@ -38,16 +46,33 @@ const SearchButton = styled.button`
   border-radius: 5px;
   min-width: max-content;
   border: 1px solid #3b3b3b;
+  border-left: none;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 
   &:hover {
-    opacity: 0.5;
+    background: #444;
+    color: #fff;
+    transition: 0.15s ease all;
   }
 
   &:focus {
     outline: none;
   }
+
+  &:active {
+    transform: scale(0.99);
+    background: #444;
+    color: #fff;
+  }
+`;
+
+const ResponseHeader = styled.h4`
+  font-size: 18px;
+  width: 90vw;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: -20px;
 `;
 
 const ButtonContainer = styled.div`
@@ -55,7 +80,8 @@ const ButtonContainer = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   font-size: 0.9em;
-  margin: 2vh 5vw;
+  margin: 2vh auto;
+  max-width: 600px;
 
   button {
     cursor: pointer;
@@ -70,10 +96,9 @@ const ButtonContainer = styled.div`
     }
     &:hover {
       border-left: none;
-      margin-top: -2px; 
+      margin-top: -1px;
       border-top: 1px inset rgba(121, 180, 115, 0.4);
-      text-shadow: .05px .05px #000;
-
+      text-shadow: 0.05px 0.05px #000;
     }
   }
 `;
@@ -90,7 +115,7 @@ const DataDisplay = styled.pre`
 `;
 
 const Playground = () => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('characters/1');
   const [results, setResults] = useState('');
   const [responseInfo, setResponse] = useState('');
 
@@ -103,7 +128,8 @@ const Playground = () => {
   };
 
   const clickSearch = e => {
-    sendRequest(e.target.innerText);
+    setSearch(e.target.name);
+    sendRequest(e.target.name);
   };
 
   const sendRequest = async url => {
@@ -113,27 +139,27 @@ const Playground = () => {
 
       if (response[0].char_id) {
         if (response.length > 1) {
-          setResponse('Information from a list of characters.');
+          setResponse(`A list of characters. (${response.length})`);
         } else {
-          setResponse(`Information from ${response[0].name}`);
+          setResponse(`Information on ${response[0].name}`);
         }
       } else if (response[0].episode_id) {
         if (response.length > 1) {
-          setResponse('Information from a list of episodes.');
+          setResponse('A list of episodes.');
         } else {
           setResponse(`Information on episode "${response[0].title}"`);
         }
       } else if (response[0].quote_id) {
         if (response.length > 1) {
-          setResponse('Information from a list of quotes.');
+          setResponse('A list of quotes.');
         } else {
           setResponse(`A quote from ${response[0].author}`);
         }
-      } else if (response[0].death_id) {
+      } else if (response[0].death_id || response[0].deathCount) {
         if (response.length > 1) {
-          setResponse('Information from a list of deaths.');
+          setResponse('A list of deaths.');
         } else {
-          setResponse(`Information from the death of ${response[0].death}`);
+          setResponse(`Information on the deaths deaths caused by ${response[0].name}`);
         }
       }
 
@@ -152,28 +178,38 @@ const Playground = () => {
 
   return (
     <>
-      <Title>
+      <PlaygroundTitle>
         Data Playgrou<Highlight>Nd</Highlight>
-      </Title>
+      </PlaygroundTitle>
+      <SubHeader>
+        Try typing in the search bar below to look up any info you can think of!
+        Use the categories below as a starting point.
+      </SubHeader>
       <SearchBar>
         <p>https://www.breakingbadapi.com/api/</p>
-        <input
+        <SearchInput
           type="text"
           onChange={updateSearch}
           onKeyDown={keydown}
-          defaultValue="characters/1"
+          value={search}
         />
         <SearchButton onClick={() => sendRequest(search)}>Search!</SearchButton>
       </SearchBar>
-      <SmallText>
-        Click one of the options below to test some results!
-      </SmallText>
       <ButtonContainer>
-        <button onClick={clickSearch}>characters/8</button>
-        <button onClick={clickSearch}>episodes/60</button>
-        <button onClick={clickSearch}>quote?author=Jesse+Pinkman</button>
-        <button onClick={clickSearch}>death-count?name=Gustavo+Fring</button>
+        <button onClick={clickSearch} name="characters/8">
+          Characters
+        </button>
+        <button onClick={clickSearch} name="episodes/60">
+          Episodes
+        </button>
+        <button onClick={clickSearch} name="quote?author=Jesse+Pinkman">
+          Quotes
+        </button>
+        <button onClick={clickSearch} name="death-count?name=Gustavo+Fring">
+          Deaths
+        </button>
       </ButtonContainer>
+      <ResponseHeader>Results:</ResponseHeader>
       <DataDisplay>
         <h2>{responseInfo}</h2>
         <code>{results}</code>

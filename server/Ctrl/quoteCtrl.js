@@ -1,3 +1,5 @@
+const { capitalizeFirstLetter } = require('../utils/character');
+
 const getQuotes = (req, res) => {
   const db = req.app.get('db');
   const { series } = req.query;
@@ -58,8 +60,10 @@ const getRandomQuote = (req, res) => {
 const getQuoteByAuthor = (req, res) => {
   const db = req.app.get('db');
 
+  const author = capitalizeFirstLetter(req.query.author)
+
   db.quotes
-    .get_quotes_from_author([req.query.author])
+    .get_quotes_from_author([author])
     .then(resp => {
       res.status(200).send(resp);
     })

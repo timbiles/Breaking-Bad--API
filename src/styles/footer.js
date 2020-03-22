@@ -28,13 +28,7 @@ export const Icon = styled.svg`
 export const TextWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
-  width: 50%;
-  @media (max-width: 800px) {
-    width: 80%;
-  }
-  @media (max-width: 600px) {
-    width: 90%;
-  }
+  width: 500px;
 `;
 
 export const Text = styled.p`
