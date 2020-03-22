@@ -7,7 +7,7 @@ const express = require('express'),
   cors = require('cors'),
   compression = require('compression'),
   routes = require('./routes'),
-  port = process.env.SERVER_PORT || 3002;
+  port = process.env.SERVER_PORT || 8080;
 
 const app = express();
 app.use(bodyParser.json());
