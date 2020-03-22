@@ -1,5 +1,9 @@
 const { all } = require('../Data/url');
 const moment = require('moment');
+const capitalizeFirstLetter = (string) => {
+  return string.split(' ').map( w =>  w.substring(0,1).toUpperCase()+ w.substring(1)).join(' ')
+}
+
 let occ = [],
   app = [],
   betterApp = [];
@@ -60,8 +64,16 @@ const getPeople = (req, res) => {
           );
       })
     : db.characters.get_char_by_name([newName]).then(response => {
-        charactersFunc(response);
-        res.status(200).send(response);
+        if (!response.length) {
+          const percentName = newName ? `%${capitalizeFirstLetter(newName)}%` : '%%';
+          db.characters.get_char_closest(percentName).then((secondResponse) => {
+            charactersFunc(secondResponse);
+            res.status(200).send(secondResponse);
+          })
+        } else {
+          charactersFunc(response);
+          res.status(200).send(response);
+        }
       });
   occ = [];
   app = [];
