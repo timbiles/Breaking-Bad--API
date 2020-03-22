@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Highlight } from '../../styles/homeStyle';
-import { example, example2, example3, example4 } from '../Code/code';
+import { characterExample, multipleCharacterExample, episodeExample, quoteExample, deathExample } from '../Code/code';
 import navigation from '../../data/navigation.json';
 
 class DocsMain extends Component {
@@ -153,7 +153,7 @@ class DocsMain extends Component {
             <h4>Get single character</h4>
             <p>Example request by character id. </p>
             <p className="example">/api/characters/1</p>
-            <div className="example code">{example}</div>
+            <div className="example code">{characterExample}</div>
           </div>
 
           <div id="char_cat">
@@ -199,6 +199,12 @@ class DocsMain extends Component {
               a space. This query only works with the full name of a character.
               Double check your spelling!
             </p>
+            <br />
+            <p>
+              You can also retrieve search results from like character names.
+            </p>
+            <p className="example">/api/characters?name=Walter</p>
+            <div className="example code">{multipleCharacterExample}</div>
           </div>
         </div>
         <div>
@@ -257,17 +263,17 @@ class DocsMain extends Component {
           <div id="ep_cat">
             <h4>Get episodes by series</h4>
             <p>
-              Request to grab episodes by series (like 'Breaking Bad' or 'Better
+              Request to grab episodes by series (either 'Breaking Bad' or 'Better
               Call Saul').
             </p>
-            <p className="example">/api/characters?series=Better+Call+Saul</p>
+            <p className="example">/api/episodes?series=Better+Call+Saul</p>
           </div>
 
           <div id="ep_id">
             <h4>Get episode by id</h4>
             <p>Example Episode Endpoint by id</p>
             <p className="example">/api/episodes/60</p>
-            <div className="example code">{example2}</div>
+            <div className="example code">{episodeExample}</div>
           </div>
         </div>
         <div>
@@ -330,7 +336,7 @@ class DocsMain extends Component {
               character query, you have to use the author's full name.{' '}
             </p>
             <p className="example">/api/quote?author=Jesse+Pinkman</p>
-            <div className="example code">{example3}</div>
+            <div className="example code">{quoteExample}</div>
           </div>
           <div id="q_rand_auth">
             <h4>Get a random quote by author</h4>
@@ -414,7 +420,7 @@ class DocsMain extends Component {
               example below to find out.
             </p>
             <p className="example">/api/death-count?name=Gustavo+Fring</p>
-            <div className="example code">{example4}</div>
+            <div className="example code">{deathExample}</div>
             <p className="offset">
               Be aware, not just any name will work. They have to have caused,
               or been affiliated with the death in some capacity. Don't forget

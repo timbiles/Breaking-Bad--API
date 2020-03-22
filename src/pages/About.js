@@ -93,8 +93,6 @@ const About = () => (
         In my search, I was unable to find an API that contained the amount of
         information I wanted, so I created one.
       </Text>
-      <Title secondary>Tech Stack</Title>
-      <Text>This project was built using React and Node. Massive.</Text>
       <Title secondary>Issues</Title>
       <Text>
         If you come across any errors, please contribute by creating an issue or
@@ -107,6 +105,20 @@ const About = () => (
           GitHub
         </Link>
         ! I will gladly correct them as soon as I can.
+      </Text>
+      <Title secondary>Missing Information</Title>
+      <Text>
+        If there is any information missing that you would like to see (your
+        favorite quote perhaps), please create an issue on
+        <Link
+          href="https://github.com/timbiles/Breaking-Bad--API"
+          target="blank"
+        >
+          {' '}
+          GitHub
+        </Link>
+        . I will gladly add it to the database (provided the information is
+        accurate)!
       </Text>
       <Title secondary>Contact</Title>
       <Text>
