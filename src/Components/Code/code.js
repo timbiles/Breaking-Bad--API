@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const example = (
+export const characterExample = (
     <pre>
       {
 `{
@@ -18,9 +18,45 @@ export const example = (
     portrayed: "Bryan Cranston"
 }`}
     </pre>
-  );
+);
 
-export const example2 = (
+export const multipleCharacterExample = (
+    <pre>
+      {
+`{
+    char_id: 1,
+    name: "Walter White",
+    birthday: "09-07-1958",
+    occupation: [
+        "High School Chemistry Teacher",
+        "Meth King Pin"
+    ],
+    img: "https://images.amcnetworks.com/amc.com/wp-content/uploa...",
+    status: "Deceased",
+    appearance: [1, 2, 3, 4, 5],
+    nickname: "Heisenberg",
+    portrayed: "Bryan Cranston",
+    better_call_saul_appearance: [ ]
+},
+{
+    char_id: 4,
+    name: "Walter White Jr.",
+    birthday: "07-08-1993",
+    occupation: [
+        "Teenager"
+    ],
+    img: "https://media1.popsugar-assets.com/files/thumbor/WeLUSvbA...",
+    status: "Alive",
+    nickname: "Flynn",
+    appearance: [ 1, 2, 3, 4, 5 ],
+    portrayed: "RJ Mitte",
+    category: "Breaking Bad",
+    better_call_saul_appearance: [ ]
+}`}
+    </pre>
+);
+
+export const episodeExample = (
     <pre>{
 `{
     episode_id: 60,
@@ -38,7 +74,7 @@ export const example2 = (
 }`}</pre>
   );
 
-export const example3 = (
+export const quoteExample = (
     <pre>{
 `[
     {
@@ -54,7 +90,7 @@ export const example3 = (
     ...`}</pre>
   );
 
-export const example4 = (
+export const deathExample = (
     <pre>{
 `{
     name: "Gustavo Fring",
