@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import styled from 'styled-components';
 import { Highlight } from '../styles/homeStyle';
 import { Title } from './About';
+import Spinner from '../Components/Spinner';
 
 const PlaygroundTitle = styled(Title)`
   width: max-content;
@@ -159,7 +160,9 @@ const Playground = () => {
         if (response.length > 1) {
           setResponse('A list of deaths.');
         } else {
-          setResponse(`Information on the deaths deaths caused by ${response[0].name}`);
+          setResponse(
+            `Information on the deaths deaths caused by ${response[0].name}`
+          );
         }
       }
 
@@ -211,8 +214,14 @@ const Playground = () => {
       </ButtonContainer>
       <ResponseHeader>Results:</ResponseHeader>
       <DataDisplay>
-        <h2>{responseInfo}</h2>
-        <code>{results}</code>
+        {!results ? (
+          <Spinner />
+        ) : (
+          <Fragment>
+            <h2>{responseInfo}</h2>
+            <code>{results}</code>
+          </Fragment>
+        )}
       </DataDisplay>
     </>
   );

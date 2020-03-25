@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import Button from '@material-ui/core/Button'
 import { Container, HomeHeader, SubText, Highlight } from '../styles/homeStyle';
-
 import Characters from '../Components/Characters/Characters';
 import '../Components/Home/Home.scss';
-
 import betterCallSaulLogo from '../utils/assets/icons/button.jpg';
 import breakingBadLogo from '../utils/assets/icons/breaking_bad.jpg';
 
@@ -30,6 +28,14 @@ const StyledText = styled.p`
   margin: 0;
 `;
 
+const StyledSmallText = styled.p`
+  font-size: 18px;
+
+  span {
+    font-weight: bold;
+  }
+`;
+
 const IconContainer = styled.section`
     width: max-content;
     margin-left: auto;
@@ -49,6 +55,12 @@ const StyledIcon = styled.img`
 
   &:hover {
     opacity: .6;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  &&& {
+    text-transform: none;
   }
 `;
 
@@ -130,14 +142,15 @@ const Home = () => {
       </Container>
       <>
         <StyledText>Now with Better Call Saul Data!</StyledText>
-        <h2 style={{ fontSize: '18px' }}>
+        <StyledSmallText>
           Check out the{' '}
-          <StyledLink to="/documentation">documentation</StyledLink>!
-        </h2>
-        <h2 style={{ fontSize: '18px' }}>
-          Try our information playground{' '}
+          <StyledLink to="/documentation">documentation</StyledLink>.
+        </StyledSmallText>
+        <StyledSmallText>
+          <span>New!</span>{' '}
+          Try out the information playground{' '}
           <StyledLink to="/playground">here</StyledLink>!
-        </h2>
+        </StyledSmallText>
       </>
       <IconContainer>
         <StyledIcon
@@ -159,16 +172,13 @@ const Home = () => {
           alt="Better Call Saul Icon"
         />
       </IconContainer>
-      {/* <div>
-        {display} characters
-      </div> */}
 
       <div className="character_map">{charMap}</div>
       <div className="test_api">
         <div className="death_map">
           <div>
             <h3>Click here to find out about a random death!</h3>
-            <button onClick={randomDeath}>Death!</button>
+            <StyledButton variant="contained" onClick={randomDeath}>Death!</StyledButton>
           </div>
           {rd.death && death}
         </div>
