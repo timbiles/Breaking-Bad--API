@@ -64,7 +64,7 @@ const Nav = () => {
     <StyledLink
       className={pathname === `/${e}` ? 'location' : null}
       key={i}
-      to={`/${e}`}
+      to={`/${e.toLowerCase()}`}
     >
       {e ? e : 'Home'}
     </StyledLink>
