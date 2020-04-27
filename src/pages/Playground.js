@@ -161,7 +161,7 @@ const Playground = () => {
           setResponse('A list of deaths.');
         } else {
           setResponse(
-            `Information on the deaths deaths caused by ${response[0].name}`
+            `Information on the deaths caused by ${response[0].name}`
           );
         }
       }
