@@ -66,7 +66,11 @@ const getPeople = (req, res) => {
           const percentName = newName ? `%${capitalizeFirstLetter(newName)}%` : '%%';
           db.characters.get_char_closest(percentName).then((secondResponse) => {
             charactersFunc(secondResponse);
-            res.status(200).send(secondResponse);
+            res.status(200).send(
+              // secondResponse
+            limit || offset ? secondResponse.splice(offset || 0, limit) : secondResponse
+
+              );
           })
         } else {
           charactersFunc(response);
