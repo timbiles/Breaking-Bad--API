@@ -88,6 +88,9 @@ const ButtonContainer = styled.div`
     cursor: pointer;
     border: none;
     padding: 5px 0;
+    padding: 4px 8px;
+    border-radius: 2px;
+    box-shadow: rgb(221, 221, 221) 1px 1px 5px 2px;
 
     &:active {
       transform: scale(0.98);
@@ -185,7 +188,7 @@ const Playground = () => {
         Data Playgrou<Highlight>Nd</Highlight>
       </PlaygroundTitle>
       <SubHeader>
-        Try typing in the search bar below to look up any info you can think of!
+        Try using the search bar below to look up any info you can think of!
         Use the categories below as a starting point.
       </SubHeader>
       <SearchBar>
