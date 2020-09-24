@@ -20,7 +20,9 @@ const charactersFunc = func => {
     } 
 
     e.occupation = occ[i];
-    e.appearance = aMap(app[i]);
+    if (e.appearance) {
+      e.appearance = aMap(app[i]);
+    }
     e.better_call_saul_appearance = aMap(betterApp[i]);
     e.birthday = e.birthday
       ? moment(e.birthday, 'MM-DD-YYYY').format('MM-DD-YYYY')
