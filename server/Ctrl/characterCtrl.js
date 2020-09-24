@@ -20,7 +20,9 @@ const charactersFunc = func => {
     } 
 
     e.occupation = occ[i];
-    e.appearance = aMap(app[i]);
+    if (e.appearance) {
+      e.appearance = aMap(app[i]);
+    }
     e.better_call_saul_appearance = aMap(betterApp[i]);
     e.birthday = e.birthday
       ? moment(e.birthday, 'MM-DD-YYYY').format('MM-DD-YYYY')
@@ -140,10 +142,12 @@ const getRandomChar = (req, res) => {
     .then(resp => {
       resp.map((e, i) => {
         e.occupation && o.push(e.occupation.split(','));
-        a.push(e.appearance.split(','));
+        e.appearance && a.push(e.appearance.split(','));
 
         e.occupation = o[i];
-        e.appearance = aMap(a[i]);
+        if (e.appearance) {
+          e.appearance = aMap(a[i]);
+        }
       });
       res.status(200).send(resp);
     })
