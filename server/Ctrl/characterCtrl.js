@@ -42,6 +42,8 @@ const getPeople = (req, res) => {
         limit || offset ? response.splice(offset || 0, limit) : response
       )
     })
+    occ = [];
+    app = [];
     return;
   }
 
