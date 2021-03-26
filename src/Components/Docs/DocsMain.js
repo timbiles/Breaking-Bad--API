@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Highlight } from '../../styles/homeStyle';
-import { characterExample, multipleCharacterExample, episodeExample, quoteExample, deathExample } from '../Code/code';
+import {
+  characterExample,
+  multipleCharacterExample,
+  episodeExample,
+  quoteExample,
+  deathExample,
+} from '../Code/code';
 import navigation from '../../data/navigation.json';
 
 class DocsMain extends Component {
@@ -22,7 +28,7 @@ class DocsMain extends Component {
     this.highlight(navigation);
   };
 
-  highlight = nav => {
+  highlight = (nav) => {
     const header = document.querySelector('.header'),
       top = header.getBoundingClientRect().height;
 
@@ -41,13 +47,12 @@ class DocsMain extends Component {
   };
 
   render() {
-
     const updateStyles = {
       background: '#3b3b3b',
       fontWeight: '900',
       fontSize: '16px',
-      textDecoration: 'underline'
-    }
+      textDecoration: 'underline',
+    };
     return (
       <div ref="holder" className="docs_main">
         <div id="doc">
@@ -63,10 +68,11 @@ class DocsMain extends Component {
             your project, and don't forget about the ice trays!
           </p>
           <p>
-            <Highlight style={updateStyles}>All New</Highlight> -- Better Call Saul Data! Check out
-            the new additions to characters, episodes, and quotes associated to the Vince
-            Gilligan spin-off series. Since this show is currently airing, I
-            have decided to leave out the deaths (for now).
+            <Highlight style={updateStyles}>All New</Highlight> -- Better Call
+            Saul Data! Check out the new additions to characters, episodes, and
+            quotes associated to the Vince Gilligan spin-off series. Since this
+            show is currently airing, I have decided to leave out the deaths
+            (for now).
           </p>
         </div>
         <div id="rate">
@@ -263,8 +269,8 @@ class DocsMain extends Component {
           <div id="ep_cat">
             <h4>Get episodes by series</h4>
             <p>
-              Request to grab episodes by series (either 'Breaking Bad' or 'Better
-              Call Saul').
+              Request to grab episodes by series (either 'Breaking Bad' or
+              'Better Call Saul').
             </p>
             <p className="example">/api/episodes?series=Better+Call+Saul</p>
           </div>
@@ -403,6 +409,14 @@ class DocsMain extends Component {
               Bad.
             </p>
             <p className="example">/api/deaths</p>
+          </div>
+          <div id="death_inv">
+            <h4>Get individual death information</h4>
+            <p>
+              Endpoint to retrieve information about an individuals death in
+              Breaking Bad.
+            </p>
+            <p className="example">/api/death?name=Walter+White</p>
           </div>
           <div id="death_count">
             <h4>Get death count</h4>

@@ -5,14 +5,14 @@ const getDeaths = (req, res) => {
 
   db.death
     .get_deaths()
-    .then(response => {
-      response.map(e => {
+    .then((response) => {
+      response.map((e) => {
         if (e.number_of_deaths === null) e.number_of_deaths = 1;
       });
 
       res.status(200).send(response);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send(err);
     });
 };
@@ -27,12 +27,12 @@ const getDeathTotal = (req, res) => {
 
   db.death
     .get_death_total(newName)
-    .then(response => {
-      console.log("res", response)
+    .then((response) => {
+      console.log('res', response);
       deaths = [{ name, deathCount: +response[0].sum }];
       res.status(200).send(deaths);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send(err);
     });
 };
@@ -42,8 +42,8 @@ const getRandomDeath = (req, res) => {
 
   db.death
     .get_random_death()
-    .then(response => {
-      const app = response[0].appearance.split(',').map(e => +e);
+    .then((response) => {
+      const app = response[0].appearance.split(',').map((e) => +e);
       const occ = response[0].occupation.split(',');
 
       newResponse = {
@@ -57,11 +57,29 @@ const getRandomDeath = (req, res) => {
         occupation: occ,
         img: response[0].img,
         nickname: response[0].nickname,
-        appearance: app
+        appearance: app,
       };
       res.status(200).send(newResponse);
     })
-    .catch(err => {
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+};
+
+const getDeathByName = (req, res) => {
+  const db = req.app.get('db');
+  const { name } = req.query;
+  const newName = name ? `%${capitalizeFirstLetter(name)}%` : '%%';
+  let deaths = [];
+
+  // upper or lower case name option
+
+  db.death
+    .get_death_by_name(newName)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((err) => {
       res.status(500).send(err);
     });
 };
@@ -69,5 +87,6 @@ const getRandomDeath = (req, res) => {
 module.exports = {
   getDeaths,
   getDeathTotal,
-  getRandomDeath
+  getRandomDeath,
+  getDeathByName,
 };
