@@ -12,7 +12,7 @@
     "express": "^4.16.3",
     "express-rate-limit": "^5.1.1",
     "massive": "^5.5.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
